@@ -17,3 +17,6 @@ body{
 .right{
     align-items: end;
 }
+.flex{
+    flex: auto;
+}
