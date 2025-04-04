@@ -1,0 +1,22 @@
+body{
+    background-color: #00bf63;
+}
+.VERDE{
+    background-color: #00bf63;
+    padding: 10%;
+}
+.MAPA{
+    background-color: aliceblue;
+    padding-top: 10%;
+    padding-bottom: 10%;
+}
+.black{
+    color: rgb(0, 0, 0);
+    padding-left: 45%;
+}
+.right{
+    align-items: end;
+}
+.flex{
+    flex: auto;
+}
