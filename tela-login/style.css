@@ -1,0 +1,48 @@
+body {
+    background-color: black;
+    padding: 20%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+div {
+    background-color: #00bf63;
+}
+
+img {
+    padding-left: 5%;
+    padding-top: 1%;
+}
+
+.usuariosenha{
+    background-color: white;
+}
+
+#login{
+    padding: 0%
+}
+.usuariosenha{
+    padding-left: 5%;
+}
+.roxo{
+    border-style: groove;
+    border-radius: 20px;
+    border-color: blueviolet;
+    background-color: blueviolet;
+    color: black;
+    cursor: pointer;
+    padding-left: 5%;
+}
+.roxo:hover{
+    background-color: rgb(56, 14, 90);
+}
+
+.AJUSTAR{
+    padding-left: 55px;
+    background-color: white;
+}
+
+.AJUSTAR2{
+    padding-left: 20%;
+    background-color: white;
+}
+
