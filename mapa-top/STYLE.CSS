@@ -20,3 +20,13 @@ body{
 .flex{
     flex: auto;
 }
+.pai{
+position: relative;
+
+}
+.derecha{
+    justify-content: right;
+    display: flex;
+    flex-direction: row;
+
+}
