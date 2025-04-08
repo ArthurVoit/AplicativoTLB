@@ -18,22 +18,27 @@ img {
 }
 
 #login{
-    padding: 0%
+    padding: 0%;
+    border-radius: 20px;
+    margin-top: 20px;
 }
 .usuariosenha{
     padding-left: 5%;
 }
 .roxo{
     border-style: groove;
-    border-radius: 20px;
+    border-radius: 40px;
     border-color: blueviolet;
     background-color: blueviolet;
     color: black;
     cursor: pointer;
-    padding-left: 5%;
+    margin: 5px;
+    transition: 0.5s;
+    font-size: 15px;
 }
 .roxo:hover{
-    background-color: rgb(56, 14, 90);
+    background-color: rgb(122, 80, 156);
+    color: white;
 }
 
 .AJUSTAR{
