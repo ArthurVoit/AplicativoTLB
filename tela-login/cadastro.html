@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,8 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro</title>
     <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
 </head>
-<body>
-    
+<body class="cadastro">
+    <div class="imagemsetacadastro">
+        <img id="imagemsetacadastro" src="./imagens/seta1.png" alt="">
+    </div>
+    <section class="formcadastro">
+        <form action="" id="formcadastro">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" required placeholder="usuário">
+            <br>
+            <label for="email"></label>
+            <input type="text" id="email" name="email" required placeholder="email">
+            <br>
+            <label for="senha"></label>
+            <input type="text" id="senha" name="senha" required placeholder="senha">
+            <br>
+            <label for="confirmarsenha"></label>
+            <input type="text" id="confirmarsenha" name="confirmarsenha" required placeholder="confirmarsenha">
+            <button>Cadastre-se</button>
+    </section>
 </body>
-</html>
