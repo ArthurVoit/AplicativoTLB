@@ -8,23 +8,27 @@
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
 </head>
-<body class="cadastro">
-    <div class="imagemsetacadastro">
-        <img id="imagemsetacadastro" src="./imagens/seta1.png" alt="">
+<body>
+    <div class="cadastro">
+        <div class="imagemsetacadastro">
+            <img id="imagemsetacadastro" src="./imagens/seta1.png" alt="">
+        </div>
+        <section class="formcadastro">
+            <form action="" id="formcadastro">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" required placeholder="usuário">
+                <br>
+                <label for="email"></label>
+                <input type="text" id="email" name="email" required placeholder="email">
+                <br>
+                <label for="senha"></label>
+                <input type="text" id="senha" name="senha" required placeholder="senha">
+                <br>
+                <label for="confirmarsenha"></label>
+                <input type="text" id="confirmarsenha" name="confirmarsenha" required placeholder="confirmarsenha">
+                <button>Cadastre-se</button>
+                <p>Ao clicar você estará de acordo com as políticas da empresa</p>
+                <a href="politicas.html">Ver políticas</a>
+        </section>
     </div>
-    <section class="formcadastro">
-        <form action="" id="formcadastro">
-            <label for="nome">Nome:</label>
-            <input type="text" id="nome" name="nome" required placeholder="usuário">
-            <br>
-            <label for="email"></label>
-            <input type="text" id="email" name="email" required placeholder="email">
-            <br>
-            <label for="senha"></label>
-            <input type="text" id="senha" name="senha" required placeholder="senha">
-            <br>
-            <label for="confirmarsenha"></label>
-            <input type="text" id="confirmarsenha" name="confirmarsenha" required placeholder="confirmarsenha">
-            <button>Cadastre-se</button>
-    </section>
 </body>
