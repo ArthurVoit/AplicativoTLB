@@ -1,0 +1,30 @@
+body {
+    background-color: black;
+    padding: 20%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+}
+
+.formcadastro{
+    background-color: #00bf63;
+    border-radius: 10%;
+    padding: 5%;
+    align-items: center;
+}
+
+#imagemsetacadastro{
+    width: 20px;
+    height: 20px;
+    align-items: center;
+}
+
+.buttoncadastro{
+    background-color: purple;
+    border-radius: 30%;
+    align-items: center;
+    transition: 0.5s;
+}
+
+.buttoncadastro:hover{
+    background-color: rgb(177, 78, 177);
+}
