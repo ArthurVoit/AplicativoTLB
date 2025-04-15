@@ -1,6 +1,7 @@
 <?php
 
-$nome = $_POST['nome'];
-$email = $_POST['email'];
-$senha = $_POST['senha'];
+if($_REQUEST["action"] == "save"){
+    $formValid = TRUE;
+}
+
 
