@@ -1,3 +1,4 @@
+
 body {
     background-color: black;
     padding: 20%;
@@ -9,7 +10,7 @@ div {
 }
 
 img {
-    padding-left: 5%;
+    padding-left: 42%;
     padding-top: 1%;
 }
 
@@ -23,7 +24,7 @@ img {
     margin-top: 20px;
 }
 .usuariosenha{
-    padding-left: 5%;
+    text-align: center;
 }
 .roxo{
     border-style: groove;
@@ -42,11 +43,19 @@ img {
 }
 
 .AJUSTAR{
-    padding-left: 55px;
+    text-align: center;
     background-color: white;
 }
 
 .AJUSTAR2{
-    padding-left: 20%;
+    text-align: center;
     background-color: white;
-} 
+}
+.EsqueceuSenha2{
+    background-color: white;
+    text-align: center;
+}
+
+.cadastro{
+    background-color: #00bf63;
+}
