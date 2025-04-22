@@ -3,7 +3,7 @@ function validarForm(){
     var email = document.forms["formcadastro"].email.value;
     var senha = document.forms["formcadastro"].senha.value;
     var confirmarSenha = document.forms["formcadastro"].confirmarsenha.value;
-if(tamanho_nome < 5 || tamanho_nome > 64){
+if(!/^['A-Za-zÀ-ÿ\s']$/.test(tamanho_nome)){
     alert("O nome deve ter entre 5 e 64 caracteres.");
     return false
 }
