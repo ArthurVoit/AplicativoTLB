@@ -3,7 +3,6 @@ body {
     background-repeat: no-repeat no-repeat;
     background-size: cover;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    
 }
 
 .cadastro .formcadastro{
@@ -19,13 +18,13 @@ body {
     align-items: center;
 }
 #imagemsetacadastro{
-    width: 5%;
-    height: 5%;
+    width: 10%;
+    height: 10%;
     align-items: center;
 }
 
 .buttoncadastro{
-    background-color: rgb(204, 69, 204);
+    background-color: rgb(12, 109, 53);
     border-radius: 500px;
     align-items: center;
     transition: 0.5s;
@@ -33,7 +32,7 @@ body {
 }
 
 .buttoncadastro:hover{
-    background-color: rgb(202, 108, 202);
+    background-color: rgb(27, 139, 45);
 }
 
 .cadastro{
@@ -43,6 +42,13 @@ body {
 }
 
 p{
-    color: aliceblue;
+    color: rgb(158, 150, 150);
 }
 
+img{
+    mix-blend-mode: multiply;
+}
+
+input{
+    background: rgba(0, 0, 0, 0.4);
+}
