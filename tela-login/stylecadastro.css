@@ -1,33 +1,53 @@
 body {
-    background-color: black;
-    padding: 20%;
+    background-color: green;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
 }
 
-.formcadastro{
-    background-color: #00bf63;
+.cadastro .formcadastro{
     align-items: center;
+    position: relative;
+    background: rgba(0, 0, 0, 0.4);
+    margin: 0;
     padding: 5%;
-    border-radius: 10%;
 }
 
+#formcadastro{
+    opacity: 1;
+    align-items: center;
+}
 #imagemsetacadastro{
-    width: 20px;
-    height: 20px;
+    width: 10%;
+    height: 10%;
     align-items: center;
 }
 
 .buttoncadastro{
-    background-color: purple;
-    border-radius: 30%;
+    background-color: rgb(12, 109, 53);
+    border-radius: 500px;
     align-items: center;
     transition: 0.5s;
+    border-style: none;
 }
 
 .buttoncadastro:hover{
-    background-color: rgb(177, 78, 177);
+    background-color: rgb(27, 139, 45);
 }
 
 .cadastro{
     align-items: center;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 20%;
+}
+
+p{
+    color: rgb(158, 150, 150);
+}
+
+img{
+    mix-blend-mode: multiply;
+}
+
+input{
+    background: rgba(0, 0, 0, 0.4);
 }

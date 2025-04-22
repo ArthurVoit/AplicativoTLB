@@ -1,26 +1,30 @@
 
 body {
-    padding: 20%;
+    padding: 30%;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-image: url(imagens/transferir.png);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 div {
-    background-color: #00bf63;
+    border-color: black;
+    border-style: groove;
 }
 
-img {
-    padding-left: 42%;
-    padding-top: 1%;
-}
 
 .usuariosenha{
-    background-color: white;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 3%;
 }
 
 #login{
     padding: 0%;
     border-radius: 20px;
     margin-top: 20px;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.1);
 }
 .usuariosenha{
     text-align: center;
@@ -40,17 +44,10 @@ img {
     background-color: rgb(122, 80, 156);
     color: white;
 }
-
-.AJUSTAR{
-    text-align: center;
-    background-color: white;
-}
-
-.AJUSTAR2{
-    text-align: center;
-    background-color: white;
-}
 .EsqueceuSenha2{
     background-color: white;
     text-align: center;
+}
+#ImgLogin{
+    width: 25%;
 }
