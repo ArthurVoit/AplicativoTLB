@@ -1,6 +1,5 @@
 
 body {
-    background-color: black;
     padding: 20%;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -54,8 +53,4 @@ img {
 .EsqueceuSenha2{
     background-color: white;
     text-align: center;
-}
-
-.cadastro{
-    background-color: #00bf63;
 }
