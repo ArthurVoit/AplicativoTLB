@@ -12,7 +12,7 @@ body{
 }
 .black{
     color: rgb(0, 0, 0);
-    padding-left: 45%;
+    align-self: center;
 }
 .right{
     align-items: end;

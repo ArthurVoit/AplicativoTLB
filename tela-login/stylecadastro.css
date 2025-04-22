@@ -1,16 +1,24 @@
 body {
-    background-color: black;
+    background-image: url(imagens/fundo2.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
     padding: 20%;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-position: center;
 }
 
-.formcadastro{
-    background-color: #00bf63;
+.cadastro .formcadastro{
     align-items: center;
     padding: 5%;
     border-radius: 10%;
+    border-style: none;
+    position: relative;
+    background-color: aliceblue;
 }
 
+#formcadastro{
+    align-items: center;
+}
 #imagemsetacadastro{
     width: 20px;
     height: 20px;
@@ -30,4 +38,6 @@ body {
 
 .cadastro{
     align-items: center;
+    opacity: 0.5;
+
 }
