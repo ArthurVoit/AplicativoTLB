@@ -1,8 +1,7 @@
 body {
-    background-image: url(imagens/fundo2.jpg);
-    background-repeat: no-repeat no-repeat;
-    background-size: cover;
+    background-color: green;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
 }
 
 .cadastro .formcadastro{
