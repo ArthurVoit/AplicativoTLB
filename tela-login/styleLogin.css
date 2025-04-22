@@ -2,6 +2,9 @@
 body {
     padding: 30%;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-image: url(imagens/transferir.png);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 div {
@@ -11,7 +14,8 @@ div {
 
 
 .usuariosenha{
-    background-color: white;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 3%;
 }
 
 #login{
@@ -20,6 +24,7 @@ div {
     margin-top: 20px;
     justify-content: center;
     align-items: center;
+    background: rgba(0, 0, 0, 0.1);
 }
 .usuariosenha{
     text-align: center;
@@ -44,6 +49,5 @@ div {
     text-align: center;
 }
 #ImgLogin{
-    align-items: center;
-    padding-left: 35%;
+    width: 25%;
 }
