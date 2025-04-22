@@ -2,14 +2,13 @@ body {
     background-color: black;
     padding: 20%;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    display: flex;
 }
 
 .formcadastro{
     background-color: #00bf63;
-    border-radius: 10%;
-    padding: 5%;
     align-items: center;
+    padding: 5%;
+    border-radius: 10%;
 }
 
 #imagemsetacadastro{
@@ -27,4 +26,8 @@ body {
 
 .buttoncadastro:hover{
     background-color: rgb(177, 78, 177);
+}
+
+.cadastro{
+    align-items: center;
 }
