@@ -1,0 +1,287 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+.container {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+}
+.header {
+    background-color: #00a94f;
+    color: #fff;
+    padding: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+.section {
+    flex: 1;
+    padding: 20px;
+}
+section h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #333;
+}
+.section h4 {
+    font-size: 16px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: #333;
+}
+.daltonismo-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-around;
+    margin-bottom: 30px;
+}
+.color-box {
+ width: 100px;
+ height: 60px;
+ border-radius: 8px;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ font-size: 12px;
+ text-align: center;
+ color: #000;
+ box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.acromaico {
+    background: linear-gradient(to right, black 50%, white 50%);
+}
+.dicromatico {
+    background: linear-gradient(to right, yellow 50%, black 50%);
+}
+.tricromatico {
+    background: linear-gradient(to right, yellow 50%, blue 50%);
+}
+.font-slider {
+    margin-bottom: 30px;
+}
+.slider {
+    width: 100%;
+}
+.help {
+    text-align: center;
+    font-size: 14px;
+    margin-top: 30px;
+}
+.help a {
+    color: #0066cc;
+    text-decoration: none;
+}
+.help a:hover {
+    text-decoration: underline;
+}
+@media (max-width: 500px) {
+    .color-box {
+        width: 90px;
+        height: 50px;
+        font-size: 11px;
+    }
+}
+
+/* mapa */
+body{
+    background-color: #00bf63;
+}
+.VERDE{
+    background-color: #00bf63;
+    padding: 10%;
+}
+.MAPA{
+    background-color: aliceblue;
+    align-content: center;
+
+}
+.black{
+    color: rgb(0, 0, 0);
+    align-se: center;
+}
+.right{
+    align-items: end;
+}
+.flex1{
+    flex: auto;
+}
+.pai{
+position: relative;
+
+}
+.derecha{
+    justify-content: right;
+
+}
+.img{
+    max-width: 100%;
+    max-height: 100%;
+    background-size: cover;
+    align-items: center;
+}
+.img2{
+    
+    max-width: 100%;
+    max-height: 100%;
+}
+.center{
+    align-items: center;
+}
+
+/*telainicial */
+body{
+    border: 0;
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.Logo_TLB{
+    width: 100%;
+}
+/* yelalogin(politica) */
+body {
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-top: 0%;
+    margin-bottom: 0%;
+    background-color: #00bf63;
+    align-content: center;
+    justify-content: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+
+div {
+    background-color: #fff;
+    padding: 5%;
+}
+
+button {
+    width: 75%;
+    font-size: 100%;
+    border-style: none;
+    background-color: #cb6ce6;
+    border-radius: 500px;
+    height: 50px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #fff;
+}
+/* telalogin(cadastro) */
+body {
+    background-color: green;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+}
+
+.cadastro .formcadastro{
+    align-items: center;
+    position: relative;
+    background: rgba(0, 0, 0, 0.4);
+    margin: 0;
+    padding: 5%;
+}
+
+#formcadastro{
+    opacity: 1;
+    align-items: center;
+}
+#imagemsetacadastro{
+    width: 10%;
+    height: 10%;
+    align-items: center;
+}
+
+.buttoncadastro{
+    background-color: rgb(12, 109, 53);
+    border-radius: 500px;
+    align-items: center;
+    transition: 0.5s;
+    border-style: none;
+}
+
+.buttoncadastro:hover{
+    background-color: rgb(27, 139, 45);
+}
+
+.cadastro{
+    align-items: center;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 20%;
+}
+
+p{
+    color: rgb(158, 150, 150);
+}
+
+img{
+    mix-blend-mode: multiply;
+}
+
+input{
+    background: rgba(0, 0, 0, 0.4);
+}
+
+/* tela inicial(login) */
+
+body {
+    padding: 30%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-image: url(imagens/transferir.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+div {
+    border-color: black;
+    border-style: groove;
+}
+
+
+.usuariosenha{
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 3%;
+}
+
+#login{
+    padding: 0%;
+    border-radius: 20px;
+    margin-top: 20px;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.1);
+}
+.usuariosenha{
+    text-align: center;
+}
+.roxo{
+    border-style: groove;
+    border-radius: 40px;
+    border-color: blueviolet;
+    background-color: blueviolet;
+    color: black;
+    cursor: pointer;
+    margin: 5px;
+    transition: 0.5s;
+    font-size: 15px;
+}
+.roxo:hover{
+    background-color: rgb(122, 80, 156);
+    color: white;
+}
+.EsqueceuSenha2{
+    background-color: white;
+    text-align: center;
+}
+#ImgLogin{
+    width: 25%;
+}
