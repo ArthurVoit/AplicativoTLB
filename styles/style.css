@@ -134,11 +134,14 @@ img .mapa {
     padding: 0;
     background-color: black;
     display: flex;
-    align-items: center;
-    justify-content: center;
 }
-.Logo_TLB{
+.logo_TLB{
     width: 100%;
+}
+
+.telaInicial{
+    text-align: center;
+    justify-content: center;
 }
 /* yelalogin(politica) */
 .bodyPoliticas {
@@ -152,10 +155,7 @@ img .mapa {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
 
-div {
-    background-color: #fff;
-    padding: 5%;
-}
+
 
 button {
     width: 75%;
@@ -213,14 +213,6 @@ p{
     color: rgb(158, 150, 150);
 }
 
-img{
-    mix-blend-mode: multiply;
-}
-
-input{
-    background: rgba(0, 0, 0, 0.4);
-}
-
 /* tela inicial(login) */
 
 .bodyTelalogin {
@@ -230,12 +222,6 @@ input{
     background-repeat: no-repeat;
     background-size: cover;
 }
-
-div {
-    border-color: black;
-    border-style: groove;
-}
-
 
 .usuariosenha{
     background: rgba(0, 0, 0, 0.1);
