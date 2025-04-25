@@ -91,49 +91,40 @@ section h3 {
 }
 
 /* mapa */
-.bodyMapa{
+.bodyMapa {
     background-color: #00bf63;
 }
-.VERDE{
-    background-color: #00bf63;
-    padding: 10%;
-}
-.MAPA{
+
+.temaMapa {
     background-color: aliceblue;
     align-content: center;
 
 }
-.black{
+
+h1 .preto{ 
     color: rgb(0, 0, 0);
     align-items: center;
 }
-.right{
-    align-items: end;
-}
-.flex1{
+
+.flex {
     flex: auto;
 }
-.pai{
-    position: relative;
 
-}
-.derecha{
-    justify-content: right;
-
-}
-.img{
+.TLBLogo {
     max-width: 100%;
     max-height: 100%;
     background-size: cover;
     align-items: center;
 }
-.img2{
-    
+
+img .notificacao { 
     max-width: 100%;
     max-height: 100%;
 }
-.center{
-    align-items: center;
+
+img .mapa {
+    max-width: 100%;
+    max-height: 100%;
 }
 
 /*telainicial */
