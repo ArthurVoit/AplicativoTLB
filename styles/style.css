@@ -1,11 +1,13 @@
 * {
     box-sizing: border-box;
 }
+
 .bodyIndex {
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f0f0f0;
 }
+
 .container {
     width: 100%;
     min-height: 100vh;
@@ -13,6 +15,7 @@
     flex-direction: column;
     background-color: #fff;
 }
+
 .header {
     background-color: #00a94f;
     color: #fff;
@@ -21,21 +24,25 @@
     font-weight: bold;
     text-align: center;
 }
+
 .section {
     flex: 1;
     padding: 20px;
 }
+
 section h3 {
     font-size: 18px;
     margin-bottom: 10px;
     color: #333;
 }
+
 .section h4 {
     font-size: 16px;
     margin-top: 20px;
     margin-bottom: 10px;
     color: #333;
 }
+
 .daltonismo-options {
     display: flex;
     flex-wrap: wrap;
@@ -43,6 +50,7 @@ section h3 {
     justify-content: space-around;
     margin-bottom: 30px;
 }
+
 .color-box {
     width: 100px;
     height: 60px;
@@ -55,33 +63,42 @@ section h3 {
     color: #000;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+
 .acromaico {
     background: linear-gradient(to right, black 50%, white 50%);
 }
+
 .dicromatico {
     background: linear-gradient(to right, yellow 50%, black 50%);
 }
+
 .tricromatico {
     background: linear-gradient(to right, yellow 50%, blue 50%);
 }
+
 .font-slider {
     margin-bottom: 30px;
 }
+
 .slider {
     width: 100%;
 }
+
 .help {
     text-align: center;
     font-size: 14px;
     margin-top: 30px;
 }
+
 .help a {
     color: #0066cc;
     text-decoration: none;
 }
+
 .help a:hover {
     text-decoration: underline;
 }
+
 @media (max-width: 500px) {
     .color-box {
         width: 90px;
@@ -101,7 +118,7 @@ section h3 {
 
 }
 
-h1 .preto{ 
+h1 .preto { 
     color: rgb(0, 0, 0);
     align-items: center;
 }
@@ -128,22 +145,25 @@ img .mapa {
 }
 
 /*telainicial */
-.bodyTelainicial{
+.bodyTelainicial {
     border: 0;
     margin: 0;
     padding: 0;
     background-color: black;
     display: flex;
 }
-.logo_TLB{
+
+.logo_TLB {
     width: 100%;
 }
 
-.telaInicial{
+.telaInicial {
     text-align: center;
     justify-content: center;
 }
+
 /* yelalogin(politica) */
+
 .bodyPoliticas {
     margin-left: 15%;
     margin-right: 15%;
@@ -166,6 +186,7 @@ button {
     height: 50px;
     color: #fff;
 }
+
 /* telalogin(cadastro) */
 .bodyTelacadastro {
     background-color: green;
@@ -176,7 +197,7 @@ button {
     min-height: 100vh;
 }
 
-.cadastro .formcadastro{
+.cadastro .formcadastro {
     align-items: center;
     position: relative;
     background: rgba(0, 0, 0, 0.4);
@@ -184,11 +205,12 @@ button {
     padding: 5%;
 }
 
-#formcadastro{
+#formcadastro {
     opacity: 1;
     align-items: center;
 }
-#imagemsetacadastro{
+
+#imagemsetacadastro {
     width: 30px;
     height: 10%;
     align-items: center;
@@ -198,7 +220,7 @@ button {
     transform: scaleX(-1);
 }
 
-.buttoncadastro{
+.buttoncadastro {
     background-color: rgb(35, 112, 67);
     border-radius: 500px;
     align-items: center;
@@ -206,36 +228,36 @@ button {
     border-style: none;
 }
 
-.buttoncadastro:hover{
+.buttoncadastro:hover {
     background-color: rgb(78, 163, 91);
 }
 
-.cadastro{
+.cadastro {
     align-items: center;
     background: rgba(255, 255, 255, 0.2);
     padding: 20%;
 }
 
-p .pCadastro{
+p .pCadastro {
     color: rgb(158, 150, 150);
 }
 
 /* tela inicial(login) */
 
 .bodyTelalogin {
-    padding: 30%;
+    padding: 10%;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-image: url(imagens/transferir.png);
     background-repeat: no-repeat;
     background-size: cover;
 }
 
-.usuariosenha{
+.usuariosenha {
     background: rgba(0, 0, 0, 0.1);
     border-radius: 3%;
 }
 
-#login{
+#login {
     padding: 0%;
     border-radius: 20px;
     margin-top: 20px;
@@ -243,10 +265,12 @@ p .pCadastro{
     align-items: center;
     background: rgba(0, 0, 0, 0.1);
 }
-.usuariosenha{
+
+.usuariosenha {
     text-align: center;
 }
-.roxo{
+
+.buttonRoxo {
     border-style: groove;
     border-radius: 40px;
     border-color: blueviolet;
@@ -255,16 +279,15 @@ p .pCadastro{
     cursor: pointer;
     margin: 5px;
     transition: 0.5s;
-    font-size: 15px;
+    width: 200px;
+    height: 40px;
 }
-.roxo:hover{
+
+.buttonRoxo:hover {
     background-color: rgb(122, 80, 156);
     color: white;
 }
-.EsqueceuSenha2{
-    background-color: white;
-    text-align: center;
-}
-#ImgLogin{
+
+#imgLogin {
     width: 25%;
 }
