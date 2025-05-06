@@ -240,10 +240,11 @@ button {
     height: 7vh;
     background-color: purple;
     transition: 0.7s;
+    font-size: 17px;
 }
 
 .buttonCadastro:hover {
-    background-color: #421250;
+    background-color: #622674;
     color: #fff;
 }
 
