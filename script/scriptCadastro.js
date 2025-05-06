@@ -19,3 +19,15 @@ const validarForm = () => {
         alert(`ERRO: ${e}`);
     }
 }
+
+document.querySelectorAll('.inputContainer input').forEach(input => {
+    input.addEventListener('focus', function() {
+        this.nextElementSibling.style.opacity = "0"; // Oculta o ícone ao clicar
+    });
+
+    input.addEventListener('blur', function() {
+        if (this.value === "") {
+            this.nextElementSibling.style.opacity = "1"; // Mostra o ícone se o campo estiver vazio
+        }
+    });
+});
