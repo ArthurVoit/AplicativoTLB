@@ -285,25 +285,40 @@ button {
 /* tela inicial(login) */
 
 .bodyTelalogin {
-    padding: 10%;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-image: url(imagens/transferir.png);
-    background-repeat: no-repeat;
-    background-size: cover;
+    margin: 0;
+    padding: 0;
+}
+
+.login {
+    display: flex;
+    justify-content: center; 
+    align-items: center;  
+    height: 100vh;
 }
 
 .usuariosenha {
-    background: rgba(0, 0, 0, 0.1);
     border-radius: 3%;
 }
 
-#login {
-    padding: 0%;
-    border-radius: 20px;
-    margin-top: 20px;
-    justify-content: center;
-    align-items: center;
-    background: rgba(0, 0, 0, 0.1);
+.loginForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    background-color: #00a94f; 
+    border-radius: 50px; 
+    padding: 2%;
+    width: 60%; 
+    max-width: 500px; 
+    min-width: 300px;
+    margin: 5% auto; 
+}
+
+.loginForm {
+    font-size: 24px; 
+    margin-bottom: 10px; 
+    color: #000;
+    transition: 0.5s;
 }
 
 .usuariosenha {
@@ -330,4 +345,22 @@ button {
 
 #imgLogin {
     width: 25%;
+}
+
+#inputFormMaquinista {
+    width: 20%;
+    height: 7vh;
+    padding-right: 35px;
+    padding-left: 15px;
+    border-radius: 50px; 
+    border: none; 
+    background-color: #fff;
+    color: #000; 
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#loginForm a {
+    text-align: right;
 }
