@@ -370,14 +370,3 @@ button {
 body{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-.container{
-    align-items: center;
-}
-
-#EsqueceuSenhaimg{
-    padding-left: 45%;
-}
-
-#senhaform{
-    padding-left: 38%;
-}
