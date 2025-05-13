@@ -364,3 +364,20 @@ button {
 #loginForm a {
     text-align: right;
 }
+
+/*Esqueceu a Senha*/
+
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.container{
+    align-items: center;
+}
+
+#EsqueceuSenhaimg{
+    padding-left: 45%;
+}
+
+#senhaform{
+    padding-left: 38%;
+}
