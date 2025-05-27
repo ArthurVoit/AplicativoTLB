@@ -1,6 +1,6 @@
-* .responsive{
+* .responsive {
     width: 100%;
-    height:auto;
+    height: auto;
 }
 
 .bodyIndex {
@@ -120,12 +120,13 @@ section h3 {
 
 }
 
-.verdeSct{
+.verdeSct {
     background-color: #00a94f;
     width: 100%;
     height: 25%;
 }
-.preto { 
+
+.preto {
     color: rgb(0, 0, 0);
     align-items: center;
 }
@@ -134,15 +135,16 @@ section h3 {
     flex: auto;
 }
 
-img .notificacao { 
+img .notificacao {
     max-width: 100%;
     max-height: 100%;
     margin-left: 90%;
 }
 
-.center{
+.center {
     align-content: center;
 }
+
 /*telainicial */
 .bodyTelainicial {
     border: 0;
@@ -193,29 +195,29 @@ button {
     padding: 0;
 }
 
-.cadastro {  
+.cadastro {
     display: flex;
-    justify-content: center; 
-    align-items: center;  
+    justify-content: center;
+    align-items: center;
     height: 100vh;
 }
 
 .formCadastro {
     display: flex;
     flex-direction: column;
-    align-items: center; 
-    background-color: #00a94f; 
-    border-radius: 50px; 
+    align-items: center;
+    background-color: #00a94f;
+    border-radius: 50px;
     padding: 2%;
-    width: 60%; 
-    max-width: 500px; 
+    width: 60%;
+    max-width: 500px;
     min-width: 300px;
-    margin: 5% auto; 
+    margin: 5% auto;
 }
 
 .formCadastro i {
-    font-size: 24px; 
-    margin-bottom: 10px; 
+    font-size: 24px;
+    margin-bottom: 10px;
     color: #000;
     transition: 0.5s;
 }
@@ -230,7 +232,7 @@ button {
 
 .buttonCadastro {
     display: block;
-    margin: 0 auto; 
+    margin: 0 auto;
     text-align: center;
     border-radius: 50px;
     border: none;
@@ -262,10 +264,10 @@ button {
     height: 7vh;
     padding-right: 35px;
     padding-left: 15px;
-    border-radius: 50px; 
-    border: none; 
+    border-radius: 50px;
+    border: none;
     background-color: #fff;
-    color: #000; 
+    color: #000;
     font-size: 16px;
     cursor: pointer;
     transition: background-color 0.3s ease;
@@ -291,8 +293,8 @@ button {
 
 .login {
     display: flex;
-    justify-content: center; 
-    align-items: center;  
+    justify-content: center;
+    align-items: center;
     height: 100vh;
 }
 
@@ -303,19 +305,19 @@ button {
 .loginForm {
     display: flex;
     flex-direction: column;
-    align-items: center; 
-    background-color: #00a94f; 
-    border-radius: 50px; 
+    align-items: center;
+    background-color: #00a94f;
+    border-radius: 50px;
     padding: 2%;
-    width: 60%; 
-    max-width: 500px; 
+    width: 60%;
+    max-width: 500px;
     min-width: 300px;
-    margin: 5% auto; 
+    margin: 5% auto;
 }
 
 .loginForm {
-    font-size: 24px; 
-    margin-bottom: 10px; 
+    font-size: 24px;
+    margin-bottom: 10px;
     color: #000;
     transition: 0.5s;
 }
@@ -351,10 +353,10 @@ button {
     height: 7vh;
     padding-right: 35px;
     padding-left: 15px;
-    border-radius: 50px; 
-    border: none; 
+    border-radius: 50px;
+    border: none;
     background-color: #fff;
-    color: #000; 
+    color: #000;
     font-size: 16px;
     cursor: pointer;
     transition: background-color 0.3s ease;
@@ -366,66 +368,66 @@ button {
 
 /*Esqueceu a Senha*/
 
-body{
+body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.EsqueceuSenhaLogo{
+.EsqueceuSenhaLogo {
     width: 10%;
 }
 
-.container{
+.container {
     align-items: center;
 }
 
-.container form{
+.container form {
     text-align: center;
 }
 
 /*Esqueceu a Senha*/
 
-body{
+body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.EsqueceuSenhaLogo{
+.EsqueceuSenhaLogo {
     width: 10%;
 }
 
-.container{
+.container {
     display: flex;
-    justify-content: center; 
+    justify-content: center;
     align-items: center;
 }
 
-.container form{
+.container form {
     text-align: center;
 }
 
-#senhaEsqueceu{
-    width: 200px; 
-    padding: 10px; 
-    border: 1px solid #ccc; 
-    border-radius: 4px; 
-    font-size: 16px; 
+#senhaEsqueceu {
+    width: 200px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
     box-sizing: border-box;
 }
 
-#emailEsqueceu{
-    width: 200px;  
-    padding: 10px; 
-    border: 1px solid #ccc; 
-    border-radius: 4px; 
-    font-size: 16px; 
+#emailEsqueceu {
+    width: 200px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
     box-sizing: border-box;
 }
 
-#EsqueceuSenha{
+#EsqueceuSenha {
     background-color: #00a94f;
 }
 
 /* Relatorios e Analises */
-.bodyRelatorios{
+.bodyRelatorios {
     margin: 0;
     padding: 0;
 }
@@ -441,7 +443,7 @@ body{
     margin: 8px;
 }
 
-.navBarRelatorios h1{
+.navBarRelatorios h1 {
     color: white;
 }
 
