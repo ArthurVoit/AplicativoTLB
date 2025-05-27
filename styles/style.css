@@ -389,6 +389,48 @@ body{
     text-align: center;
 }
 
+/*Esqueceu a Senha*/
+
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.EsqueceuSenhaLogo{
+    width: 10%;
+}
+
+.container{
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+}
+
+.container form{
+    text-align: center;
+}
+
+#senhaEsqueceu{
+    width: 200px; 
+    padding: 10px; 
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+    font-size: 16px; 
+    box-sizing: border-box;
+}
+
+#emailEsqueceu{
+    width: 200px;  
+    padding: 10px; 
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+    font-size: 16px; 
+    box-sizing: border-box;
+}
+
+#EsqueceuSenha{
+    background-color: #00a94f;
+}
+
 /* Relatorios e Analises */
 .bodyRelatorios{
     margin: 0;
