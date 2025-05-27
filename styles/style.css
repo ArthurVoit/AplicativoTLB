@@ -388,3 +388,36 @@ body{
 .container form{
     text-align: center;
 }
+
+/* Relatorios e Analises */
+.bodyRelatorios{
+    margin: 0;
+    padding: 0;
+}
+
+.navBarRelatorios {
+    background-color: #00bf63;
+    display: flex;
+    justify-content: space-between;
+}
+
+.navBarRelatorios img {
+    width: 100px;
+    margin: 8px;
+}
+
+.navBarRelatorios h1{
+    color: white;
+}
+
+.containerRelatorios {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.containerRelatorios img {
+    width: 40%;
+    border-radius: 50px;
+    height: 20vh;
+}
