@@ -127,13 +127,6 @@ h1 .preto {
     flex: auto;
 }
 
-.TLBLogo {
-    max-width: 100%;
-    max-height: 100%;
-    background-size: cover;
-    align-items: center;
-}
-
 img .notificacao { 
     max-width: 100%;
     max-height: 100%;
@@ -381,4 +374,18 @@ body{
 
 .container form{
     text-align: center;
+}
+
+#progresso {
+    width: 100%;
+    background-color: #fff;
+}
+
+#barra {
+    width: 1%;
+    height: 30px;
+    background-color: #00a94f;
+    color: #fff;
+    font-size: 125%;
+    font-weight: bold;
 }
