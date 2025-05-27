@@ -472,3 +472,17 @@ body{
     color: black;
     text-shadow: 0px 0px 5px black;
 }
+
+#progresso {
+    width: 100%;
+    background-color: #fff;
+}
+
+#barra {
+    width: 1%;
+    height: 30px;
+    background-color: #00a94f;
+    color: #fff;
+    font-size: 125%;
+    font-weight: bold;
+}
