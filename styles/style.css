@@ -134,14 +134,7 @@ section h3 {
     flex: auto;
 }
 
-.TLBLogo {
-    max-width: 100%;
-    max-height: 100%;
-    background-size: cover;
-    align-items: center;
-}
-
-.notificacao { 
+img .notificacao { 
     max-width: 100%;
     max-height: 100%;
     margin-left: 90%;
@@ -387,4 +380,109 @@ body{
 
 .container form{
     text-align: center;
+}
+
+/*Esqueceu a Senha*/
+
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.EsqueceuSenhaLogo{
+    width: 10%;
+}
+
+.container{
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+}
+
+.container form{
+    text-align: center;
+}
+
+#senhaEsqueceu{
+    width: 200px; 
+    padding: 10px; 
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+    font-size: 16px; 
+    box-sizing: border-box;
+}
+
+#emailEsqueceu{
+    width: 200px;  
+    padding: 10px; 
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+    font-size: 16px; 
+    box-sizing: border-box;
+}
+
+#EsqueceuSenha{
+    background-color: #00a94f;
+}
+
+/* Relatorios e Analises */
+.bodyRelatorios{
+    margin: 0;
+    padding: 0;
+}
+
+.navBarRelatorios {
+    background-color: #00bf63;
+    display: flex;
+    justify-content: space-between;
+}
+
+.navBarRelatorios img {
+    width: 100px;
+    margin: 8px;
+}
+
+.navBarRelatorios h1{
+    color: white;
+}
+
+.containerRelatorios {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.containerRelatorios img {
+    width: 60%;
+    border-radius: 50px;
+    height: 35vh;
+    cursor: pointer;
+    transition: 0.5s;
+    object-fit: cover;
+}
+
+.containerRelatorios img:hover {
+    width: 65%;
+}
+
+.containerRelatorios figcaption {
+    position: absolute;
+    top: 145px;
+    right: 20px;
+    font-size: 40px;
+    color: black;
+    text-shadow: 0px 0px 5px black;
+}
+
+#progresso {
+    width: 100%;
+    background-color: #fff;
+}
+
+#barra {
+    width: 1%;
+    height: 30px;
+    background-color: #00a94f;
+    color: #fff;
+    font-size: 125%;
+    font-weight: bold;
 }

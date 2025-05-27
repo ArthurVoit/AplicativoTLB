@@ -9,18 +9,23 @@
 </head>
 
 <body>
-    <div class="container">
-        <img class="EsqueceuSenhaLogo" src="../assets/icons/TlbLogo.png" alt="">
-        <h1>Recuperar Senha</h1>
-        <form>
-            <label for="email">E-mail:</label>
-            <input type="email" id="email" name="email" required>
-            <br>
-            <br>
-            <button type="submit">Enviar Solicitação</button>
-            <p class="message">Sua solicitação foi enviada.</p>
-            <p>Enviamos um código para seu email, insira ele aqui.</p>
-            <label for="código">_ _ _ _</label>
-        </form>
-    </div>
+    <section class="verdeSct">
+        <div class="container">
+            <img class="EsqueceuSenhaLogo" src="../assets/icons/TlbLogo.png" alt="">
+            <h1>Recuperar Senha</h1>
+            <form>
+                <label for="email"></label>
+                <input type="email" id="emailEsqueceu" name="email" placeholder="E-mail" required>
+                <br>
+                <br>
+                <button type="submit">Enviar Solicitação</button>
+                <p class="message">Sua solicitação foi enviada.</p>
+                <p>Enviamos um código para seu email, insira ele aqui.</p>
+                <input type="password" id="senhaEsqueceu" name="senha" placeholder="Senha">
+                <br>
+                <br>
+                <button type="submit">Confirmar</button>
+            </form>
+        </div>
+    </section>   
 </body>
