@@ -378,3 +378,7 @@ body{
 .container{
     align-items: center;
 }
+
+.container form{
+    text-align: center;
+}
