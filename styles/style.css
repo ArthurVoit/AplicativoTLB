@@ -18,8 +18,8 @@
 }
 
 .header {
-    background-color: #00a94f;
-    color: #fff;
+    background-color: #9fa2a0;
+    color: #080808;
     padding: 20px;
     font-size: 20px;
     font-weight: bold;
@@ -41,7 +41,7 @@ section h3 {
     font-size: 16px;
     margin-top: 20px;
     margin-bottom: 10px;
-    color: #333;
+    color: #0a0a0a00;
 }
 
 .daltonismo-options {
@@ -61,8 +61,18 @@ section h3 {
     justify-content: center;
     font-size: 12px;
     text-align: center;
-    color: #000;
+    color: #050505;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.div_branco{
+    background-color: white;
+    padding: 20px;
+}
+
+.div_branco2{
+    background-color: white;
+    padding: 20px;
 }
 
 .acromaico {
@@ -70,11 +80,11 @@ section h3 {
 }
 
 .dicromatico {
-    background: linear-gradient(to right, yellow 50%, black 50%);
+    background: linear-gradient(to right, yellow 50%, rgb(250, 5, 5) 50%);
 }
 
 .tricromatico {
-    background: linear-gradient(to right, yellow 50%, blue 50%);
+    background: linear-gradient(to right, yellow 50%, rgb(0, 195, 255) 50%);
 }
 
 .font-slider {
