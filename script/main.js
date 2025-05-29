@@ -5,7 +5,7 @@ import * as THREE from 'three';
     camera.position.set(100, 0, 0);
 
     const renderer = new THREE.WebGLRenderer();
-    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setSize(window.innerWidth/2, window.innerHeight/2);
     document.body.appendChild(renderer.domElement);
 
     const geometry = new THREE.BoxGeometry(1, 3, 5);
