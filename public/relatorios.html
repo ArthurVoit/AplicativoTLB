@@ -15,15 +15,19 @@
         </div>
         <br>
         <div class="navBarRelatorios">
-            <h1 class="">Relatórios</h1>
+            <h1 class="subtituloRelatorios">Relatórios</h1>
         </div>
     </header>
+    <div>
+        <div id="chart"></div>
+    </div>
     <script src="https://www.gstatic.com/charts/loader.js"></script>
     <script>
         google.charts.load('current', {packages: ['corechart']});
         google.charts.setOnLoadCallback(drawChart)
         
         function drawChart() {
+            const container = document.querySelector('#chart')
             const data = new google.visualization.arrayToDataTable([
                 [ 'Relatórios de Manutenções e Inspeções', 'Sla' ],
                 [ 'Monitorias agendadas', 125 ],

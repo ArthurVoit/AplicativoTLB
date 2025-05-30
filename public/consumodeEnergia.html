@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatórios e Análises</title>
+    <link rel="stylesheet" href="../styles/style.css">
+</head>
+<body class="bodyRelatorios">
+    <header>
+        <div class="navBarRelatorios">
+            <img src="../assets/icons/menu.png" alt="">
+            <h1>Relatórios e Análises</h1>
+            <img src="../assets/icons/Noti.png" alt="">
+        </div>
+        <br>
+        <div class="navBarRelatorios">
+            <h1 class="subtituloRelatorios">Consumo de Energia</h1>
+        </div>
+    </header>
+    <div>
+        <div id="chart"></div>
+    </div>
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <script>
+        google.charts.load('current', {packages: ['corechart']});
+        google.charts.setOnLoadCallback(drawChart)
+        
+        function drawChart() {
+            const container = document.querySelector('#chart')
+            const data = new google.visualization.arrayToDataTable([
+                [ 'Consumo de: Hoje', 'Consumo(kWh)' ],
+                [ 'Dia', 125 ],
+                [ 'Tarde', 250],
+                [ 'Noite', 625]
+            ])
+            const options = {
+                title: 'Consumo de: Hoje',
+                height: 400,
+                width: 720
+            }
+
+            const chart = new google.visualization.ColumnChart(container)
+            chart.draw(data, options)
+        }
+    </script>
+</body>
+</html>
+
+Nesta aula eu comecei a fazer os gráficos usando o google charts que oferece algumas opções de gráficos de coluna e pizza nas páginas dentro do relatórios e análises, criando páginas de relatórios padrão, consumo de energia e eficiência operacional, ainda estou pensando como que vou fazer para colocar um calendário para então selecionar o dia do qual vai ser puxado os dados, além da parte de como será puxado e da onde será puxado. Arrumei um pouco do layout da própria página de relatoriosAnalises.html que leva para esses gráficos, colocando texto dentro das imagens para indicar onde o usuário será levado, vale ressaltar que o design da navbar será o mesmo para todas as páginas que a possuem, logo eu estou ajustando e padronizando isso . Mudei o nome de algumas classes para melhor compreensão como por exemplo na parte de linkar as imagens para outras páginas, onde então eu não podia mais selecionar a imagem apenas colocando o container e a tag “img” depois no css, precisando colocar uma classe nessas imagens. Também organizei o css colocando comentários para indicar de qual página está vindo, como por exemplo a página do index. Pretendo colocar funcionalidade no botão de menu para que quando ele for clicado apareça as páginas do aplicativo para que o usuário consiga se mover mais fácil,  a minha ideia no momento é a de aparecer um container e colocar textos dentro dele com links, talvez eu consiga fazer uma transição suave futuramente também utilizando javascript. Também quero tentar colocar a funcionalidade no botão de notificação, onde ele levará para a tela de notificação e também aparecerá um indicador no próprio botão de quantas notificações tem.
