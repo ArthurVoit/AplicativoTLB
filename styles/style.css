@@ -530,3 +530,23 @@ body {
     max-height: 100dvh;
     margin: auto;
 }
+
+/*Dados do Usuário*/
+
+.containerDadosDoUsuario{
+    background-color: white;
+}
+
+.dadosDoUsuario{
+    background-color: gray;
+}
+
+i {
+    font-size: 10em;
+    display: flex;
+
+}
+
+.containerDadosDoUsuario h1{
+    text-align: center;
+}
