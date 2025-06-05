@@ -337,21 +337,38 @@ button {
 }
 
 .buttonRoxo {
-    border-style: groove;
-    border-radius: 40px;
-    border-color: blueviolet;
-    background-color: blueviolet;
+    border: solid 2px #a361ef;
+    border-radius: 50px;
     color: black;
     cursor: pointer;
     margin: 5px;
-    transition: 0.5s;
-    width: 200px;
-    height: 40px;
+    padding-left: 10px;
+    padding-right: 10px;
+    transition: all 0.5s ease;
+    background-color: #a361ef;
 }
 
 .buttonRoxo:hover {
-    background-color: rgb(122, 80, 156);
-    color: white;
+    text-shadow: 0 0 12px #a361ef;
+    box-shadow: 0 0 12px 1px #a361ef, 0 0 12px 1px #a361ef inset;
+}
+
+.buttonRoxoLogin {
+    border: solid 2px #a361ef;
+    border-radius: 50px;
+    color: black;
+    cursor: pointer;
+    margin: 5px;
+    text-decoration: none;
+    padding-left: 10px;
+    padding-right: 10px;
+    transition: all 0.5s ease;
+    background-color: #a361ef;
+}
+
+.buttonRoxoLogin:hover {
+    text-shadow: 0 0 12px #a361ef;
+    box-shadow: 0 0 12px 1px #a361ef, 0 0 12px 1px #a361ef inset;
 }
 
 #imgLogin {
