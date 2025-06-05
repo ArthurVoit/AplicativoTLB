@@ -552,7 +552,7 @@ body {
 
 /*Dados do Usuário*/
 
-.containerDadosDoUsuario{
+.NomeDadosUsuario{
     background-color: white;
 }
 
@@ -562,10 +562,28 @@ body {
 
 i {
     font-size: 10em;
-    display: flex;
-
 }
 
-.containerDadosDoUsuario h1{
+.NomeDadosUsuario h1{
     text-align: center;
+}
+
+.flexDadosUsuario{
+    display: flex;
+}
+
+.ConfiguracoesDados{
+    background-color: white;
+}
+
+.ConfiguraçõesDadosIcon{
+    display: flex;
+}
+
+.SegurançasDados{
+    display: flex;
+}
+
+.AcessibilidadeDados{
+    display: flex;
 }
