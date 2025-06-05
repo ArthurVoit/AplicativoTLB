@@ -1,21 +1,32 @@
-import * as THREE from 'three';
- const scene = new THREE.Scene();
- let camera =  new THREE.PerspectiveCamera(75,window.innerHeight/window.innerWidth,100)
+import * as THREE from '../node_modules/three';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+function main(){
+const scene = new THREE.Scene();
+
+let camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 100);
+camera.position.set(0, 1, 5);
+
 const canvas = document.querySelector('#map');
-const renderer = new THREE.WebGLRenderer({antialias: true, canvas});
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    document.body.appendChild(renderer.domElement);
+const renderer = new THREE.WebGLRenderer({ antialias: true, canvas });
+renderer.setSize(window.innerWidth, window.innerHeight);
+document.body.appendChild(renderer.domElement);
 
-    const geometry = new THREE.BoxGeometry(1, 3, 5);
-    const material = new THREE.MeshBasicMaterial({ color: 0x0000ff});
-    const cube = new THREE.Mesh(geometry, material);
-    scene.add(cube);
+const loader = new GLTFLoader();
+loader.load('path/to/your/model.gltf', (gltf) => {
+    scene.add(gltf.scene);
+}, undefined, (error) => {
+    console.error('Error loading GLTF model:', error);
+});
 
-    camera.position.z= 5
-    function animate() {
-        requestAnimationFrame(animate);
-        cube.rotation.x += 0.01;
-        renderer.render(scene, camera);
-    }
-                   
-    animate();
+const light = new THREE.AmbientLight(0xffffff, 1);
+scene.add(light);
+
+function animate() {
+    requestAnimationFrame(animate);
+    renderer.render(scene, camera);
+}
+
+animate();
+}
+main();
