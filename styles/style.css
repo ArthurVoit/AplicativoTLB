@@ -240,25 +240,6 @@ button {
     max-width: 20%;
 }
 
-.buttonCadastro {
-    display: block;
-    margin: 0 auto;
-    text-align: center;
-    border-radius: 50px;
-    border: none;
-    cursor: pointer;
-    width: 80%;
-    height: 7vh;
-    background-color: purple;
-    transition: 0.7s;
-    font-size: 17px;
-}
-
-.buttonCadastro:hover {
-    background-color: #622674;
-    color: #fff;
-}
-
 .pCadastro {
     text-align: center;
 }
@@ -292,6 +273,26 @@ button {
     transition: opacity 0.3s ease;
 }
 
+.buttonRoxoCadastro {
+    border: solid 2px #a361ef;
+    border-radius: 50px;
+    color: black;
+    cursor: pointer;
+    margin: 5px;
+    text-decoration: none;
+    padding-left: 10px;
+    padding-right: 10px;
+    transition: all 0.5s ease;
+    background-color: #a361ef;
+    width: 250px;
+    height: 40px;
+    font-size: 20px;
+}
+
+.buttonRoxoCadastro:hover {
+    text-shadow: 0 0 12px #a361ef;
+    box-shadow: 0 0 12px 1px #a361ef, 0 0 12px 1px #a361ef inset;
+}
 
 /* tela inicial(login) */
 
@@ -360,10 +361,11 @@ button {
     cursor: pointer;
     margin: 5px;
     text-decoration: none;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
     transition: all 0.5s ease;
     background-color: #a361ef;
+    font-size: 20px;
 }
 
 .buttonRoxoLogin:hover {
