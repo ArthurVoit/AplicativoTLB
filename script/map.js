@@ -5,7 +5,7 @@ import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.177.0/exampl
 const scene = new THREE.Scene();
 
 let camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 100);
-camera.position.set(0, 1, 5);
+camera.position.set(10, 10, 10);
 
 const canvas = document.querySelector('#map');
 const renderer = new THREE.WebGLRenderer({ antialias: true, canvas });
@@ -13,7 +13,7 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
 const loader = new GLTFLoader();
-loader.load('../assets/3D modules/trilhos v11.gltf', (gltf) => {
+loader.load('../assets/3D modules/trilhos -D.gltf', (gltf) => {
     gltf.scene.scale.set(102, 102, 102);
     scene.add(gltf.scene);
 }, undefined, (error) => {
