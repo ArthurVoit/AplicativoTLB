@@ -1,16 +1,27 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TLB</title>
     <link rel="stylesheet" href="../styles/style.css">
     <script type = "module" src="../script/map.js"></script>
+    <script src="../script/navBar.js"></script>
 </head>
-
 <body class="bodyMapa">
+    <header>
+        <div class="navbar">
+        <div class="btnNavBar"><a href="notificacao.html"><img src="../assets/icons/bell.svg" alt=""></a></div>
+        <h1>Dados de Usuário</h1>
+        <button class="nav-button" onclick="toggleMenu()"> ≡</button>
+        <div class="menu" id="menu">
+            <button class="close-button" onclick="toggleMenu()">X</button>
+            <a href="mapa.html">Mapa</a>
+            <a href="dadosDoUsuario.html">Dados do Usuário</a>
+            <a href="relatorios.html">Relatorios</a>
+        </div>
+        </div>
+    </header>
     <style>
         html, body{
             margin: 0;
@@ -30,12 +41,6 @@
     }
         }
     </script>
-    
-    <header class="verdeSct">
-        <input type="image" src="../assets/icons/menu.png" width="100" class="TLBLogo" id="menuMAP">
-
-        <input type="image" src="../assets/icons/Noti.png" width="100" class="notificacao" align="right" id="NotiMAP">
-        </header>
     </div> 
     <br>
     <canvas class="temaMapa container" id="map">
