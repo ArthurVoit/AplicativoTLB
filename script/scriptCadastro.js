@@ -1,4 +1,4 @@
-function validarForm() {
+const validarForm = () => {
     try {
         let nome = document.forms["formcadastro"].nome.value;
         if (nome.length < 5 || nome.length > 64) {
