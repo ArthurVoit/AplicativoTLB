@@ -8,15 +8,13 @@
 </head>
 <body class="bodyRelatorios">
     <header>
-        <div class="navBarRelatorios">
-            <img src="../assets/icons/menu.png" alt="">
-            <h1>Relatórios e Análises</h1>
-            <img src="../assets/icons/Noti.png" alt="">
-        </div>
-        <br>
-        <div class="navBarRelatorios">
-            <h1 class="subtituloRelatorios">Relatórios</h1>
-        </div>
+        <button class="btn" onclick="Menu()">&#9776</button>
+        <ul class="verticalMenu" id="menu">
+            <li><a href="mapa.html">Mapa</a></li>
+            <li><a href="DadosDoUsuario.html">Mapa</a></li>
+            <li><a href="mapa.html">Mapa</a></li>
+            <li><a href="mapa.html">Mapa</a></li>
+        </ul>
     </header>
     <div>
         <div id="chart"></div>
@@ -42,6 +40,20 @@
 
             const chart = new google.visualization.PieChart(container)
             chart.draw(data, options)
+        }
+    </script>
+    <script>
+
+        function Menu(){
+
+            var menu = document.getElementById("menuvert")
+
+            if(menu.style.display === "none") {
+                menu.style.display="block"
+            }else{
+                menu.style.display="none";
+
+            }
         }
     </script>
 </body>

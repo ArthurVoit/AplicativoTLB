@@ -6,16 +6,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../styles/style.css">
   <title>acessibilidade</title>
+  <script src="../script/navBar.js"></script>
 </head>
 
 <body>
   <header>
-        <div class="navBarRelatorios">
-            <img src="../assets/icons/menu.png" alt="">
-            <h1>Dados De Usuario</h1>
-            <img src="../assets/icons/Noti.png" alt="">
-        </div>
-    </header>
+    <div class="navbar">
+      <a href="#"><img src="../assets/icons/Noti.png" alt=""></a>
+      <h1>Dados de Usuário</h1>
+      <button class="nav-button" onclick="toggleMenu()"> ≡</button>
+      <div class="menu" id="menu">
+          <button class="close-button" onclick="toggleMenu()">X</button>
+          <a href="#section1">Seção 1</a>
+          <a href="#section2">Seção 2</a>
+          <a href="#section3">Seção 3</a>
+      </div>
+    </div>
+  </header>
+
   <div class="container">
 
     <div class="header"><div>

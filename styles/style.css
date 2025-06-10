@@ -188,7 +188,7 @@ img .notificacao {
 
 
 
-button {
+.btnPoliticas {
     width: 75%;
     font-size: 100%;
     border-style: none;
@@ -606,4 +606,84 @@ i {
 
 .TextoDadosFlex{
     padding-left: 1%;
+}
+
+/* navBar */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color:#00a94f;
+    padding: 10px 20px;
+    position: relative;
+}
+
+.navbar img {
+    width: 40px;
+    height: auto;
+    background-color: #184d31;
+    border-radius: 50%;
+}
+
+.navbar h1 {
+    flex-grow: 1;
+    text-align: center;
+    color: white;
+    font-size: 20px;
+    margin: 0;
+}
+
+.nav-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 34px;
+    color: white;
+    background-color:#184d31;
+    border-radius: 50%;
+    width: 5%;
+}
+
+.menu {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 20%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.menu a {
+    display: block;
+    text-decoration: none;
+    color: white;
+    padding: 15px;
+    font-size: 18px;
+}
+
+.close-button {
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+    display: block;
+    margin-bottom: 10px;
+}
+
+@media screen and (max-width: 768px) {
+    .menu {
+        width: 50%;
+    }
 }
