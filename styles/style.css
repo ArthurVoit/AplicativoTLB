@@ -561,7 +561,7 @@ body {
 }
 
 i {
-    font-size: 10em;
+    font-size: 5em;
 }
 
 .NomeDadosUsuario h1{
@@ -570,6 +570,7 @@ i {
 
 .flexDadosUsuario{
     display: flex;
+    padding-left: 1%;
 }
 
 .ConfiguracoesDados{
@@ -578,12 +579,31 @@ i {
 
 .ConfiguraçõesDadosIcon{
     display: flex;
+    padding-left: 1%;
 }
 
 .SegurançasDados{
     display: flex;
+    padding-left: 1%;
 }
 
 .AcessibilidadeDados{
     display: flex;
+    padding-left: 1%;
+}
+
+.ConfiguraçõesDadosIcon h2{
+    padding-left: 1%;
+}
+
+.SegurançasDados h2{
+    padding-left: 1%;
+}
+
+.AcessibilidadeDados h2{
+    padding-left: 1%;
+}
+
+.TextoDadosFlex{
+    padding-left: 1%;
 }
