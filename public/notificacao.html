@@ -6,20 +6,51 @@
     <title>Notificações</title>
     <link rel="stylesheet" href="../styles/style.css">
     <script src="../script/navBar.js"></script>
+    <script src="../script/notificacao.js"></script>
 </head>
 <body>
     <header>
-    <div class="navbar">
-      <div class="btnNavBar"><a href="notificacao.html"><img src="../assets/icons/bell.svg" alt=""></a></div>
-      <h1>Dados de Usuário</h1>
-      <button class="nav-button" onclick="toggleMenu()"> ≡</button>
-      <div class="menu" id="menu">
-          <button class="close-button" onclick="toggleMenu()">X</button>
-          <a href="mapa.html">Mapa</a>
-          <a href="dadosDoUsuario.html">Dados do Usuário</a>
-          <a href="relatorios.html">Relatorios</a>
+        <div class="navbar">
+        <div class="btnNavBar"><a href="notificacao.html"><img src="../assets/icons/bell.svg" alt=""></a></div>
+        <h1>Alertas e Notificações</h1>
+        <button class="nav-button" onclick="alternarMenu()"> ≡</button>
+        <div class="menu" id="menu">
+            <button class="close-button" onclick="alternarMenu()">X</button>
+            <a href="mapa.html">Mapa</a>
+            <a href="dadosDoUsuario.html">Dados do Usuário</a>
+            <a href="relatorios.html">Relatorios</a>
+            <a href="consumodeEnergia.html">Consumo de Energia</a>
+            <a href="monitoramentoManutencao.html">Monitoramento e Manutenção</a>
+            <a href="eficienciaOperacional.html">Eficiência Operacional</a>
+        </div>
+        </div>
+    </header>
+    <main>
+      <div class="topico" onclick="alternarNotificacoes(this)">
+        <span>Gerenciamento do Trem</span>
+        <img src="../assets/icons/seta2.png" class="seta" alt="Seta">
       </div>
-    </div>
-  </header>
+      <div class="notificacoes">
+        <p>- É necessário agendar um reparo para o trem</p>
+        <p>- Alerta sobre a gestão do uso do combustível</p>
+      </div>
+      <div class="topico" onclick="alternarNotificacoes(this)">
+        <span>Avisos Sobre Atraso</span>
+        <img src="../assets/icons/seta2.png" class="seta" alt="Seta">
+      </div>
+      <div class="notificacoes">
+        <p>- Tivemos um problema nos trilhos...</p>
+        <p>- A locomotiva esta indo mais lento que o normal...</p>
+      </div>
+      <div class="topico" onclick="alternarNotificacoes(this)">
+        <span>Atualizações de Segurança</span>
+        <img src="../assets/icons/seta2.png" class="seta" alt="Seta">
+      </div>
+      <div class="notificacoes">
+        <p>- Servidor fora do ar às 14:32</p>
+        <p>- Os trilhos foram reparados recentemente.</p>
+      </div>
+    </main>
+
 </body>
 </html>

@@ -24,33 +24,16 @@
         </div>
         </div>
     </header>
-    <div>
-        <div id="chart"></div>
-    </div>
-    <script src="https://www.gstatic.com/charts/loader.js"></script>
-    <script>
-        google.charts.load('current', {packages: ['corechart']});
-        google.charts.setOnLoadCallback(drawChart)
-        
-        function drawChart() {
-            const container = document.querySelector('#chart')
-            const data = new google.visualization.arrayToDataTable([
-                [ 'Consumo de: Hoje', 'Consumo(kWh)' ],
-                [ 'Dia', 125 ],
-                [ 'Tarde', 250],
-                [ 'Noite', 625]
-            ])
-            const options = {
-                title: 'Consumo de: Hoje',
-                height: 400,
-                width: 720
-            }
-
-            const chart = new google.visualization.ColumnChart(container)
-            chart.draw(data, options)
-        }
-    </script>
+    <main>
+        <div class="containerRelatorios">
+            <br>
+            <img src="../assets/img/relatorios.jpeg" alt="" class="imgRelatoriosAnalises">
+            <div class="centroTexto">Relatórios</div>
+            <br>
+            </a><img src="../assets/img/trem.jpg" alt="">
+            <br>
+            <img src="../assets/img/eficienciaOperacional.jpeg" alt="">
+        </div>
+    </main>
 </body>
 </html>
-
-
