@@ -783,7 +783,7 @@ body {
 }
 
 .seta.ativa {
-  transform: rotate(90deg);
+  transform: rotate(-90deg);
 }
 
 /* página geral */
