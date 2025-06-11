@@ -5,17 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Relatórios e Análises</title>
     <link rel="stylesheet" href="../styles/style.css">
+    <script src="../script/navBar.js"></script>
 </head>
 <body class="bodyRelatorios">
     <header>
-        <button class="btn" onclick="Menu()">&#9776</button>
-        <ul class="verticalMenu" id="menu">
-            <li><a href="mapa.html">Mapa</a></li>
-            <li><a href="DadosDoUsuario.html">Mapa</a></li>
-            <li><a href="mapa.html">Mapa</a></li>
-            <li><a href="mapa.html">Mapa</a></li>
-        </ul>
-    </header>
+    <div class="navbar">
+        <div class="btnNavBar"><a href="notificacao.html"><img src="../assets/icons/bell.svg" alt=""></a></div>
+        <h1>Dados de Usuário</h1>
+        <button class="nav-button" onclick="toggleMenu()"> ≡</button>
+        <div class="menu" id="menu">
+            <button class="close-button" onclick="toggleMenu()">X</button>
+            <a href="mapa.html">Mapa</a>
+            <a href="dadosDoUsuario.html">Dados do Usuário</a>
+            <a href="relatorios.html">Relatorios</a>
+        </div>
+        </div>
+  </header>
     <div>
         <div id="chart"></div>
     </div>
