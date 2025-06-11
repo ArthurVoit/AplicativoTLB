@@ -706,3 +706,12 @@ body {
         width: 50%;
     }
 }
+
+.menu {
+    z-index: 9999;
+}
+
+#chart {
+    position: relative;
+    z-index: 1;
+}
