@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,7 +12,7 @@
     <header>
         <div class="navbar">
         <div class="btnNavBar"><a href="notificacao.html"><img src="../assets/icons/bell.svg" alt=""></a></div>
-        <h1>Monitoramento e Manutenção</h1>
+        <h1>Dados do Usuário</h1>
         <button class="nav-button" onclick="alternarMenu()"> ≡</button>
         <div class="menu" id="menu">
             <button class="close-button" onclick="alternarMenu()">X</button>
@@ -25,40 +27,34 @@
     </header>
     <br>
     <main>
-        <div class="NomeDadosUsuario">
+        <div class="dadosUsuario">
              <h1>*Nome*</h1>
-             <div class="flexDadosUsuario">
+             <div class="flex">
                 <i class="bi bi-person-fill"></i>
-                <div class="TextoDadosFlex">
-                  <h2>Idade
-                    <br>
-                    CPF
-                    <br>
-                    ID
-                    <br>
-                    Função
-                  </h2>
+                <div class="textoDadosUsuario">
+                  <h2>Idade</h2>
+                  <h2>CPF</h2>
+                  <h2>ID</h2>
+                  <h2>Cargo</h2>
               </div>
           </div>
         </div>
-    <h1>Configurações</h1>
-    <div class="ConfiguracoesDados">
-        <br>
-        <div class="ConfiguraçõesDadosIcon">
-            <i class="bi bi-gear-fill"></i>
-            <h2>Geral</h2>
-        </div>
-        <br>
-        <div class="SegurançasDados">
-            <i class="bi bi-shield-fill-check"></i>
-            <h2>Seguranças</h2>
-        </div>
-        <br>
-        <div class="AcessibilidadeDados">
-            <i class="bi bi-yelp"></i>
-            <h2>Acessibilidade</h2>
-        </div>
-        <br>
+    <h1 class="configuracoesDados">Configurações</h1>
+    <div class="configuracoesDados">
+        
+        <a href="geral.html" class="iconDadosUsuario">
+        <i class="bi bi-gear-fill"></i>
+        <h2>Geral</h2>
+        </a>
+        <a href="seguranca.html" class="iconDadosUsuario">
+        <i class="bi bi-shield-fill-check"></i>
+        <h2>Seguranças</h2>
+        </a>
+        <a href="acessibilidade.html" class="iconDadosUsuario">
+        <i class="bi bi-yelp"></i>
+        <h2>Acessibilidade</h2>
+        </a>
+
     </div>
     </main>
 

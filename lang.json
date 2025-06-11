@@ -1,0 +1,12 @@
+{
+  "pt": {
+    "title": "Configurações Gerais",
+    "languageSection": "Idioma",
+    "languageButton": "Mudar idioma"
+  },
+  "en": {
+    "title": "General Settings",
+    "languageSection": "Language",
+    "languageButton": "Change language"
+  }
+}
