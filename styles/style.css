@@ -175,36 +175,64 @@ img .notificacao {
 
 /* yelalogin(politica) */
 
-.containerPoliticas {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: #00a94f;
-  border-radius: 50px;
-  padding: 2%;
-  width: 60%;
-  max-width: 500px;
-  min-width: 300px;
-  margin: 5% auto;
-  text-align: center;
-}
-
-.btnPoliticas {
-    width: 100%;
-    font-size: 100%;
-    border-style: none;
-    background-color: #cb6ce6;
-    border-radius: 500px;
-    height: 50px;
-    color: black;
+.bodyPoliticas {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2;
 }
 
 .politicas {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
 }
+
+.containerPoliticas {
+    background-color: #00a94f;
+    border-radius: 50px;
+    padding: 3%;
+    text-align: center;
+    max-width: 600px;
+    width: 90%;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    color: #000;
+}
+
+.containerPoliticas h1 {
+    margin-bottom: 20px;
+    font-size: 28px;
+}
+
+.containerPoliticas p {
+    font-size: 18px;
+    margin: 10px 0;
+    color: #fff;
+}
+
+.containerPoliticas a {
+    text-decoration: none;
+}
+
+.btnPoliticas {
+    border: solid 2px #a361ef;
+    border-radius: 50px;
+    background-color: #a361ef;
+    color: black;
+    font-size: 18px;
+    padding: 10px 25px;
+    margin: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btnPoliticas:hover {
+    text-shadow: 0 0 12px #a361ef;
+    box-shadow: 0 0 12px 1px #a361ef, 0 0 12px 1px #a361ef inset;
+}
+
 /* telalogin(cadastro) */
 
 .bodyTelaCadastro {
@@ -400,6 +428,7 @@ img .notificacao {
 
 #loginForm a {
     text-align: right;
+    font-size: 20px;
 }
 
 /*Esqueceu a Senha*/
