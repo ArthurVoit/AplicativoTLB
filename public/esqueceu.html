@@ -9,22 +9,26 @@
 </head>
 
 <body>
-    <section class="verdeSct">
-        <div class="container">
-            <img class="EsqueceuSenhaLogo" src="../assets/icons/TlbLogo.png" alt="">
+    <section class="esqueceuSenhaSection">
+        <div class="containerEsqueceuSenha">
+            <img class="esqueceuSenhaLogo" src="../assets/icons/TlbLogo.png" alt="">
             <h1>Recuperar Senha</h1>
-            <form>
-                <label for="email"></label>
-                <input type="email" id="emailEsqueceu" name="email" placeholder="E-mail" required>
-                <br>
-                <br>
-                <button type="submit">Enviar Solicitação</button>
+            <form class="esqueceuSenhaForm">
+                <div class="inputContainer">
+                    <label for="email"></label>
+                    <input type="email" id="emailEsqueceu" name="email" placeholder="E-mail" required>
+                    <br>
+                    <br>      
+                </div>
+                <button type="submit" class="buttonRoxoLogin">Enviar Solicitação</button>
+                <div class="inputContainer"></div>
+                    <input type="password" id="senhaEsqueceu" name="senha" placeholder="Senha">
+                <div class="inputContainer"></div>
                 <p class="message">Sua solicitação foi enviada.</p>
                 <p>Enviamos um código para seu email, insira ele aqui.</p>
-                <input type="password" id="senhaEsqueceu" name="senha" placeholder="Senha">
                 <br>
                 <br>
-                <button type="submit">Confirmar</button>
+                <button type="submit" class="buttonRoxoLogin">Confirmar</button>
             </form>
         </div>
     </section>   
