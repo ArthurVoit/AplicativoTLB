@@ -872,12 +872,12 @@ body {
 
 .paginaSeguranca {
   max-width: 1200px;
-  margin: 60px auto;
-  padding: 50px;
+  margin: 20px auto;
+  padding: 30px;
   background-color: #ffffff;
   border-radius: 12px;
   font-family: 'Segoe UI', sans-serif;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 8px 8px rgba(0, 0, 0, 0.1);
 }
 
 .paginaSeguranca h1 {
@@ -986,12 +986,12 @@ body {
 
 .paginaAcessibilidade {
   max-width: 1200px;
-  margin: 60px auto;
-  padding: 50px;
+  margin: 20px auto;
+  padding: 30px;
   background-color: #ffffff;
   border-radius: 12px;
   font-family: 'Segoe UI', sans-serif;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 8px 8px rgba(0, 0, 0, 0.1);
 }
 
 .paginaAcessibilidade h1 {
