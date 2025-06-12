@@ -1,7 +1,7 @@
 //import area
 import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.177.0/build/three.module.min.js';
 import { GLTFLoader } from 'https://cdn.jsdelivr.net/npm/three@0.177.0/examples/jsm/loaders/GLTFLoader.js';
-
+import { Raycaster } from 'three';}
 
 const scene = new THREE.Scene();
 
@@ -19,7 +19,23 @@ document.body.appendChild(renderer.domElement);
 
 //main area
 const loader = new GLTFLoader();
-loader.load('../assets/3D modules/trilhos -D.gltf', (gltf) => {
+
+loader.load('../assets/3D modules/FLOREST.gltf', (gltf) => {
+    gltf.scene.scale.set(102, 102, 102);
+    scene.add(gltf.scene);
+}, undefined, (error) => {
+    console.error('Error loading GLTF model:', error);
+});
+
+loader.load('../assets/3D modules/trilhos -D -.gltf', (gltf) => {
+    gltf.scene.scale.set(102, 102, 102);
+    scene.add(gltf.scene);
+}, undefined, (error) => {
+    console.error('Error loading GLTF model:', error);
+});
+
+//trail -d 
+loader.load('../assets/3D modules/trilho -d.gltf', (gltf) => {
     gltf.scene.scale.set(102, 102, 102);
     scene.add(gltf.scene);
 }, undefined, (error) => {
@@ -55,19 +71,22 @@ const light = new THREE.AmbientLight(0xffffff, 1);
 
 //interectability
 const raycaster = new THREE.Raycaster(); 
-
 document.addEventListener("mousedown", onmousedown);
 
 function onmousedown(event){
-    console.log("STOP TOUCHING")
+    console.log("click confirmed")
+    
     const coords = new THREE.Vector2(
         (event.clientX / renderer.domElement.clientWidth) * 2 - 1, 
         (event.clientY / renderer.domElement.clientHeight) * 2 + 1
     );
     raycaster.setFromCamera(coords, camera);
+
     const intersections = raycaster.intersectObjects(scene.children, true);
     if (intersections.length > 0){
-        console.log(intersections)
+        const selectedObject = intersections[0].object;
+        const color = new THREE.Color(0, 0, 20)
+        selectedObject.material.color = color;
     }
 };
 
