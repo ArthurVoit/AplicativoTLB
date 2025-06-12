@@ -1,7 +1,7 @@
 //import area
 import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.177.0/build/three.module.min.js';
 import { GLTFLoader } from 'https://cdn.jsdelivr.net/npm/three@0.177.0/examples/jsm/loaders/GLTFLoader.js';
-import { Raycaster } from 'three';
+
 
 const scene = new THREE.Scene();
 
@@ -59,9 +59,10 @@ const raycaster = new THREE.Raycaster();
 document.addEventListener("mousedown", onmousedown);
 
 function onmousedown(event){
+    console.log("STOP TOUCHING")
     const coords = new THREE.Vector2(
-        (event.clientX / renderer.domElement.clientWidth) * 2 
-        (event.clientY / renderer.domElement.clientHeight) * 2 
+        (event.clientX / renderer.domElement.clientWidth) * 2 - 1, 
+        (event.clientY / renderer.domElement.clientHeight) * 2 + 1
     );
     raycaster.setFromCamera(coords, camera);
     const intersections = raycaster.intersectObjects(scene.children, true);
@@ -75,6 +76,5 @@ scene.add(light);
 function animate() {
     requestAnimationFrame(animate);
     renderer.render(scene, camera);
-}
-
+};
 animate();
