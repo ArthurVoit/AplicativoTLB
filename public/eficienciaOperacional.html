@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="../script/navBar.js"></script>
+    <link rel="stylesheet" href="../styles/style.css">
 </head>
 <body>
     <header>
@@ -22,5 +24,50 @@
         </div>
         </div>
     </header>
+    <main>
+        <div class="grafico-container">
+        <div id="chart3"></div>
+    </div>
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <script>
+        google.charts.load('current', { packages: ['corechart'] });
+        google.charts.setOnLoadCallback(drawResponsiveChart);
+
+        let chart, data;
+
+        function drawResponsiveChart() {
+            const container = document.getElementById('chart3');
+
+            data = google.visualization.arrayToDataTable([
+                ['Período', 'Consumo(kWh)'],
+                ['Dia', 125],
+                ['Tarde', 250],
+                ['Noite', 625]
+            ]);
+
+            drawChart(container.offsetWidth);
+            }
+
+            function drawChart(width) {
+            const container = document.getElementById('chart3');
+
+            const options = {
+                title: 'Consumo de: Hoje',
+                height: 400,
+                width: width
+            };
+
+            chart = new google.visualization.LineChart(container);
+            chart.draw(data, options);
+            }
+
+            
+            window.addEventListener('resize', () => {
+            const container = document.getElementById('chart3');
+            drawChart(container.offsetWidth);
+            });
+
+    </script>
+    </main>
 </body>
 </html>

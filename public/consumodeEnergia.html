@@ -11,7 +11,7 @@
     <header>
         <div class="navbar">
         <div class="btnNavBar"><a href="notificacao.html"><img src="../assets/icons/bell.svg" alt=""></a></div>
-        <h1>Monitoramento e Manutenção</h1>
+        <h1>Consumo de Energia</h1>
         <button class="nav-button" onclick="alternarMenu()"> ≡</button>
         <div class="menu" id="menu">
             <button class="close-button" onclick="alternarMenu()">X</button>
@@ -24,31 +24,49 @@
         </div>
         </div>
     </header>
-    <div>
-        <div id="chart"></div>
+    <div class="grafico-container">
+        <div id="chart3"></div>
     </div>
     <script src="https://www.gstatic.com/charts/loader.js"></script>
     <script>
-        google.charts.load('current', {packages: ['corechart']});
-        google.charts.setOnLoadCallback(drawChart)
-        
-        function drawChart() {
-            const container = document.querySelector('#chart')
-            const data = new google.visualization.arrayToDataTable([
-                [ 'Consumo de: Hoje', 'Consumo(kWh)' ],
-                [ 'Dia', 125 ],
-                [ 'Tarde', 250],
-                [ 'Noite', 625]
-            ])
+        google.charts.load('current', { packages: ['corechart'] });
+        google.charts.setOnLoadCallback(drawResponsiveChart);
+
+        let chart, data;
+
+        function drawResponsiveChart() {
+            const container = document.getElementById('chart3');
+
+            data = google.visualization.arrayToDataTable([
+                ['Período', 'Consumo(kWh)'],
+                ['Dia', 125],
+                ['Tarde', 250],
+                ['Noite', 625]
+            ]);
+
+            drawChart(container.offsetWidth);
+            }
+
+            function drawChart(width) {
+            const container = document.getElementById('chart3');
+
             const options = {
                 title: 'Consumo de: Hoje',
                 height: 400,
-                width: 720
+                width: width
+            };
+
+            chart = new google.visualization.ColumnChart(container);
+            chart.draw(data, options);
             }
 
-            const chart = new google.visualization.ColumnChart(container)
-            chart.draw(data, options)
-        }
+            
+            window.addEventListener('resize', () => {
+            const container = document.getElementById('chart3');
+            drawChart(container.offsetWidth);
+            });
+
+
     </script>
 </body>
 </html>

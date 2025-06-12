@@ -734,7 +734,23 @@ body {
 #chart {
     position: relative;
     z-index: 1;
+    
 }
+
+.grafico-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+#chart3 {
+  width: 100%;
+  max-width: 800px;
+  box-sizing: border-box;
+}
+
 
 .charts-container {
   display: flex;
@@ -789,7 +805,7 @@ body {
 /* página geral */
 
 .paginaGeral {
-  max-width: 800px;
+  max-width: 1200px;
   margin: 60px auto;
   padding: 30px;
   background-color: #ffffff;
@@ -799,10 +815,19 @@ body {
 }
 
 .paginaGeral h1 {
-  font-size: 28px;
+  font-size: 32px;
   color: #2c3e50;
   margin-bottom: 40px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
+
+.paginaGeral h1 i {
+  font-size: 30px;
+  color: #2c3e50;
+}
+
 
 .blocoIdioma {
   background-color: #ecf0f1;
@@ -835,5 +860,179 @@ body {
 }
 
 .btnIdioma i {
+  font-size: 20px;
+}
+
+/* página segurança(tá quase igual o de geral) */
+
+.paginaSeguranca {
+  max-width: 1200px;
+  margin: 60px auto;
+  padding: 50px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  font-family: 'Segoe UI', sans-serif;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.paginaSeguranca h1 {
+  font-size: 32px;
+  color: #2c3e50;
+  margin-bottom: 40px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.paginaSeguranca h1 i {
+  font-size: 30px;
+  color: #2c3e50;
+}
+
+.blocoSenha {
+  background-color: #ecf0f1;
+  padding: 30px 35px;
+  border-radius: 10px;
+}
+
+.blocoSenha h2 {
+  margin: 0 0 20px 0;
+  color: #34495e;
+  font-size: 22px;
+}
+
+.btnSenha {
+  background-color: blueviolet;
+  color: white;
+  border: none;
+  padding: 14px 24px;
+  border-radius: 6px;
+  font-size: 17px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btnSenha:hover {
+  background-color: rgb(89, 57, 119);
+}
+
+.btnSenha i {
+  font-size: 20px;
+}
+
+/* página de acessibilidade */ 
+
+.blocoCores {
+  background-color: #ecf0f1;
+  padding: 30px 35px;
+  border-radius: 10px;
+  margin-top: 40px;
+}
+
+.blocoCores h2 {
+  margin: 0 0 20px;
+  color: #34495e;
+  font-size: 22px;
+}
+
+.grupoBotoesCores {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.grupoBotoesCores button {
+  background-color: #bdc3c7;
+  color: #2c3e50;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.grupoBotoesCores button:hover {
+  background-color: #95a5a6;
+}
+
+.blocoAjuda {
+  margin-top: 50px;
+  text-align: center;
+}
+
+.blocoAjuda p {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.blocoAjuda a {
+  font-size: 17px;
+  color: #2980b9;
+  text-decoration: none;
+}
+
+.blocoAjuda a:hover {
+  text-decoration: underline;
+}
+
+.paginaAcessibilidade {
+  max-width: 1200px;
+  margin: 60px auto;
+  padding: 50px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  font-family: 'Segoe UI', sans-serif;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.paginaAcessibilidade h1 {
+  font-size: 32px;
+  color: #2c3e50;
+  margin-bottom: 40px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.paginaAcessibilidade h1 i {
+  font-size: 30px;
+  color: #2c3e50;
+}
+
+.blocoAcessibilidade {
+  background-color: #ecf0f1;
+  padding: 30px 35px;
+  border-radius: 10px;
+}
+
+.blocoAcessibilidade h2 {
+  margin: 0 0 20px 0;
+  color: #34495e;
+  font-size: 22px;
+}
+
+.btnAcessibilidade {
+  background-color: #8e44ad;
+  color: white;
+  border: none;
+  padding: 14px 24px;
+  border-radius: 6px;
+  font-size: 17px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btnAcessibilidade:hover {
+  background-color: #6c3483;
+}
+
+.btnAcessibilidade i {
   font-size: 20px;
 }

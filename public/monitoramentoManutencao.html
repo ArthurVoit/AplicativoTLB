@@ -25,15 +25,50 @@
         </div>
     </header>
     <main>
-        <div class="containerRelatorios">
-            <br>
-            <img src="../assets/img/relatorios.jpeg" alt="" class="imgRelatoriosAnalises">
-            <div class="centroTexto">Relatórios</div>
-            <br>
-            </a><img src="../assets/img/trem.jpg" alt="">
-            <br>
-            <img src="../assets/img/eficienciaOperacional.jpeg" alt="">
-        </div>
+        <div class="grafico-container">
+        <div id="chart3"></div>
+    </div>
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <script>
+        google.charts.load('current', { packages: ['corechart'] });
+        google.charts.setOnLoadCallback(drawResponsiveChart);
+
+        let chart, data;
+
+        function drawResponsiveChart() {
+            const container = document.getElementById('chart3');
+
+            data = google.visualization.arrayToDataTable([
+                ['Período', 'Consumo(kWh)'],
+                ['Dia', 125],
+                ['Tarde', 250],
+                ['Noite', 625]
+            ]);
+
+            drawChart(container.offsetWidth);
+            }
+
+            function drawChart(width) {
+            const container = document.getElementById('chart3');
+
+            const options = {
+                title: 'Consumo de: Hoje',
+                height: 400,
+                width: width
+            };
+
+            chart = new google.visualization.AreaChart(container);
+            chart.draw(data, options);
+            }
+
+            
+            window.addEventListener('resize', () => {
+            const container = document.getElementById('chart3');
+            drawChart(container.offsetWidth);
+            });
+
+
+    </script>
     </main>
 </body>
 </html>
