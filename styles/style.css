@@ -226,14 +226,14 @@ img .notificacao {
 }
 
 .formCadastro i {
-    font-size: 24px;
+    font-size: 34px;
     margin-bottom: 10px;
     color: #000;
     transition: 0.5s;
 }
 
 .formCadastro i:hover {
-    color: purple;
+    color: rgb(126, 111, 111);
 }
 
 .imagemSetaCadastro {
@@ -709,6 +709,11 @@ body {
     color: white;
     padding: 15px;
     font-size: 18px;
+    transition: .2s;
+}
+
+.menu a:hover {
+    color: blueviolet;
 }
 
 .close-button {
