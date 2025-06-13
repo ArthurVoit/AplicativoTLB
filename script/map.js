@@ -18,27 +18,17 @@ document.body.appendChild(renderer.domElement);
 
 //main area
 const loader = new GLTFLoader();
-const namedMeshes = {};
-loader.load('../assets/3D modules/FLOREST.gltf',
+loader.load('../assets/3Dmodules/FLOREST.gltf',
      (gltf) => {
     gltf.scene.scale.set(102, 102, 102);
-    gltf.scene.traverse((child) => {
-        if (child.isMesh) {
-            namedMeshes[child.name] = child; 
-        }
-    });
+        
     scene.add(gltf.scene);
 }, undefined, (error) => {
     console.error('Error loading GLTF model:', error);
 });
 
-loader.load('../assets/3D modules/trilhosD.gltf', (gltf) => {
+loader.load('../assets/3Dmodules/trilhosDSelectable.gltf', (gltf) => {
     gltf.scene.scale.set(102, 102, 102);
-    gltf.scene.traverse((child) => {
-        if (child.isMesh) {
-            namedMeshes[child.name] = child; 
-        }
-    });
 
     scene.add(gltf.scene);
 }, undefined, (error) => {
@@ -46,27 +36,17 @@ loader.load('../assets/3D modules/trilhosD.gltf', (gltf) => {
 });
 
 //trail -d 
-loader.load('../assets/3D modules/trilhod.gltf', (gltf) => {
+loader.load('../assets/3Dmodules/trilhodSelectable.gltf', (gltf) => {
     gltf.scene.scale.set(102, 102, 102);
-    gltf.scene.traverse((child) => {
-        if (child.isMesh) {
-            namedMeshes[child.name] = child; 
-        }
-    });
-
     scene.add(gltf.scene);
 }, undefined, (error) => {
     console.error('Error loading GLTF model:', error);
 });
 
 //Turn1 button
-loader.load('../assets/3D modules/T1B.gltf', (gltf) => {
+loader.load('../assets/3Dmodules/T1B.gltf', (gltf) => {
     gltf.scene.scale.set(102, 102, 102);
-    gltf.scene.traverse((child) => {
-        if (child.isMesh) {
-            namedMeshes[child.name] = child; 
-        }
-    });
+  
     scene.add(gltf.scene);
 }, undefined, (error) => {
     console.error('Error loading GLTF model:', error);
@@ -74,26 +54,17 @@ loader.load('../assets/3D modules/T1B.gltf', (gltf) => {
 
 
 //Turn2 button
-loader.load('../assets/3D modules/T2B.gltf', (gltf) => {
+loader.load('../assets/3Dmodules/T2B.gltf', (gltf) => {
     gltf.scene.scale.set(102, 102, 102);
-    gltf.scene.traverse((child) => {
-        if (child.isMesh) {
-            namedMeshes[child.name] = child; 
-        }
-    });
     scene.add(gltf.scene);
 }, undefined, (error) => {
     console.error('Error loading GLTF model:', error);
 });
 
 //Switch Sides button
-loader.load('../assets/3D modules/SSB.gltf', (gltf) => {
+loader.load('../assets/3Dmodules/SSB.gltf', (gltf) => {
     gltf.scene.scale.set(102, 102, 102);
-    gltf.scene.traverse((child) => {
-        if (child.isMesh) {
-            namedMeshes[child.name] = child; 
-        }
-    });
+
     scene.add(gltf.scene);
 }, undefined, (error) => {
     console.error('Error loading GLTF model:', error);
@@ -113,11 +84,9 @@ function onmousedown(event){
         -(event.clientY / window.innerHeight) * 2 + 1 
     );
     raycaster.setFromCamera(coords, camera);
-    const selectable = [] 
-      selectable.push("trilhod","trilhoD") ;
-      raycaster.intersectObjects(selectable , true);
-
+    
     const intersections = raycaster.intersectObjects(scene.children, true);
+    const selectable = intersections.filter(o=> o.object.name && o.object.name.includes("Selectable"))
     if (intersections.length > 0) {
         const selectedObject = intersections[0].object;
         const color = new THREE.Color(0, 0, 1); 
