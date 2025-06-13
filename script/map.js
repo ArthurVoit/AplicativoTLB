@@ -1,7 +1,6 @@
 //import area
 import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.177.0/build/three.module.min.js';
 import { GLTFLoader } from 'https://cdn.jsdelivr.net/npm/three@0.177.0/examples/jsm/loaders/GLTFLoader.js';
-import { Raycaster } from 'three';}
 
 const scene = new THREE.Scene();
 
@@ -19,24 +18,42 @@ document.body.appendChild(renderer.domElement);
 
 //main area
 const loader = new GLTFLoader();
-
-loader.load('../assets/3D modules/FLOREST.gltf', (gltf) => {
+const namedMeshes = {};
+loader.load('../assets/3D modules/FLOREST.gltf',
+     (gltf) => {
     gltf.scene.scale.set(102, 102, 102);
+    gltf.scene.traverse((child) => {
+        if (child.isMesh) {
+            namedMeshes[child.name] = child; 
+        }
+    });
     scene.add(gltf.scene);
 }, undefined, (error) => {
     console.error('Error loading GLTF model:', error);
 });
 
-loader.load('../assets/3D modules/trilhos -D -.gltf', (gltf) => {
+loader.load('../assets/3D modules/trilhosD.gltf', (gltf) => {
     gltf.scene.scale.set(102, 102, 102);
+    gltf.scene.traverse((child) => {
+        if (child.isMesh) {
+            namedMeshes[child.name] = child; 
+        }
+    });
+
     scene.add(gltf.scene);
 }, undefined, (error) => {
     console.error('Error loading GLTF model:', error);
 });
 
 //trail -d 
-loader.load('../assets/3D modules/trilho -d.gltf', (gltf) => {
+loader.load('../assets/3D modules/trilhod.gltf', (gltf) => {
     gltf.scene.scale.set(102, 102, 102);
+    gltf.scene.traverse((child) => {
+        if (child.isMesh) {
+            namedMeshes[child.name] = child; 
+        }
+    });
+
     scene.add(gltf.scene);
 }, undefined, (error) => {
     console.error('Error loading GLTF model:', error);
@@ -45,6 +62,11 @@ loader.load('../assets/3D modules/trilho -d.gltf', (gltf) => {
 //Turn1 button
 loader.load('../assets/3D modules/T1B.gltf', (gltf) => {
     gltf.scene.scale.set(102, 102, 102);
+    gltf.scene.traverse((child) => {
+        if (child.isMesh) {
+            namedMeshes[child.name] = child; 
+        }
+    });
     scene.add(gltf.scene);
 }, undefined, (error) => {
     console.error('Error loading GLTF model:', error);
@@ -54,6 +76,11 @@ loader.load('../assets/3D modules/T1B.gltf', (gltf) => {
 //Turn2 button
 loader.load('../assets/3D modules/T2B.gltf', (gltf) => {
     gltf.scene.scale.set(102, 102, 102);
+    gltf.scene.traverse((child) => {
+        if (child.isMesh) {
+            namedMeshes[child.name] = child; 
+        }
+    });
     scene.add(gltf.scene);
 }, undefined, (error) => {
     console.error('Error loading GLTF model:', error);
@@ -62,6 +89,11 @@ loader.load('../assets/3D modules/T2B.gltf', (gltf) => {
 //Switch Sides button
 loader.load('../assets/3D modules/SSB.gltf', (gltf) => {
     gltf.scene.scale.set(102, 102, 102);
+    gltf.scene.traverse((child) => {
+        if (child.isMesh) {
+            namedMeshes[child.name] = child; 
+        }
+    });
     scene.add(gltf.scene);
 }, undefined, (error) => {
     console.error('Error loading GLTF model:', error);
@@ -71,22 +103,32 @@ const light = new THREE.AmbientLight(0xffffff, 1);
 
 //interectability
 const raycaster = new THREE.Raycaster(); 
-document.addEventListener("mousedown", onmousedown);
+renderer.domElement.addEventListener("click", onmousedown);
 
 function onmousedown(event){
     console.log("click confirmed")
     
     const coords = new THREE.Vector2(
-        (event.clientX / renderer.domElement.clientWidth) * 2 - 1, 
-        (event.clientY / renderer.domElement.clientHeight) * 2 + 1
+        (event.clientX / window.innerWidth) * 2 - 1,
+        -(event.clientY / window.innerHeight) * 2 + 1 
     );
     raycaster.setFromCamera(coords, camera);
+    const selectable = [] 
+      selectable.push("trilhod","trilhoD") ;
+      raycaster.intersectObjects(selectable , true);
 
     const intersections = raycaster.intersectObjects(scene.children, true);
-    if (intersections.length > 0){
+    if (intersections.length > 0) {
         const selectedObject = intersections[0].object;
-        const color = new THREE.Color(0, 0, 20)
-        selectedObject.material.color = color;
+        const color = new THREE.Color(0, 0, 1); 
+    
+        if (selectedObject.material) {
+            selectedObject.material.color.set(0,0,1);
+        } else if (selectedObject.parent) {
+            selectedObject.parent.traverse((child) => {
+                if (child.isMesh) child.material.color.set(color);
+            });
+        }
     }
 };
 
