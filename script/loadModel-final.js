@@ -44,6 +44,9 @@ loader.load('../assets/3Dmodules/trainv1.gltf',
     trem = gltf.scene;
     trem.scale.set(102, 102, 102);
     trem.rotation.set(Math.PI / 2.3, Math.PI, 33);
+    const boundingBox = new THREE.Box3().setFromObject(trem);
+    const center = boundingBox.getCenter(new THREE.Vector3());
+    trem.position.sub(center); // Ajusta posição
     cena.add(trem);
   },
   undefined,
