@@ -2,6 +2,7 @@
 import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.177.0/build/three.module.min.js';
 import { GLTFLoader } from 'https://cdn.jsdelivr.net/npm/three@0.177.0/examples/jsm/loaders/GLTFLoader.js';
 
+
 const scene = new THREE.Scene();
 
 
@@ -17,16 +18,18 @@ document.body.appendChild(renderer.domElement);
 //loaded mesh
 
 //main area
+const namedMeshes = {};
 const loader = new GLTFLoader();
 loader.load('../assets/3Dmodules/FLOREST.gltf',
-     (gltf) => {
-    gltf.scene.scale.set(102, 102, 102);
-        
-    scene.add(gltf.scene);
-}, undefined, (error) => {
-    console.error('Error loading GLTF model:', error);
-});
+    (gltf) => {
 
+        gltf.scene.scale.set(102, 102, 102);
+
+        scene.add(gltf.scene);
+    }, undefined, (error) => {
+        console.error('Error loading GLTF model:', error);
+    });
+//traintrack - 1 
 loader.load('../assets/3Dmodules/trilhosDSelectable.gltf', (gltf) => {
     gltf.scene.scale.set(102, 102, 102);
 
@@ -35,9 +38,10 @@ loader.load('../assets/3Dmodules/trilhosDSelectable.gltf', (gltf) => {
     console.error('Error loading GLTF model:', error);
 });
 
-//trail -d 
+//train track - 2
 loader.load('../assets/3Dmodules/trilhodSelectable.gltf', (gltf) => {
     gltf.scene.scale.set(102, 102, 102);
+
     scene.add(gltf.scene);
 }, undefined, (error) => {
     console.error('Error loading GLTF model:', error);
@@ -46,7 +50,8 @@ loader.load('../assets/3Dmodules/trilhodSelectable.gltf', (gltf) => {
 //Turn1 button
 loader.load('../assets/3Dmodules/T1B.gltf', (gltf) => {
     gltf.scene.scale.set(102, 102, 102);
-  
+
+
     scene.add(gltf.scene);
 }, undefined, (error) => {
     console.error('Error loading GLTF model:', error);
@@ -56,7 +61,7 @@ loader.load('../assets/3Dmodules/T1B.gltf', (gltf) => {
 //Turn2 button
 loader.load('../assets/3Dmodules/T2B.gltf', (gltf) => {
     gltf.scene.scale.set(102, 102, 102);
-    scene.add(gltf.scene);
+   scene.add(gltf.scene);
 }, undefined, (error) => {
     console.error('Error loading GLTF model:', error);
 });
@@ -73,35 +78,47 @@ loader.load('../assets/3Dmodules/SSB.gltf', (gltf) => {
 const light = new THREE.AmbientLight(0xffffff, 1);
 
 //interectability
-const raycaster = new THREE.Raycaster(); 
+const raycaster = new THREE.Raycaster();
 renderer.domElement.addEventListener("click", onmousedown);
 
-function onmousedown(event){
+function onmousedown(event) {
     console.log("click confirmed")
-    
+
     const coords = new THREE.Vector2(
         (event.clientX / window.innerWidth) * 2 - 1,
-        -(event.clientY / window.innerHeight) * 2 + 1 
+        -(event.clientY / window.innerHeight) * 2 + 1
     );
     raycaster.setFromCamera(coords, camera);
-    
+
     const intersections = raycaster.intersectObjects(scene.children, true);
-    const selectable = intersections.filter(o=> o.object.name && o.object.name.includes("Selectable"))
-    if (intersections.length > 0) {
-        const selectedObject = intersections[0].object;
-        const color = new THREE.Color(0, 0, 1); 
-    
+
+    //filter to only "Selectable" objects
+    const selectable = intersections.filter(intersection => 
+        intersection.object.name.includes("Selectable") );
+   
+
+    if (selectable.length > 0) {
+        const selectedObject = selectable[0].object;
+        console.log("Selected Object Name:", selectedObject.object.name);
+
+        const color = new THREE.Color(0, 0, 1); // Blue
+
         if (selectedObject.material) {
-            selectedObject.material.color.set(0,0,1);
-        } else if (selectedObject.parent) {
-            selectedObject.parent.traverse((child) => {
-                if (child.isMesh) child.material.color.set(color);
+            selectedObject.material.color.set(color);
+        } else {
+            selectedObject.traverse((child) => {
+                if (child.isMesh && child.material) {
+                    child.material.color.set(color);
+                }
             });
         }
     }
-};
+}
 
 scene.add(light);
+scene.traverse((obj) => {
+    if (obj.isMesh) console.log("Mesh found:", object.name);
+});
 
 function animate() {
     requestAnimationFrame(animate);
