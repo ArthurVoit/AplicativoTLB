@@ -1,4 +1,5 @@
 <?php
+    #include ../db.php
     $mysqli = new mysqli("localhost", "root", "root", "tlb_sa");
     if ($mysqli->connect_errno) {
         die("Erro de conexão: " . $mysqli->connect_error);
@@ -73,8 +74,9 @@
                     <br>
                     <a href="mapa.html" class="buttonRoxoLogin">Entrar</a>
                     <a href="cadastro.html" class="buttonRoxoLogin">Cadastrar-se</a>
+                    <button type="submit">Entrar</button>
                 </form>
-                <?php endif; ?>
+                
             </div>
         </div>
     </section>
