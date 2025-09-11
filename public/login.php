@@ -1,3 +1,42 @@
+<?php
+    $mysqli = new mysqli("localhost", "root", "root", "tlb_sa");
+    if ($mysqli->connect_errno) {
+        die("Erro de conexão: " . $mysqli->connect_error);
+    }
+
+    session_start();
+
+    if (isset($_GET['logout'])) {
+        session_destroy();
+        header("Location: login.php");
+        exit;
+    }
+
+    $msg = "";
+    if ($_SERVER["REQUEST_METHOD"] === "POST") {
+        $user = $_POST["username"] ?? "";
+        $pass = $_POST["password"] ?? "";
+
+        $stmt = $mysqli->prepare("SELECT id, username, senha FROM usuarios WHERE username=? AND senha=?");
+        $stmt->bind_param("ss", $user, $pass);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $dados = $result->fetch_assoc();
+        $stmt->close();
+
+        if ($dados) {
+            $_SESSION["user_id"] = $dados["id"];
+            $_SESSION["username"] = $dados["username"];
+            header("Location: login.php");
+            exit;
+        } else {
+            $msg = "Usuário ou senha incorretos!";
+        }
+    }
+
+
+?>
+
 <html lang="en">
 
 <head>
@@ -17,7 +56,8 @@
             <img id="imgLogin" src="../assets/icons/TlbLogo.png" alt="">
             <div class="usuariosenha">
                 <h2>Usuário</h2>
-                <form action="" id="loginForm">
+                <?php if ($msg): ?><p class="msg"><?= $msg ?></p><?php endif; ?>
+                <form method="post" id="loginForm">
                     <div class="inputContainer">
                         <input type="text" id="nome" name="nome" placeholder="usuário">
                     <i class="bi bi-person-fill"></i>
@@ -34,6 +74,7 @@
                     <a href="mapa.html" class="buttonRoxoLogin">Entrar</a>
                     <a href="cadastro.html" class="buttonRoxoLogin">Cadastrar-se</a>
                 </form>
+                <?php endif; ?>
             </div>
         </div>
     </section>
