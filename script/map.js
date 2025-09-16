@@ -18,7 +18,7 @@ document.body.appendChild(renderer.domElement);
 
 //main area
 const loader = new GLTFLoader();
-loader.load('../assets/3Dmodules/FLOREST.gltf',
+loader.load('../assets/3Dmodules/FLORESTs.gltf',
      (gltf) => {
     gltf.scene.scale.set(102, 102, 102);
         
@@ -72,35 +72,44 @@ loader.load('../assets/3Dmodules/SSB.gltf', (gltf) => {
 
 const light = new THREE.AmbientLight(0xffffff, 1);
 
-//interectability
-const raycaster = new THREE.Raycaster(); 
-renderer.domElement.addEventListener("click", onmousedown);
 
-function onmousedown(event){
-    console.log("click confirmed")
-    
-    const coords = new THREE.Vector2(
-        (event.clientX / window.innerWidth) * 2 - 1,
-        -(event.clientY / window.innerHeight) * 2 + 1 
-    );
-    raycaster.setFromCamera(coords, camera);
-    
-    const intersections = raycaster.intersectObjects(scene.children, true);
-    const selectable = intersections.filter(intersection => 
-        intersection.childt.name && intersection.child.name.includes("Selectable")); 
-           if (selectable.length > 0) {
-        const selectedObject = selectable[0].object;
-        const color = new THREE.Color(0, 0, 1); 
-    
-        if (selectedObject.material) {
-            selectedObject.material.color.set(0,0,1);
-        } else if (selectedObject.parent) {
-            selectedObject.parent.traverse((child) => {
-                if (child.isMesh) child.material.color.set(color);
-            });
+
+
+
+
+//interectability 
+// In your Three.js setup:
+const raycaster = new THREE.Raycaster();
+function onDocumentMouseDown(event) {
+  event.preventDefault();
+
+    const mouse = new THREE.Vector2();
+    mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+    mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+
+    raycaster.setFromCamera(mouse, camera);
+
+    const intersects = raycaster.intersectObjects(scene.children, true);
+
+    if (intersects.length > 0) {
+        // Filter out non-selectable meshes
+        const selectableIntersects = intersects.filter(intersect => {
+            // Replace 'myNonSelectableMesh' with your mesh's name or a custom property
+            return intersect.object.name !== 'mesh0_mesh_124'; 
+            // Or, if you have a reference: return intersect.object !== nonSelectableMeshReference;
+        });
+
+        if (selectableIntersects.length > 0) {
+            // Process the first selectable object
+            const firstSelectableObject = selectableIntersects[0].object;
+            firstSelectableObject.material.color.set(0x0000ff);
+            // Your selection logic here
+            console.log("Selected object:", firstSelectableObject);
         }
     }
-};
+}
+
+document.addEventListener('mousedown', onDocumentMouseDown, false);
 
 scene.add(light);
 
