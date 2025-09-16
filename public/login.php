@@ -15,10 +15,10 @@
 
     $msg = "";
     if ($_SERVER["REQUEST_METHOD"] === "POST") {
-        $user = $_POST["username"] ?? "";
-        $pass = $_POST["password"] ?? "";
+        $user = $_POST["nome_usuario"] ?? "";
+        $pass = $_POST["senha_usuario"] ?? "";
 
-        $stmt = $mysqli->prepare("SELECT id, username, senha FROM usuarios WHERE username=? AND senha=?");
+        $stmt = $mysqli->prepare("SELECT id_usuario, nome_usuario, senha_usuario FROM usuario WHERE nome_usuario=? AND senha_usuario=?");
         $stmt->bind_param("ss", $user, $pass);
         $stmt->execute();
         $result = $stmt->get_result();
@@ -26,9 +26,9 @@
         $stmt->close();
 
         if ($dados) {
-            $_SESSION["user_id"] = $dados["id"];
-            $_SESSION["username"] = $dados["username"];
-            header("Location: login.php");
+            $_SESSION["nome_usuario"] = $dados["nome_usuario"];
+            $_SESSION["senha_usuario"] = $dados["senha_usuario"];
+            header("Location: mapa.php");
             exit;
         } else {
             $msg = "Usuário ou senha incorretos!";
@@ -60,21 +60,20 @@
                 <?php if ($msg): ?><p class="msg"><?= $msg ?></p><?php endif; ?>
                 <form method="post" id="loginForm">
                     <div class="inputContainer">
-                        <input type="text" id="nome" name="nome" placeholder="usuário">
+                        <input type="text" id="nome_usuario" name="nome_usuario" placeholder="usuário">
                     <i class="bi bi-person-fill"></i>
                     </div>
                     
                     <div class="inputContainer">
-                        <label for="senha"></label>
-                        <input type="password" id="senha" name="senha"  placeholder="senha">
+                        <label for="senha_usuario"></label>
+                        <input type="password" id="senha_usuario" name="senha_usuario"  placeholder="senha">
                         <i class="bi bi-lock-fill"></i>
                     </div><br>
                     <a href="esqueceu.html">Esqueceu a Senha?</a>
                     <br>
                     <br>
-                    <a href="mapa.html" class="buttonRoxoLogin">Entrar</a>
-                    <a href="cadastro.html" class="buttonRoxoLogin">Cadastrar-se</a>
-                    <button type="submit">Entrar</button>
+                    <button type="submit" class="buttonRoxoLogin">Entrar</button>
+                    <a href="cadastro.php" class="buttonRoxoLogin">Cadastrar-se</a>
                 </form>
                 
             </div>
