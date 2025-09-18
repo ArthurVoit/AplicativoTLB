@@ -1,23 +1,29 @@
 <?php
 
-#include ../db.php
+include "../db.php";
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+session_start();
 
-    $nome = $_POST['nome_usuario'];
-    $email = $_POST['email_usuario'];
-    $senha = $_POST['senha_usuario'];
-    $confirmar_senha = $_POST['confirmar_senha'];
+$register_msg = "";
+if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['register'])){
+    $novo_usuario = $_POST['novo_usuario'] ?? "";
+    $novo_email = $_POST['novo_email'] ?? "";
+    $nova_senha = $_POST['nova_senha'] ?? "";
+    if($new_user && $new_pass){
+        $stmt = $mysqli -> prepare("INSERT INTO usuario (nome_usuario, email_usuario, senha_usuario) VALUES (?,?,?)");
+        $stmt -> bind_param("sss", $novo_usuario, $novo_email,$nova_senha);
+        
+        if($stmt->execute()) {
+            $register_msg = "Usuário cadastrado com sucesso!";
+        }else{
+            $register_msg = "Erro ao cadastrar novo usuário.";
+        };
 
-    $sql = " INSERT INTO usuario (nome_usuario, email_usuario, senha_usuario) VALUEs ('$nome', '$email', '$senha')";
-
-    if ($conn->query($sql) === true) {
-        echo "Novo registro criado com sucesso.";
-    } else {
-        echo "Erro " . $sql . '<br>' . $conn->error;
-    }
-    $conn->close();
-}
+        $stmt->close();
+    }else{
+        $register = "Preencha todos os campos.";
+    };
+};
 
 ?>
 
@@ -41,19 +47,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <br>
                 <br>
                 <div class="inputContainer">
-                    <input type="text" id="nome_usuario" name="nome_usuario" required placeholder="usuário">
+                    <input type="text" id="novo_usuario" name="novo_usuario" required placeholder="usuário">
                 <i class="bi bi-person-fill"></i>
                 </div>
                 <br>
                 <div class="inputContainer">
-                    <label for="email_usuario"></label>
-                    <input type="email" id="email_usuario" name="email_usuario" required placeholder="email">
+                    <label for="novo_email"></label>
+                    <input type="email" id="novo_email" name="novo_email" required placeholder="email">
                     <i class="bi bi-at"></i>
                 </div>
                 <br>
                 <div class="inputContainer">
-                    <label for="senha_usuario"></label>
-                    <input type="password" id="senha_usuario" name="senha_usuario" required placeholder="senha">
+                    <label for="nova_senha"></label>
+                    <input type="password" id="nova_senha" name="nova_senha" required placeholder="senha">
                     <i class="bi bi-lock-fill"></i>
                 </div>
                 <br>

@@ -11,16 +11,16 @@
     <header>
         <div class="navbar">
         <div class="btnNavBar"><a href="notificacao.html"><img src="../assets/icons/bell.svg" alt=""></a></div>
-        <h1>Consumo de Energia</h1>
+        <h1>Dados do Usuário</h1>
         <button class="nav-button" onclick="alternarMenu()"> ≡</button>
         <div class="menu" id="menu">
             <button class="close-button" onclick="alternarMenu()">X</button>
-            <a href="mapa.html">Mapa</a>
-            <a href="dadosDoUsuario.html">Dados do Usuário</a>
-            <a href="relatorios.html">Relatórios</a>
-            <a href="consumodeEnergia.html">Consumo de Energia</a>
-            <a href="monitoramentoManutencao.html">Monitoramento e Manutenção</a>
-            <a href="eficienciaOperacional.html">Eficiência Operacional</a>
+            <a href="mapa.php">Mapa</a>
+            <a href="dadosDoUsuario.php">Dados do Usuário</a>
+            <a href="relatorios.php">Relatórios</a>
+            <a href="consumodeEnergia.php">Consumo de Energia</a>
+            <a href="monitoramentoManutencao.php">Monitoramento e Manutenção</a>
+            <a href="eficienciaOperacional.php">Eficiência Operacional</a>
         </div>
         </div>
     </header>
