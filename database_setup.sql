@@ -7,7 +7,7 @@ create table Usuario (
     nome_usuario VARCHAR(45) NOT NULL,
     email_usuario VARCHAR(45) not null,
     senha_usuario VARCHAR(45) not null,
-    telefone_usuario VARCHAR(9) NOT NULL,
+    telefone_usuario VARCHAR(9),
     funcao_usuario ENUM('administrador', 'normal')
 );
 
@@ -98,3 +98,5 @@ CREATE TABLE relatorio (
     energia_kwh_relatorio DECIMAL(10,2) NOT NULL,
     custo_manutencao_medio_relatorio DECIMAL(10,2) NOT NULL
 );
+
+insert into Usuario (nome_usuario, email_usuario, senha_usuario) values ("admin", "admin", "admin");
