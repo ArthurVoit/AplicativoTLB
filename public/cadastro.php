@@ -9,7 +9,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['register'])){
     $novo_usuario = $_POST['novo_usuario'] ?? "";
     $novo_email = $_POST['novo_email'] ?? "";
     $nova_senha = $_POST['nova_senha'] ?? "";
-    if($new_user && $new_pass){
+    if($novo_usuario && $nova_senha && $novo_email){
         $stmt = $mysqli -> prepare("INSERT INTO usuario (nome_usuario, email_usuario, senha_usuario) VALUES (?,?,?)");
         $stmt -> bind_param("sss", $novo_usuario, $novo_email,$nova_senha);
         
@@ -43,10 +43,11 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['register'])){
     <section class="cadastro">
         <div class="formCadastro">
             <a href="login.php"><i class="bi bi-arrow-left-circle"></i></a>
-            <form action="" id="formcadastro">
+            <form method="post" id="formcadastro">
                 <br>
                 <br>
                 <div class="inputContainer">
+                    <?php if($register_msg):  ?> <p> <?= $register_msg ?> </p> <?php endif; ?>
                     <input type="text" id="novo_usuario" name="novo_usuario" required placeholder="usuário">
                 <i class="bi bi-person-fill"></i>
                 </div>
@@ -70,7 +71,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['register'])){
                 </div>
                 <br>
                 <br>
-                <button class="buttonRoxoCadastro" type="submit">Cadastrar-se</button>
+                <button class="buttonRoxoCadastro" type="submit" name="register" value="1">Cadastrar-se</button>
             </form>
             <p class="pCadastro">Ao clicar você estará de acordo com as políticas da empresa</p>
             <a href="politicas.php">Ver políticas</a>
