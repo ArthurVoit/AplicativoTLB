@@ -9,9 +9,10 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['register'])){
     $novo_usuario = $_POST['novo_usuario'] ?? "";
     $novo_email = $_POST['novo_email'] ?? "";
     $nova_senha = $_POST['nova_senha'] ?? "";
-    if($novo_usuario && $nova_senha && $novo_email){
-        $stmt = $mysqli -> prepare("INSERT INTO usuario (nome_usuario, email_usuario, senha_usuario) VALUES (?,?,?)");
-        $stmt -> bind_param("sss", $novo_usuario, $novo_email,$nova_senha);
+    $nova_func = $_POST['nova_func'] ?? "";
+    if($novo_usuario && $nova_senha && $novo_email && $nova_func){
+        $stmt = $mysqli -> prepare("INSERT INTO usuario (nome_usuario, email_usuario, senha_usuario, funcao_usuario) VALUES (?,?,?,?)");
+        $stmt -> bind_param("ssss", $novo_usuario, $novo_email,$nova_senha, $nova_func);
         
         if($stmt->execute()) {
             $register_msg = "Usuário cadastrado com sucesso!";
@@ -48,6 +49,8 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['register'])){
                 <br>
                 <div class="inputContainer">
                     <?php if($register_msg):  ?> <p> <?= $register_msg ?> </p> <?php endif; ?>
+                        <br>
+                        <br>
                     <input type="text" id="novo_usuario" name="novo_usuario" required placeholder="usuário">
                 <i class="bi bi-person-fill"></i>
                 </div>
@@ -69,6 +72,12 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['register'])){
                     <input type="password" id="confirmar_senha" name="confirmar_senha" required placeholder="confirmar senha">
                     <i class="bi bi-lock-fill"></i>
                 </div>
+                <br>
+                <br>
+                <select name="nova_func">
+                    <option value="adm">administrador</option>
+                    <option value="normal" selected>normal</option>
+                </select>
                 <br>
                 <br>
                 <button class="buttonRoxoCadastro" type="submit" name="register" value="1">Cadastrar-se</button>

@@ -32,28 +32,32 @@
              <div class="flex">
                 <i class="bi bi-person-fill"></i>
                 <div class="textoDadosUsuario">
-                  <h2>Idade</h2>
-                  <h2>CPF</h2>
-                  <h2>ID</h2>
-                  <h2>Cargo</h2>
+                  <h2>Email</h2>
+                  <h2>Função</h2>
               </div>
           </div>
         </div>
     <h1 class="configuracoesDados">Configurações</h1>
     <div class="configuracoesDados">
         
-        <a href="geral.html" class="iconDadosUsuario">
+        <a href="geral.php" class="iconDadosUsuario">
         <i class="bi bi-gear-fill"></i>
         <h2>Geral</h2>
         </a>
-        <a href="seguranca.html" class="iconDadosUsuario">
+        <a href="seguranca.php" class="iconDadosUsuario">
         <i class="bi bi-shield-fill-check"></i>
         <h2>Seguranças</h2>
         </a>
-        <a href="acessibilidade.html" class="iconDadosUsuario">
+        <a href="acessibilidade.php" class="iconDadosUsuario">
         <i class="bi bi-universal-access-circle"></i>
         <h2>Acessibilidade</h2>
         </a>
+        <br>
+        <br>
+        <button value="logout.php" class="iconDadosUsuario">
+        <i class="bi bi-box-arrow-left"></i>
+        <h2>Sair</h2>
+        </button>
 
     </div>
     </main>
