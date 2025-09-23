@@ -65,12 +65,12 @@ section h3 {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.div_branco{
+.div_branco {
     background-color: white;
     padding: 20px;
 }
 
-.div_branco2{
+.div_branco2 {
     background-color: white;
     padding: 20px;
 }
@@ -472,7 +472,7 @@ img .notificacao {
 }
 
 .esqueceuSenhaForm input[type="email"] {
-    width: 300px; 
+    width: 300px;
     padding: 12px;
     border: none;
     border-radius: 50px;
@@ -610,77 +610,77 @@ img .notificacao {
 /*Dados do Usuário*/
 
 .dadosUsuario {
-  max-width: 800px;
-  margin: 40px auto;
-  background-color: #ffffff;
-  border-radius: 10px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
-  padding: 30px;
-  font-family: 'Segoe UI', sans-serif;
-  color: #333;
+    max-width: 800px;
+    margin: 40px auto;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    padding: 30px;
+    font-family: 'Segoe UI', sans-serif;
+    color: #333;
 }
 
 .dadosUsuario h1 {
-  font-size: 26px;
-  margin-bottom: 20px;
-  color: #2c3e50;
+    font-size: 26px;
+    margin-bottom: 20px;
+    color: #2c3e50;
 }
 
 .flex {
-  display: flex;
-  align-items: flex-start;
-  gap: 20px;
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
 }
 
 .flex i {
-  font-size: 50px; 
-  color: #2c3e50;
-  margin-top: 5px;
+    font-size: 50px;
+    color: #2c3e50;
+    margin-top: 5px;
 }
 
 .textoDadosUsuario h2 {
-  font-size: 18px;
-  margin: 6px 0;
-  font-weight: 400;
+    font-size: 18px;
+    margin: 6px 0;
+    font-weight: 400;
 }
 
 .configuracoesDados {
-  margin: 50px 30px 20px 30px; 
+    margin: 50px 30px 20px 30px;
 }
 
 .configuracoesDados h1 {
-  font-size: 24px;
-  color: #2c3e50;
-  margin-bottom: 25px;
-  padding-left: 5px;
+    font-size: 24px;
+    color: #2c3e50;
+    margin-bottom: 25px;
+    padding-left: 5px;
 }
 
 .iconDadosUsuario {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  background-color: #ecf0f1;
-  padding: 14px 18px;
-  border-radius: 8px;
-  margin-bottom: 15px;
-  transition: background-color 0.3s;
-  cursor: pointer;
-  text-decoration: none;
-  color: inherit; 
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background-color: #ecf0f1;
+    padding: 14px 18px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    transition: background-color 0.3s;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
 }
 
 .iconDadosUsuario:hover {
-  background-color: #d0d3d4;
+    background-color: #d0d3d4;
 }
 
 .iconDadosUsuario i {
-  font-size: 26px;
-  color: #2c3e50;
+    font-size: 26px;
+    color: #2c3e50;
 }
 
 .iconDadosUsuario h2 {
-  margin: 0;
-  font-size: 20px;
+    margin: 0;
+    font-size: 20px;
 }
 
 
@@ -697,7 +697,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color:#00a94f;
+    background-color: #00a94f;
     padding: 10px 20px;
     position: relative;
 }
@@ -708,13 +708,13 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 45px; 
-    height: 7vh;
+    width: 45px;
+
     transition: .5s;
-} 
+}
 
 .btnNavBar img {
-    width: 30px; 
+    width: 30px;
     height: auto;
     filter: brightness(0) invert(1);
 }
@@ -737,16 +737,16 @@ body {
     cursor: pointer;
     font-size: 40px;
     color: white;
-    background-color:#184d31;
+    background-color: #184d31;
     border-radius: 50%;
     width: 45px;
-    height: 7vh;
     transition: .5s;
 }
 
 .nav-button:hover {
     box-shadow: 0px 0px 20px #184d31;
-}    
+}
+
 .menu {
     display: none;
     position: fixed;
@@ -796,35 +796,35 @@ body {
 #chart {
     position: relative;
     z-index: 1;
-    
+
 }
 
 .grafico-container {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  padding: 1rem;
-  box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 1rem;
+    box-sizing: border-box;
 }
 
 #chart3 {
-  width: 100%;
-  max-width: 800px;
-  box-sizing: border-box;
+    width: 100%;
+    max-width: 800px;
+    box-sizing: border-box;
 }
 
 
 .charts-container {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap; 
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
 .grafico {
-  flex: 1 1 600px;
-  max-width: 800px;
-  height: 500px; 
+    flex: 1 1 600px;
+    max-width: 800px;
+    height: 500px;
 }
 
 
@@ -832,22 +832,22 @@ body {
 /* Notificações */
 
 .topico {
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background-color: #f2f2f2;
-  padding: 10px;
-  border: 1px solid #ccc;
-  margin: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #f2f2f2;
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin: 10px;
 }
 
 .notificacoes {
-  display: none;
-  padding: 10px;
-  background-color: #fff;
-  border-left: 3px solid #007BFF;
-  margin: 0 10px 10px;
+    display: none;
+    padding: 10px;
+    background-color: #fff;
+    border-left: 3px solid #007BFF;
+    margin: 0 10px 10px;
 }
 
 .notificacoes p {
@@ -855,246 +855,246 @@ body {
 }
 
 .seta {
-  width: 16px;
-  height: 16px;
-  transition: transform 0.3s ease;
+    width: 16px;
+    height: 16px;
+    transition: transform 0.3s ease;
 }
 
 .seta.ativa {
-  transform: rotate(-90deg);
+    transform: rotate(-90deg);
 }
 
 /* página geral */
 
 .paginaGeral {
-  max-width: 1200px;
-  margin: 60px auto;
-  padding: 30px;
-  background-color: #ffffff;
-  border-radius: 10px;
-  font-family: 'Segoe UI', sans-serif;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    font-family: 'Segoe UI', sans-serif;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
 }
 
 .paginaGeral h1 {
-  font-size: 32px;
-  color: #2c3e50;
-  margin-bottom: 40px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
+    font-size: 32px;
+    color: #2c3e50;
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
 }
 
 .paginaGeral h1 i {
-  font-size: 30px;
-  color: #2c3e50;
+    font-size: 30px;
+    color: #2c3e50;
 }
 
 
 .blocoIdioma {
-  background-color: #ecf0f1;
-  padding: 20px 25px;
-  border-radius: 8px;
+    background-color: #ecf0f1;
+    padding: 20px 25px;
+    border-radius: 8px;
 }
 
 .blocoIdioma h2 {
-  margin: 0 0 15px 0;
-  color: #34495e;
-  font-size: 22px;
+    margin: 0 0 15px 0;
+    color: #34495e;
+    font-size: 22px;
 }
 
 .btnIdioma {
-  background-color: #3498db;
-  color: white;
-  border: none;
-  padding: 12px 20px;
-  border-radius: 6px;
-  font-size: 16px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  cursor: pointer;
-  transition: background-color 0.3s;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 6px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
 .btnIdioma:hover {
-  background-color: #2980b9;
+    background-color: #2980b9;
 }
 
 .btnIdioma i {
-  font-size: 20px;
+    font-size: 20px;
 }
 
 /* página segurança(tá quase igual o de geral) */
 
 .paginaSeguranca {
-  max-width: 1200px;
-  margin: 20px auto;
-  padding: 30px;
-  background-color: #ffffff;
-  border-radius: 12px;
-  font-family: 'Segoe UI', sans-serif;
-  box-shadow: 0 0 8px 8px rgba(0, 0, 0, 0.1);
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    font-family: 'Segoe UI', sans-serif;
+    box-shadow: 0 0 8px 8px rgba(0, 0, 0, 0.1);
 }
 
 .paginaSeguranca h1 {
-  font-size: 32px;
-  color: #2c3e50;
-  margin-bottom: 40px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
+    font-size: 32px;
+    color: #2c3e50;
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
 }
 
 .paginaSeguranca h1 i {
-  font-size: 30px;
-  color: #2c3e50;
+    font-size: 30px;
+    color: #2c3e50;
 }
 
 .blocoSenha {
-  background-color: #ecf0f1;
-  padding: 30px 35px;
-  border-radius: 10px;
+    background-color: #ecf0f1;
+    padding: 30px 35px;
+    border-radius: 10px;
 }
 
 .blocoSenha h2 {
-  margin: 0 0 20px 0;
-  color: #34495e;
-  font-size: 22px;
+    margin: 0 0 20px 0;
+    color: #34495e;
+    font-size: 22px;
 }
 
 .btnSenha {
-  background-color: blueviolet;
-  color: white;
-  border: none;
-  padding: 14px 24px;
-  border-radius: 6px;
-  font-size: 17px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  cursor: pointer;
-  transition: background-color 0.3s;
+    background-color: blueviolet;
+    color: white;
+    border: none;
+    padding: 14px 24px;
+    border-radius: 6px;
+    font-size: 17px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
 .btnSenha:hover {
-  background-color: rgb(89, 57, 119);
+    background-color: rgb(89, 57, 119);
 }
 
 .btnSenha i {
-  font-size: 20px;
+    font-size: 20px;
 }
 
-/* página de acessibilidade */ 
+/* página de acessibilidade */
 
 .blocoCores {
-  background-color: #ecf0f1;
-  padding: 30px 35px;
-  border-radius: 10px;
-  margin-top: 40px;
+    background-color: #ecf0f1;
+    padding: 30px 35px;
+    border-radius: 10px;
+    margin-top: 40px;
 }
 
 .blocoCores h2 {
-  margin: 0 0 20px;
-  color: #34495e;
-  font-size: 22px;
+    margin: 0 0 20px;
+    color: #34495e;
+    font-size: 22px;
 }
 
 .grupoBotoesCores {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
 }
 
 .grupoBotoesCores button {
-  background-color: #bdc3c7;
-  color: #2c3e50;
-  border: none;
-  padding: 12px 20px;
-  border-radius: 6px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.3s;
+    background-color: #bdc3c7;
+    color: #2c3e50;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
 .grupoBotoesCores button:hover {
-  background-color: #95a5a6;
+    background-color: #95a5a6;
 }
 
 .blocoAjuda {
-  margin-top: 50px;
-  text-align: center;
+    margin-top: 50px;
+    text-align: center;
 }
 
 .blocoAjuda p {
-  font-size: 18px;
-  margin-bottom: 10px;
+    font-size: 18px;
+    margin-bottom: 10px;
 }
 
 .blocoAjuda a {
-  font-size: 17px;
-  color: #2980b9;
-  text-decoration: none;
+    font-size: 17px;
+    color: #2980b9;
+    text-decoration: none;
 }
 
 .blocoAjuda a:hover {
-  text-decoration: underline;
+    text-decoration: underline;
 }
 
 .paginaAcessibilidade {
-  max-width: 1200px;
-  margin: 20px auto;
-  padding: 30px;
-  background-color: #ffffff;
-  border-radius: 12px;
-  font-family: 'Segoe UI', sans-serif;
-  box-shadow: 0 0 8px 8px rgba(0, 0, 0, 0.1);
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    font-family: 'Segoe UI', sans-serif;
+    box-shadow: 0 0 8px 8px rgba(0, 0, 0, 0.1);
 }
 
 .paginaAcessibilidade h1 {
-  font-size: 32px;
-  color: #2c3e50;
-  margin-bottom: 40px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
+    font-size: 32px;
+    color: #2c3e50;
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
 }
 
 .paginaAcessibilidade h1 i {
-  font-size: 30px;
-  color: #2c3e50;
+    font-size: 30px;
+    color: #2c3e50;
 }
 
 .blocoAcessibilidade {
-  background-color: #ecf0f1;
-  padding: 30px 35px;
-  border-radius: 10px;
+    background-color: #ecf0f1;
+    padding: 30px 35px;
+    border-radius: 10px;
 }
 
 .blocoAcessibilidade h2 {
-  margin: 0 0 20px 0;
-  color: #34495e;
-  font-size: 22px;
+    margin: 0 0 20px 0;
+    color: #34495e;
+    font-size: 22px;
 }
 
 .btnAcessibilidade {
-  background-color: #8e44ad;
-  color: white;
-  border: none;
-  padding: 14px 24px;
-  border-radius: 6px;
-  font-size: 17px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  cursor: pointer;
-  transition: background-color 0.3s;
+    background-color: #8e44ad;
+    color: white;
+    border: none;
+    padding: 14px 24px;
+    border-radius: 6px;
+    font-size: 17px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
 .btnAcessibilidade:hover {
-  background-color: #6c3483;
+    background-color: #6c3483;
 }
 
 .btnAcessibilidade i {
-  font-size: 20px;
+    font-size: 20px;
 }
