@@ -18,14 +18,10 @@ document.body.appendChild(renderer.domElement);
 
 //main area
 const loader = new GLTFLoader();
-loader.load('../assets/3Dmodules/FLORESTs.gltf',
-     (gltf) => {
-    gltf.scene.scale.set(102, 102, 102);
-        
-    scene.add(gltf.scene);
-}, undefined, (error) => {
-    console.error('Error loading GLTF model:', error);
-});
+const geometry = new THREE.PlaneGeometry(2, 2); // width and height
+const material = new THREE.MeshBasicMaterial({ color: 0x00ff00, side: THREE.DoubleSide });
+const square = new THREE.Mesh(geometry, material);
+scene.add(square);
 
 loader.load('../assets/3Dmodules/trilhosDSelectable.gltf', (gltf) => {
     gltf.scene.scale.set(102, 102, 102);
@@ -44,7 +40,7 @@ loader.load('../assets/3Dmodules/trilhodSelectable.gltf', (gltf) => {
 });
 
 //Turn1 button
-loader.load('../assets/3Dmodules/T1B.gltf', (gltf) => {
+loader.load('../assets/3Dmodules/T1.gltf', (gltf) => {
     gltf.scene.scale.set(102, 102, 102);
   
     scene.add(gltf.scene);
@@ -54,7 +50,7 @@ loader.load('../assets/3Dmodules/T1B.gltf', (gltf) => {
 
 
 //Turn2 button
-loader.load('../assets/3Dmodules/T2B.gltf', (gltf) => {
+loader.load('../assets/3Dmodules/T2.gltf', (gltf) => {
     gltf.scene.scale.set(102, 102, 102);
     scene.add(gltf.scene);
 }, undefined, (error) => {
@@ -84,7 +80,7 @@ function onDocumentMouseDown(event) {
   event.preventDefault();
 
     const mouse = new THREE.Vector2();
-    mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+    mouse.x =  (event.clientX / window.innerWidth)   * 2 - 1;
     mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
 
     raycaster.setFromCamera(mouse, camera);
