@@ -23,6 +23,7 @@ const material = new THREE.MeshBasicMaterial({ color: 0x00ff00, side: THREE.Doub
 const square = new THREE.Mesh(geometry, material);
 scene.add(square);
 
+
 loader.load('../assets/3Dmodules/trilhosDSelectable.gltf', (gltf) => {
     gltf.scene.scale.set(102, 102, 102);
 
