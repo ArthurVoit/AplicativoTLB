@@ -39,6 +39,8 @@
                 <i class="bi bi-translate"></i> Mudar idioma
                 </button>
             </div>
+
+            <a href="editar.php">Depois eu faço ficar bonito</a>
         </div>
 
     </main>
