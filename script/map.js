@@ -18,14 +18,16 @@ document.body.appendChild(renderer.domElement);
 
 //main area
 const loader = new GLTFLoader();
-const geometry = new THREE.PlaneGeometry(2, 2); // width and height
-const material = new THREE.MeshBasicMaterial({ color: 0x00ff00, side: THREE.DoubleSide });
-const square = new THREE.Mesh(geometry, material);
-scene.add(square);
+const geometry = new THREE.PlaneGeometry(200, 200);
+const material = new THREE.MeshBasicMaterial({ color: 0x75ba75, side: THREE.DoubleSide });
+const Square = new THREE.Mesh(geometry, material);
+Square.name="Square";
+scene.add(Square);
 
-
-loader.load('../assets/3Dmodules/trilhosDSelectable.gltf', (gltf) => {
+loader.load('../assets/3Dmodules/trilhos -D.gltf', (gltf) => {
     gltf.scene.scale.set(102, 102, 102);
+        gltf.name="trilho-D"
+
 
     scene.add(gltf.scene);
 }, undefined, (error) => {
@@ -33,8 +35,10 @@ loader.load('../assets/3Dmodules/trilhosDSelectable.gltf', (gltf) => {
 });
 
 //trail -d 
-loader.load('../assets/3Dmodules/trilhodSelectable.gltf', (gltf) => {
+loader.load('../assets/3Dmodules/trilho -d.gltf', (gltf) => {
     gltf.scene.scale.set(102, 102, 102);
+        gltf.name="trilho-d"
+
     scene.add(gltf.scene);
 }, undefined, (error) => {
     console.error('Error loading GLTF model:', error);
@@ -43,7 +47,9 @@ loader.load('../assets/3Dmodules/trilhodSelectable.gltf', (gltf) => {
 //Turn1 button
 loader.load('../assets/3Dmodules/T1.gltf', (gltf) => {
     gltf.scene.scale.set(102, 102, 102);
-  
+        gltf.name="T1"
+
+
     scene.add(gltf.scene);
 }, undefined, (error) => {
     console.error('Error loading GLTF model:', error);
@@ -53,6 +59,8 @@ loader.load('../assets/3Dmodules/T1.gltf', (gltf) => {
 //Turn2 button
 loader.load('../assets/3Dmodules/T2.gltf', (gltf) => {
     gltf.scene.scale.set(102, 102, 102);
+        gltf.name="T2"
+
     scene.add(gltf.scene);
 }, undefined, (error) => {
     console.error('Error loading GLTF model:', error);
@@ -61,6 +69,7 @@ loader.load('../assets/3Dmodules/T2.gltf', (gltf) => {
 //Switch Sides button
 loader.load('../assets/3Dmodules/SSB.gltf', (gltf) => {
     gltf.scene.scale.set(102, 102, 102);
+    gltf.name="SSB"
 
     scene.add(gltf.scene);
 }, undefined, (error) => {
@@ -75,32 +84,29 @@ const light = new THREE.AmbientLight(0xffffff, 1);
 
 
 //interectability 
-// In your Three.js setup:
 const raycaster = new THREE.Raycaster();
 function onDocumentMouseDown(event) {
-  event.preventDefault();
+    event.preventDefault();
 
     const mouse = new THREE.Vector2();
-    mouse.x =  (event.clientX / window.innerWidth)   * 2 - 1;
+    mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
     mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
 
     raycaster.setFromCamera(mouse, camera);
 
-    const intersects = raycaster.intersectObjects(scene.children, true);
+    const intersects = raycaster.intersectObjects(scene.children);
 
     if (intersects.length > 0) {
         // Filter out non-selectable meshes
         const selectableIntersects = intersects.filter(intersect => {
-            // Replace 'myNonSelectableMesh' with your mesh's name or a custom property
-            return intersect.object.name !== 'mesh0_mesh_124'; 
-            // Or, if you have a reference: return intersect.object !== nonSelectableMeshReference;
+            return intersect.object.name !== 'Square';
         });
 
         if (selectableIntersects.length > 0) {
             // Process the first selectable object
             const firstSelectableObject = selectableIntersects[0].object;
             firstSelectableObject.material.color.set(0x0000ff);
-            // Your selection logic here
+
             console.log("Selected object:", firstSelectableObject);
         }
     }
