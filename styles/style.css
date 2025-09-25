@@ -703,13 +703,14 @@ body {
 }
 
 .btnNavBar {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 40px;
+    color: white;
     background-color: #184d31;
     border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     width: 45px;
-
     transition: .5s;
 }
 

@@ -1,3 +1,8 @@
+<?php
+    include "../db.php"
+?>
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -11,7 +16,7 @@
 <body>
     <header>
         <div class="navbar">
-        <div class="btnNavBar"><a href="notificacao.html"><img src="../assets/icons/bell.svg" alt=""></a></div>
+        <div class="btnNavBar"><a href="notificacao.php"><img src="../assets/icons/bell.svg" alt=""></a></div>
         <h1>Dados do Usuário</h1>
         <button class="nav-button" onclick="alternarMenu()"> ≡</button>
         <div class="menu" id="menu">
@@ -28,7 +33,7 @@
     <br>
     <main>
         <div class="dadosUsuario">
-             <h1>*Nome*</h1>
+             <h1>*Nome <?php echo $row['name'];?></h1>
              <div class="flex">
                 <i class="bi bi-person-fill"></i>
                 <div class="textoDadosUsuario">
@@ -51,13 +56,11 @@
         <a href="acessibilidade.php" class="iconDadosUsuario">
         <i class="bi bi-universal-access-circle"></i>
         <h2>Acessibilidade</h2>
-        </a>
-        <br>
-        <br>
-        <button value="logout.php" class="iconDadosUsuario">
+        </a> 
+        <a href="logout.php" class="iconDadosUsuario">
         <i class="bi bi-box-arrow-left"></i>
         <h2>Sair</h2>
-        </button>
+        </a>
 
     </div>
     </main>

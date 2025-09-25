@@ -11,7 +11,7 @@
 <body>
     <header>
         <div class="navbar">
-        <div class="btnNavBar"><a href="notificacao.html"><img src="../assets/icons/bell.svg" alt=""></a></div>
+        <div class="btnNavBar"><a href="notificacao.php"><img src="../assets/icons/bell.svg" alt=""></a></div>
         <h1>Dados do Usuário</h1>
         <button class="nav-button" onclick="alternarMenu()"> ≡</button>
         <div class="menu" id="menu">
