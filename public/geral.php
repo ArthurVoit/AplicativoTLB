@@ -39,6 +39,14 @@
                 <i class="bi bi-translate"></i> Mudar idioma
                 </button>
             </div>
+            <br>
+            <br>
+            <div class="blocoIdioma">
+                <h2 id="languageSection">Alterações</h2>
+                <button class="btnAlterações" id="languageButton">
+                <i class="bi bi-pencil-square"></i> Editar Dados
+                </button>
+            </div>
         </div>
 
     </main>

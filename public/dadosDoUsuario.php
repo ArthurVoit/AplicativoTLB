@@ -59,7 +59,7 @@
         <i class="bi bi-universal-access-circle"></i>
         <h2>Acessibilidade</h2>
         </a> 
-        <a href="logout.php" class="iconDadosUsuario">
+        <a href="logout.php?logout=true" class="iconDadosUsuario">
         <i class="bi bi-box-arrow-left"></i>
         <h2>Sair</h2>
         </a>
