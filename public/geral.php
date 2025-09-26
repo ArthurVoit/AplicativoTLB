@@ -23,6 +23,15 @@
             <a href="consumodeEnergia.php">Consumo de Energia</a>
             <a href="monitoramentoManutencao.php">Monitoramento e Manutenção</a>
             <a href="eficienciaOperacional.php">Eficiência Operacional</a>
+                        <?php
+            include '../db.php';
+            session_start();
+            if($_SESSION['id_usuario'] = 1){
+              echo"
+              <a href='funcionarios.php'>funcionarios </a>
+              ";
+            }
+            ?>
         </div>
         </div>
     </header>
@@ -41,16 +50,6 @@
             </div>
             <br>
             <br>
-            <div class="blocoIdioma">
-                <h2 id="languageSection">Alterações</h2>
-                <a href="alterar.php">
-                    <button class="btnAlterações" id="languageButton">
-                        <i class="bi bi-pencil-square"></i> Editar Dados
-                    </button>
-
-                </a>
-                
-            </div>
         </div>
 
     </main>

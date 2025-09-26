@@ -33,9 +33,11 @@
 
             <div class="blocoSenha">
             <h2>Senha</h2>
+            <a href="alterar.php" class="link">
             <button class="btnSenha">
-            <i class="bi bi-key-fill"></i> Alterar senha
+            <i class="bi bi-key-fill"></i> Alterar dados
             </button>
+            </a>
             </div>
         </div>
     </main>

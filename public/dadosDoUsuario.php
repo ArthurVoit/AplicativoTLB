@@ -28,6 +28,15 @@
             <a href="consumodeEnergia.php">Consumo de Energia</a>
             <a href="monitoramentoManutencao.php">Monitoramento e Manutenção</a>
             <a href="eficienciaOperacional.php">Eficiência Operacional</a>
+                        <?php
+            include '../db.php';
+            session_start();
+            if($_SESSION['id_usuario'] = 1){
+              echo"
+              <a href='funcionarios.php'>funcionarios </a>
+              ";
+            }
+            ?>
         </div>
         </div>
     </header>
