@@ -11,7 +11,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['register'])){
     $nova_senha = $_POST['nova_senha'] ?? "";
     $nova_func = $_POST['nova_func'] ?? "";
     if($novo_usuario && $nova_senha && $novo_email && $nova_func){
-        $stmt = $mysqli -> prepare("INSERT INTO usuario (nome_usuario, email_usuario, senha_usuario, funcao_usuario) VALUES (?,?,?,?)");
+        $stmt = $conn -> prepare("INSERT INTO usuario (nome_usuario, email_usuario, senha_usuario, funcao_usuario) VALUES (?,?,?,?)");
         $stmt -> bind_param("ssss", $novo_usuario, $novo_email,$nova_senha, $nova_func);
         
         if($stmt->execute()) {

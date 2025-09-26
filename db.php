@@ -1,8 +1,8 @@
 <?php
 
-$mysqli = new mysqli("localhost","root","root","tlb_sa");
-if($mysqli->connect_errno){
-    die("Erro de conexão: " . $mysqli->connect_error);
+$conn = new mysqli("localhost","root","root","tlb_sa");
+if($conn->connect_errno){
+    die("Erro de conexão: " . $conn->connect_error);
 }
 
 ?>

@@ -1,7 +1,7 @@
 <?php
-    include "../db.php"
-?>
+    include "../db.php";
 
+?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -33,7 +33,7 @@
     <br>
     <main>
         <div class="dadosUsuario">
-             <h1>*Nome <?php echo $row['name'];?></h1>
+             <h1>*Nome <?php echo htmlspecialchars($nome_usuario['nome_usuario']); ?></h1>
              <div class="flex">
                 <i class="bi bi-person-fill"></i>
                 <div class="textoDadosUsuario">

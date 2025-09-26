@@ -14,7 +14,7 @@
         $user = $_POST["nome_usuario"] ?? "";
         $pass = $_POST["senha_usuario"] ?? "";
 
-        $stmt = $mysqli->prepare("SELECT id_usuario, nome_usuario, senha_usuario FROM usuario WHERE nome_usuario=? AND senha_usuario=?");
+        $stmt = $conn->prepare("SELECT id_usuario, nome_usuario, senha_usuario FROM usuario WHERE nome_usuario=? AND senha_usuario=?");
         $stmt->bind_param("ss", $user, $pass);
         $stmt->execute();
         $result = $stmt->get_result();
