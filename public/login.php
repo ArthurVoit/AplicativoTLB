@@ -22,6 +22,7 @@
         $stmt->close();
 
         if ($dados) {
+            $_SESSION['id_usuario'] = $dados['id_usuario'];
             $_SESSION["nome_usuario"] = $dados["nome_usuario"];
             $_SESSION["senha_usuario"] = $dados["senha_usuario"];
             header("Location: mapa.php");

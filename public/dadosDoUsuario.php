@@ -1,6 +1,7 @@
 <?php
-    include "../db.php";
+    include "../db.php"
 
+    
 ?>
 
 <!DOCTYPE html>
