@@ -3,8 +3,9 @@ include '../db.php';
 session_start();
 
 $user = $_SESSION['id_usuario'];
-$sql = "SELECT * FROM usuario WHERE id_usuario=$user";
-$result = $conn->query($sql);
+
+$sql = "SELECT id_usuario, nome_usuario, senha_usuario, telefone_usuario, email_usuario, funcao_usuario FROM usuario WHERE id_usuario=$user";
+$result = $mysqli->query($sql);
 echo"
 <table border = '1'>
 <tr>
