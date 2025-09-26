@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $name = $_POST['name'];
     $email = $_POST['email'];
 
-    $sql = "UPDATE usuario SET nome_usuario ='$name', email_usuario ='$email' WHERE id=$id";
+    $sql = "UPDATE usuario SET nome_usuario ='$name', email_usuario ='$email' WHERE id_usuario=$id";
 
     if ($conn->query($sql) === true) {
         echo "Registro atualizado com sucesso.
@@ -42,7 +42,7 @@ $row = $result -> fetch_assoc();
 
 <body>
 
-    <form method="POST" action="update.php?id=<?php echo $row['id_usuario'];?>">
+    <form method="POST" action="alterar.php?id=<?php echo $row['id_usuario'];?>">
 <p>suas informações</p>
         <label for="name">Nome:</label>
         <input type="text" name="name" value="<?php echo $row['nome_usuario'];?>" required>

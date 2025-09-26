@@ -43,7 +43,7 @@
             <br>
             <div class="blocoIdioma">
                 <h2 id="languageSection">Alterações</h2>
-                <a href="editar.php">
+                <a href="alterar.php">
                     <button class="btnAlterações" id="languageButton">
                         <i class="bi bi-pencil-square"></i> Editar Dados
                     </button>

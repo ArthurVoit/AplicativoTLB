@@ -4,7 +4,7 @@ session_start();
 
 $user = $_SESSION['id_usuario'];
 
-$sql = "SELECT id_usuario, nome_usuario, senha_usuario, telefone_usuario, email_usuario, funcao_usuario FROM usuario WHERE id_usuario=$user";
+$sql = "SELECT * FROM usuario";
 $result = $conn->query($sql);
 echo"
 <table border = '1'>
@@ -15,6 +15,7 @@ echo"
 <th>telefone</th>
 <th>  email </th>
 <th> função </th>
+<th>alterações</th>
 </tr>
 ";
 while($row = $result->fetch_assoc()){
@@ -32,11 +33,11 @@ while($row = $result->fetch_assoc()){
     <td>{$row['funcao_usuario']}</td>
     "; if($id = 1){
             echo"
-    <a href = 'alterar.php'> Alterar informações dos empregados</a>";
+    <td><a href = 'alterar.php'> Alterar</a></td>";
     echo"
     </tr>
 
     ";
-};
+}};
 ?>
 
