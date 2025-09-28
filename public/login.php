@@ -14,7 +14,8 @@
         $user = $_POST["nome_usuario"] ?? "";
         $pass = $_POST["senha_usuario"] ?? "";
 
-        $stmt = $conn->prepare("SELECT id_usuario, nome_usuario, senha_usuario FROM usuario WHERE nome_usuario=? AND senha_usuario=?");
+        // CORREÇÃO: Adicione funcao_usuario na seleção
+        $stmt = $conn->prepare("SELECT id_usuario, nome_usuario, senha_usuario, funcao_usuario FROM usuario WHERE nome_usuario=? AND senha_usuario=?");
         $stmt->bind_param("ss", $user, $pass);
         $stmt->execute();
         $result = $stmt->get_result();
@@ -25,14 +26,13 @@
             $_SESSION['id_usuario'] = $dados['id_usuario'];
             $_SESSION["nome_usuario"] = $dados["nome_usuario"];
             $_SESSION["senha_usuario"] = $dados["senha_usuario"];
+            $_SESSION["funcao_usuario"] = $dados["funcao_usuario"]; // Agora esta linha funciona
             header("Location: mapa.php");
             exit;
         } else {
             $msg = "Usuário ou senha incorretos!";
         }
     }
-
-
 ?>
 
 <html lang="en">

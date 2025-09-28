@@ -1,7 +1,37 @@
 <?php
-    include "../db.php"
+    include "../db.php";
+    session_start();
 
+    if (!isset($_SESSION['id_usuario'])) {
+        header("Location: login.php");
+        exit;
+    }
+
+    $id_usuario = $_SESSION['id_usuario'];
     
+    $sql = "SELECT nome_usuario, email_usuario, funcao_usuario, telefone_usuario FROM usuario WHERE id_usuario = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("i", $id_usuario);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    
+    if ($result->num_rows > 0) {
+        $dados_usuario = $result->fetch_assoc();
+        $nome_usuario = $dados_usuario['nome_usuario'];
+        $email_usuario = $dados_usuario['email_usuario'];
+        $funcao_usuario = $dados_usuario['funcao_usuario'];
+        $telefone_usuario = $dados_usuario['telefone_usuario'];
+    } else {
+        $nome_usuario = "Usuário não encontrado";
+        $email_usuario = "N/A";
+        $funcao_usuario = "N/A";
+        $telefone_usuario = "N/A";
+    }
+
+    echo "<!-- DEBUG: Função do usuário: " . ($_SESSION['funcao_usuario'] ?? 'não definida') . " -->";
+    
+    $stmt->close();
+
 ?>
 
 <!DOCTYPE html>
@@ -28,14 +58,10 @@
             <a href="consumodeEnergia.php">Consumo de Energia</a>
             <a href="monitoramentoManutencao.php">Monitoramento e Manutenção</a>
             <a href="eficienciaOperacional.php">Eficiência Operacional</a>
-                        <?php
-            include '../db.php';
-            session_start();
-            if($_SESSION['id_usuario'] = 1){
-              echo"
-              <a href='funcionarios.php'>funcionarios </a>
-              ";
-            }
+            <?php
+                if(isset($_SESSION['funcao_usuario']) && $_SESSION['funcao_usuario'] === 'administrador'){
+                    echo "<a href='funcionarios.php'>Funcionários</a>";
+                }
             ?>
         </div>
         </div>
@@ -43,12 +69,13 @@
     <br>
     <main>
         <div class="dadosUsuario">
-             <h1>*Nome <?php echo htmlspecialchars($nome_usuario['nome_usuario']); ?></h1>
+             <h1><?php echo htmlspecialchars($nome_usuario); ?></h1>
              <div class="flex">
                 <i class="bi bi-person-fill"></i>
                 <div class="textoDadosUsuario">
-                  <h2>Email</h2>
-                  <h2>Função</h2>
+                  <h2>Email: <?php echo htmlspecialchars($email_usuario); ?></h2>
+                  <h2>Função: <?php echo htmlspecialchars($funcao_usuario); ?></h2>
+                  <h2>Telefone: <?php echo htmlspecialchars($telefone_usuario); ?></h2>
               </div>
           </div>
         </div>
@@ -74,8 +101,5 @@
 
     </div>
     </main>
-
-
-    
 </body>
 </html>

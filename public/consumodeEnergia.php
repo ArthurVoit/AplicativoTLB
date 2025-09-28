@@ -1,3 +1,12 @@
+<?php
+    include "../db.php";
+    session_start();
+
+    if (!isset($_SESSION['id_usuario'])) {
+        header("Location: login.php");
+        exit;
+    }
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -11,7 +20,7 @@
     <header>
         <div class="navbar">
         <div class="btnNavBar"><a href="notificacao.php"><img src="../assets/icons/bell.svg" alt=""></a></div>
-        <h1>Dados do Usuário</h1>
+        <h1>Consumo de Energia</h1>
         <button class="nav-button" onclick="alternarMenu()"> ≡</button>
         <div class="menu" id="menu">
             <button class="close-button" onclick="alternarMenu()">X</button>
@@ -21,14 +30,12 @@
             <a href="consumodeEnergia.php">Consumo de Energia</a>
             <a href="monitoramentoManutencao.php">Monitoramento e Manutenção</a>
             <a href="eficienciaOperacional.php">Eficiência Operacional</a>
-                        <?php
-            include '../db.php';
-            session_start();
-            if($_SESSION['id_usuario'] = 1){
-              echo"
-              <a href='funcionarios.php'>funcionarios </a>
-              ";
-            }
+            <?php
+                if($_SESSION['id_usuario'] = 1){
+                echo"
+                <a href='funcionarios.php'>funcionarios </a>
+                ";
+                }
             ?>
         </div>
         </div>

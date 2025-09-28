@@ -1,3 +1,12 @@
+<?php
+    include "../db.php";
+    session_start();
+
+    if (!isset($_SESSION['id_usuario'])) {
+        header("Location: login.php");
+        exit;
+    }
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -23,13 +32,9 @@
             <a href="monitoramentoManutencao.php">Monitoramento e Manutenção</a>
             <a href="eficienciaOperacional.php">Eficiência Operacional</a>
             <?php
-            include '../db.php';
-            session_start();
-            if($_SESSION['id_usuario'] = 1){
-              echo"
-              <a href='funcionarios.php'>funcionarios </a>
-              ";
-            }
+              if(isset($_SESSION['funcao_usuario']) && $_SESSION['funcao_usuario'] == 'administrador'){
+                  echo "<a href='funcionarios.php'>Funcionários</a>";
+              }
             ?>
         </div>
         </div>

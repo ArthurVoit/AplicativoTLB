@@ -54,13 +54,13 @@ $row = $result -> fetch_assoc();
         <input type="text" name="telefone" value="<?php echo $row['telefone_usuario'];?>" required>
 
         <?php
-        if($id = 1){
-            echo"
-            <br>
-            <label for='funcao'>função:</label>
-        <input type='text' name='funcao' value='"; echo $row['funcao_usuario']; echo"' required>
-            ";
-        } 
+            if(isset($_SESSION['funcao_usuario']) && $_SESSION['funcao_usuario'] == 'administrador'){
+                echo"
+                <br>
+                <label for='funcao'>função:</label>
+                <input type='text' name='funcao' value='"; echo $row['funcao_usuario']; echo"' required>
+                ";
+            } 
         ?>
         <br>
         <input type="submit" value="Atualizar">
