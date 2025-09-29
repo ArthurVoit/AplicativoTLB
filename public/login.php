@@ -14,7 +14,6 @@
         $user = $_POST["nome_usuario"] ?? "";
         $pass = $_POST["senha_usuario"] ?? "";
 
-        // CORREÇÃO: Adicione funcao_usuario na seleção
         $stmt = $conn->prepare("SELECT id_usuario, nome_usuario, senha_usuario, funcao_usuario FROM usuario WHERE nome_usuario=? AND senha_usuario=?");
         $stmt->bind_param("ss", $user, $pass);
         $stmt->execute();
