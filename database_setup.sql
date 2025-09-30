@@ -42,9 +42,12 @@ CREATE TABLE trem (
     localizacao_atual_trem VARCHAR(100) NOT NULL
 );
 
+-- Tabela de sensores com descrição e status
 CREATE TABLE sensor (
     id_sensor INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     tipo_sensor VARCHAR(50) NOT NULL,
+    descricao_sensor TEXT NOT NULL,
+    status_sensor ENUM('ativo', 'inativo', 'manutencao') NOT NULL,
     localizacao_sensor VARCHAR(50) NOT NULL,
     fk_trem INT NOT NULL,
     fk_segmento INT NOT NULL,
@@ -52,12 +55,13 @@ CREATE TABLE sensor (
     FOREIGN KEY (fk_segmento) REFERENCES Segmento(id_segmento)
 );
 
-CREATE TABLE leitura_sensor (
-    id_leitura INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    fk_sensor INT NOT NULL,
-    valor_leitura VARCHAR(100) NOT NULL,
+-- Tabela de dados de sensores
+CREATE TABLE sensor_data (
+    id_data INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    id_sensor INT NOT NULL,
+    valor_data VARCHAR(100) NOT NULL,
     data_hora TIMESTAMP NOT NULL,
-    FOREIGN KEY (fk_sensor) REFERENCES Sensor(id_sensor)
+    FOREIGN KEY (id_sensor) REFERENCES sensor(id_sensor)
 );
 
 CREATE TABLE alerta (
@@ -99,4 +103,12 @@ CREATE TABLE relatorio (
     custo_manutencao_medio_relatorio DECIMAL(10,2) NOT NULL
 );
 
-insert into Usuario (nome_usuario, email_usuario, senha_usuario) values ("admin", "admin", "admin");
+insert into Usuario (nome_usuario, email_usuario, senha_usuario, funcao_usuario) values ("admin", "admin", "admin", "administrador");
+
+-- Inserção de usuários reais de teste
+INSERT INTO Usuario (nome_usuario, email_usuario, senha_usuario, telefone_usuario, funcao_usuario)
+VALUES 
+  ('João Silva', 'joao.silva@email.com', 'senha123', '999999999', 'normal'),
+  ('Maria Oliveira', 'maria.oliveira@email.com', 'segura456', '988888888', 'normal'),
+  ('Carlos Souza', 'carlos.souza@email.com', 'admin789', '977777777', 'administrador');
+
