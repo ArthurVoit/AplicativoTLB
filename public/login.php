@@ -19,6 +19,9 @@
         $stmt->execute();
         $result = $stmt->get_result();
         $dados = $result->fetch_assoc();
+                if($dados && password_verify($pass, $dados['senha_usuario'])){
+            return $dados;
+        }
         $stmt->close();
 
         if ($dados) {
