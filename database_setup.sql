@@ -6,7 +6,7 @@ create table Usuario (
 	id_usuario INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     nome_usuario VARCHAR(45) NOT NULL,
     email_usuario VARCHAR(45) not null,
-    senha_usuario VARCHAR(45) not null,
+    senha_usuario VARCHAR(255) not null,
     telefone_usuario VARCHAR(9),
     funcao_usuario ENUM('administrador', 'normal')
 );

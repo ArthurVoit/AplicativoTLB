@@ -9,7 +9,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['register'])){
     $novo_email = $_POST['novo_email'] ?? "";
     $nova_senha = $_POST['nova_senha'] ?? "";
     $confirmar_senha = $_POST['confirmar_senha'] ?? "";
-    
+    $hash = password_hash($nova_senha, PASSWORD_DEFAULT);
     if($nova_senha !== $confirmar_senha){
         $register_msg = "As senhas não coincidem!";
     }
@@ -19,7 +19,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['register'])){
         $nova_func = 'normal';
         
         $stmt = $conn->prepare("INSERT INTO usuario (nome_usuario, email_usuario, senha_usuario, funcao_usuario) VALUES (?,?,?,?)");
-        $stmt->bind_param("ssss", $novo_usuario, $novo_email, $nova_senha, $nova_func);
+        $stmt->bind_param("ssss", $novo_usuario, $novo_email, $hash, $nova_func);
         
         if($stmt->execute()) {
             $register_msg = "Usuário cadastrado com sucesso!";
