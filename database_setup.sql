@@ -9,7 +9,7 @@ create table Usuario (
     senha_usuario VARCHAR(255) not null,
     telefone_usuario VARCHAR(9),
     funcao_usuario ENUM("administrador", "normal") default "normal",
-    foto_usuario VARCHAR(100) not null default,
+    foto_usuario VARCHAR(100) not null,
     -- Alteração no banco para incluir CEP e implementar viaCEP
     cep_usuario VARCHAR(9) NOT NULL,
     estado_usuario VARCHAR(50) NOT NULL,
