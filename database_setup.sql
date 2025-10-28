@@ -105,10 +105,19 @@ CREATE TABLE relatorio (
 
 insert into Usuario (nome_usuario, email_usuario, senha_usuario, funcao_usuario) values ("admin", "admin", "admin", "administrador");
 
+-- Alteração no banco para incluir CEP e implementar viaCEP
+ALTER TABLE Usuario ADD
+cep_usuario VARCHAR(9) NOT NULL,
+estado_usuario VARCHAR(50) NOT NULL,
+municipio_usuario VARCHAR(100) NOT NULL,
+bairro_usuario VARCHAR(50) NOT NULL,
+numero_usuario VARCHAR(10) NOT NULL,
+complemento_usuario VARCHAR(50) NOT NULL,
+logradouro_usuario VARCHAR(50) NOT NULL
+
 -- Inserção de usuários reais de teste
 INSERT INTO Usuario (nome_usuario, email_usuario, senha_usuario, telefone_usuario, funcao_usuario)
 VALUES 
   ('João Silva', 'joao.silva@email.com', 'senha123', '999999999', 'normal'),
   ('Maria Oliveira', 'maria.oliveira@email.com', 'segura456', '988888888', 'normal'),
   ('Carlos Souza', 'carlos.souza@email.com', 'admin789', '977777777', 'administrador');
-
