@@ -3,12 +3,21 @@ create database TLB_SA;
 use TLB_SA;
 
 create table Usuario (
-	id_usuario INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    id_usuario INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     nome_usuario VARCHAR(45) NOT NULL,
     email_usuario VARCHAR(45) not null,
     senha_usuario VARCHAR(255) not null,
     telefone_usuario VARCHAR(9),
-    funcao_usuario ENUM('administrador', 'normal')
+    funcao_usuario ENUM("administrador", "normal") default "normal",
+    foto_usuario VARCHAR(100) not null default,
+    -- Alteração no banco para incluir CEP e implementar viaCEP
+    cep_usuario VARCHAR(9) ,
+    estado_usuario VARCHAR(50) ,
+    municipio_usuario VARCHAR(100) ,
+    bairro_usuario VARCHAR(50) ,
+    numero_usuario VARCHAR(10) ,
+    complemento_usuario VARCHAR(50) ,
+    logradouro_usuario VARCHAR(50) 
 );
 
 CREATE TABLE estacao (
@@ -104,16 +113,6 @@ CREATE TABLE relatorio (
 );
 
 insert into Usuario (nome_usuario, email_usuario, senha_usuario, funcao_usuario) values ("admin", "admin", "admin", "administrador");
-
--- Alteração no banco para incluir CEP e implementar viaCEP
-ALTER TABLE Usuario ADD
-cep_usuario VARCHAR(9) NOT NULL,
-estado_usuario VARCHAR(50) NOT NULL,
-municipio_usuario VARCHAR(100) NOT NULL,
-bairro_usuario VARCHAR(50) NOT NULL,
-numero_usuario VARCHAR(10) NOT NULL,
-complemento_usuario VARCHAR(50) NOT NULL,
-logradouro_usuario VARCHAR(50) NOT NULL
 
 -- Inserção de usuários reais de teste
 INSERT INTO Usuario (nome_usuario, email_usuario, senha_usuario, telefone_usuario, funcao_usuario)
