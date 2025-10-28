@@ -8,7 +8,7 @@ create table Usuario (
     email_usuario VARCHAR(45) not null,
     senha_usuario VARCHAR(255) not null,
     telefone_usuario VARCHAR(9),
-    funcao_usuario ENUM('administrador', 'normal')
+    funcao_usuario ENUM("administrador", "normal") default "normal"
 );
 
 CREATE TABLE estacao (
