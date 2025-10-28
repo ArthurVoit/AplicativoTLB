@@ -9,7 +9,7 @@
 
     $id_usuario = $_SESSION['id_usuario'];
     
-    $sql = "SELECT nome_usuario, email_usuario, funcao_usuario, telefone_usuario FROM usuario WHERE id_usuario = ?";
+    $sql = "SELECT nome_usuario, email_usuario, funcao_usuario, telefone_usuario, foto_usuario FROM usuario WHERE id_usuario = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("i", $id_usuario);
     $stmt->execute();
@@ -17,6 +17,7 @@
     
     if ($result->num_rows > 0) {
         $dados_usuario = $result->fetch_assoc();
+        $foto_usuario = $dados_usuario['foto_usuario'];
         $nome_usuario = $dados_usuario['nome_usuario'];
         $email_usuario = $dados_usuario['email_usuario'];
         $funcao_usuario = $dados_usuario['funcao_usuario'];
@@ -38,6 +39,7 @@
     <br>
     <main>
         <div class="dadosUsuario">
+            <?php echo "<img class='foto_usuario' src='$foto_usuario' alt='Foto do usuário'>"; ?>
              <h1><?php echo htmlspecialchars($nome_usuario); ?></h1>
              <div class="flex">
                 <i class="bi bi-person-fill"></i>

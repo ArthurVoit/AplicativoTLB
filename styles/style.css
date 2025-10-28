@@ -1463,3 +1463,10 @@ body {
       height: 100vh;
       overflow: hidden;
     }
+
+.foto_usuario {
+  width: 100px; 
+  height: 100px; 
+  border-radius: 50%; 
+  object-fit: cover; 
+}
