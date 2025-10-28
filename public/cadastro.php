@@ -3,9 +3,7 @@
 
 include "../db.php";
 session_start();
-   $url = "https://viacep.com.br/ws/{$novo_cep}/json/";
-            $response = file_get_contents($url);
-            $data = json_decode($response, true);
+   
 $register_msg = "";
    
 if (isset($data['erro'])) {
@@ -13,27 +11,31 @@ if (isset($data['erro'])) {
                 exit;
             }
 if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['register'])){
+    
     $novo_usuario = $_POST['novo_usuario'] ?? "";
     $novo_email = $_POST['novo_email'] ?? "";
     $nova_senha = $_POST['nova_senha'] ?? "";
     $confirmar_senha = $_POST['confirmar_senha'] ?? "";
     $novo_cep =          $_POST['CEP']; 
+    $url = "https://viacep.com.br/ws/{$novo_cep}/json/";
+    $response = file_get_contents($url);
+    $data = json_decode($response, true);
     $novo_logradouro  =  $data['logradouro'] ?? ''; 
-    $novo_complemento =  $data['logradouro'] ?? ''; 
-    $novo_bairro      =  $data['logradouro'] ?? ''; 
-    $novo_cidade      =  $data['logradouro'] ?? ''; 
-    $novo_estado      =  $data['logradouro'] ?? '';
+    $novo_complemento =  $data['complemento'] ?? ''; 
+    $novo_bairro      =  $data['bairro'] ?? ''; 
+    $novo_cidade      =  $data['localidade'] ?? ''; 
+    $novo_estado      =  $data['estado'] ?? '';
     $hash = password_hash($nova_senha, PASSWORD_DEFAULT);
     if($nova_senha !== $confirmar_senha){
         $register_msg = "As senhas não coincidem!";
     }
-
+    
     elseif($novo_usuario && $nova_senha && $novo_email){
 
         $nova_func = 'normal';
         
-        $stmt = $conn->prepare("INSERT INTO usuario (nome_usuario, email_usuario, senha_usuario, funcao_usuario, cep_usuario, logradouro_usuario, complemento_usuario, bairro_usuario, cidade_usuario, estado_usuario) VALUES (?,?,?,?,?,?,?,?,?)");
-        $stmt->bind_param("ssss", $novo_usuario, $novo_email, $hash, $nova_func, $novo_cep, $novo_logradouro, $novo_complemento, $novo_bairro, $novo_cidade, $novo_estado);
+        $stmt = $conn->prepare("INSERT INTO usuario (nome_usuario, email_usuario, senha_usuario, funcao_usuario, cep_usuario, logradouro_usuario, complemento_usuario, bairro_usuario, municipio_usuario, estado_usuario) VALUES (?,?,?,?,?,?,?,?,?,?)");
+        $stmt->bind_param("ssssssssss", $novo_usuario, $novo_email, $hash, $nova_func, $novo_cep, $novo_logradouro, $novo_complemento, $novo_bairro, $novo_cidade, $novo_estado);
         
         if($stmt->execute()) {
             $register_msg = "Usuário cadastrado com sucesso!";
@@ -72,7 +74,6 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['register'])){
                             <?= $register_msg ?> 
                         </p> 
                     <?php endif; ?>
-
                 </div>
                 <div class="inputContainer">
                     <br>
