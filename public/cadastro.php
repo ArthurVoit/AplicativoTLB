@@ -72,6 +72,9 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['register'])){
                             <?= $register_msg ?> 
                         </p> 
                     <?php endif; ?>
+
+                </div>
+                <div class="inputContainer">
                     <br>
                     <br>
                     <input type="text" id="novo_usuario" name="novo_usuario" required placeholder="usuário" value="<?php echo htmlspecialchars($novo_usuario ?? ''); ?>">
