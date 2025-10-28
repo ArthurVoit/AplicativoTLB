@@ -3,14 +3,26 @@
 
 include "../db.php";
 session_start();
-
+   $url = "https://viacep.com.br/ws/{$novo_cep}/json/";
+            $response = file_get_contents($url);
+            $data = json_decode($response, true);
 $register_msg = "";
-
+   
+if (isset($data['erro'])) {
+                echo json_encode(['success' => false, 'message' => 'CEP não encontrado']);
+                exit;
+            }
 if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['register'])){
     $novo_usuario = $_POST['novo_usuario'] ?? "";
     $novo_email = $_POST['novo_email'] ?? "";
     $nova_senha = $_POST['nova_senha'] ?? "";
     $confirmar_senha = $_POST['confirmar_senha'] ?? "";
+    $novo_cep =          $_POST['CEP']; 
+    $novo_logradouro  =  $data['logradouro'] ?? ''; 
+    $novo_complemento =  $data['logradouro'] ?? ''; 
+    $novo_bairro      =  $data['logradouro'] ?? ''; 
+    $novo_cidade      =  $data['logradouro'] ?? ''; 
+    $novo_estado      =  $data['logradouro'] ?? '';
     $hash = password_hash($nova_senha, PASSWORD_DEFAULT);
     if($nova_senha !== $confirmar_senha){
         $register_msg = "As senhas não coincidem!";
@@ -20,8 +32,8 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['register'])){
 
         $nova_func = 'normal';
         
-        $stmt = $conn->prepare("INSERT INTO usuario (nome_usuario, email_usuario, senha_usuario, funcao_usuario) VALUES (?,?,?,?)");
-        $stmt->bind_param("ssss", $novo_usuario, $novo_email, $hash, $nova_func);
+        $stmt = $conn->prepare("INSERT INTO usuario (nome_usuario, email_usuario, senha_usuario, funcao_usuario, cep_usuario, logradouro_usuario, complemento_usuario, bairro_usuario, cidade_usuario, estado_usuario) VALUES (?,?,?,?,?,?,?,?,?)");
+        $stmt->bind_param("ssss", $novo_usuario, $novo_email, $hash, $nova_func, $novo_cep, $novo_logradouro, $novo_complemento, $novo_bairro, $novo_cidade, $novo_estado);
         
         if($stmt->execute()) {
             $register_msg = "Usuário cadastrado com sucesso!";
@@ -84,6 +96,11 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['register'])){
                     <i class="bi bi-lock-fill"></i>
                 </div>
                 <br>
+                 <div class="inputContainer">
+                    <label for="informar CEP"></label>
+                    <input type="text" id="CEP" name="CEP" required placeholder="00000000">
+                    <i class="bi bi-lock-fill"></i>
+                </div>
                 <br>
                 <button class="buttonRoxoCadastro" type="submit" name="register" value="1">Cadastrar-se</button>
             </form>
