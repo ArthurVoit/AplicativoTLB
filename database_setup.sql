@@ -8,7 +8,6 @@ create table Usuario (
     email_usuario VARCHAR(45) not null,
     senha_usuario VARCHAR(255) not null,
     telefone_usuario VARCHAR(9),
-<<<<<<< HEAD
     funcao_usuario ENUM("administrador", "normal") default "normal",
     foto_usuario VARCHAR(100) not null default,
     -- Alteração no banco para incluir CEP e implementar viaCEP
@@ -19,9 +18,6 @@ create table Usuario (
     numero_usuario VARCHAR(10) ,
     complemento_usuario VARCHAR(50) ,
     logradouro_usuario VARCHAR(50) 
-=======
-    funcao_usuario ENUM("administrador", "normal") default "normal"
->>>>>>> 94fb12883216920451be94bb6f81fdb7d5750024
 );
 
 CREATE TABLE estacao (
