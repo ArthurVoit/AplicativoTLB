@@ -22,7 +22,7 @@
 </script>
   <script type="module" src="../script/loadModel-final.js"></script>
 
-
+<a href="cadastrarTrem.php">adicionar Trem</a>
 
 </body>
 </html>

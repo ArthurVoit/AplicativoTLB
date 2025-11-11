@@ -34,7 +34,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['register'])){
 
         $nova_func = 'normal';
         
-        $stmt = $conn->prepare("INSERT INTO usuario (nome_usuario, email_usuario, senha_usuario, funcao_usuario, cep_usuario, logradouro_usuario, complemento_usuario, bairro_usuario, municipio_usuario, estado_usuario) VALUES (?,?,?,?,?,?,?,?,?,?)");
+        $stmt = $conn->prepare("INSERT INTO usuario (nome_usuario, email_usuario, senha_usuario, funcao_usuario, cep_usuario, logradouro_usuario, complemento_usuario, bairro_usuario, cidade_usuario, estado_usuario) VALUES (?,?,?,?,?,?,?,?,?,?)");
         $stmt->bind_param("ssssssssss", $novo_usuario, $novo_email, $hash, $nova_func, $novo_cep, $novo_logradouro, $novo_complemento, $novo_bairro, $novo_cidade, $novo_estado);
         
         if($stmt->execute()) {
