@@ -3,7 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Notificações</title>
+    <title><?php 
+        $page_titles = [
+            'cadastrarTrem.php' => 'Cadastrar Trem',
+            'consumodeEnergia.php' => 'Consumo de Energia',
+            'funcionarios.php' => 'Funcionarios',
+            'notificacoes.php' => 'Notificações',
+            'dados.php' => 'Configurações',
+            'termos_de_uso.php' => 'Termos de Uso',
+            'ajuda.php' => 'Ajuda'
+        ];
+        $current_page = basename($_SERVER['PHP_SELF']);
+        echo ($page_titles[$current_page] ?? 'Sistema') . ' - VOLTOR';
+    ?></title>
     <link rel="stylesheet" href="../styles/style.css">
     <script src="../script/navBar.js"></script>
     <script src="../script/notificacao.js"></script>
