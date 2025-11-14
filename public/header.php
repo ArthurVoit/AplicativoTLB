@@ -14,7 +14,7 @@
             'ajuda.php' => 'Ajuda'
         ];
         $current_page = basename($_SERVER['PHP_SELF']);
-        echo ($page_titles[$current_page] ?? 'Sistema') . ' - VOLTOR';
+        echo ($page_titles[$current_page] ?? 'Sistema') . ' - TLB';
     ?></title>
     <link rel="stylesheet" href="../styles/style.css">
     <script src="../script/navBar.js"></script>
