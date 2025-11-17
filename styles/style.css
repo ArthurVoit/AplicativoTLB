@@ -173,7 +173,91 @@ img .notificacao {
     justify-content: center;
 }
 
-/* yelalogin(politica) */
+/* Estilos específicos para o mapa e botões */
+.mapaAlterado {
+    position: relative;
+    margin-top: 5%;
+    text-align: center;
+}
+
+.mapaAlterado img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Botões do mapa */
+.btn-mapa {
+    position: absolute;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 14px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.btn-mapa:hover {
+    background-color: #0056b3;
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+}
+
+/* Tooltip para botões do mapa */
+.tooltip-container {
+    position: absolute;
+    display: inline-block;
+}
+
+.tooltip-container .tooltip-text {
+    visibility: hidden;
+    width: 200px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px;
+    position: absolute;
+    z-index: 100;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+.tooltip-container .tooltip-text::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #333 transparent transparent transparent;
+}
+
+.tooltip-container:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Posições específicas para os botões do mapa */
+.btn-s1 {
+    top: 30%;
+    left: 45%;
+}
+
+/* Adicione mais posições conforme necessário para outros botões */
+
+/* telalogin(politica) */
 
 .bodyPoliticas {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
