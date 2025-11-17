@@ -175,9 +175,12 @@ img .notificacao {
 
 /* Estilos específicos para o mapa e botões */
 .mapaAlterado {
-    position: relative;
+    position: relative; 
     margin-top: 5%;
-    text-align: center;
+    display: block; 
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
 }
 
 .mapaAlterado img {
@@ -187,11 +190,10 @@ img .notificacao {
 
 /* Botões do mapa */
 .btn-mapa {
-    position: absolute;
     background-color: #007bff;
     color: white;
     border: none;
-    border-radius: 50%;
+    border-radius: 30%;
     width: 40px;
     height: 40px;
     cursor: pointer;
@@ -251,8 +253,8 @@ img .notificacao {
 
 /* Posições específicas para os botões do mapa */
 .btn-s1 {
-    top: 30%;
-    left: 45%;
+    top: 60% !important;
+    left: 30% !important;
 }
 
 /* Adicione mais posições conforme necessário para outros botões */

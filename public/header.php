@@ -11,7 +11,9 @@
             'notificacoes.php' => 'Notificações',
             'dados.php' => 'Configurações',
             'termos_de_uso.php' => 'Termos de Uso',
-            'ajuda.php' => 'Ajuda'
+            'ajuda.php' => 'Ajuda',
+            'mapa.php' => 'Mapa',
+            
         ];
         $current_page = basename($_SERVER['PHP_SELF']);
         echo ($page_titles[$current_page] ?? 'Sistema') . ' - TLB';
