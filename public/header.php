@@ -9,11 +9,15 @@
             'consumodeEnergia.php' => 'Consumo de Energia',
             'funcionarios.php' => 'Funcionarios',
             'notificacoes.php' => 'Notificações',
-            'dados.php' => 'Configurações',
+            'dadosDoUsuario.php' => 'Dados do Usuário',
+            'relatorios.php' => 'Relatórios',
             'termos_de_uso.php' => 'Termos de Uso',
             'ajuda.php' => 'Ajuda',
             'mapa.php' => 'Mapa',
-            
+            'monitoramentoManutencao.php' => 'Monitoramento e Manutenção',
+            'eficienciaOperacional.php' => 'Eficiência Operacional',
+            'seguranca.php' => 'Segurança',
+            'configuracoes.php' => 'Configurações'            
         ];
         $current_page = basename($_SERVER['PHP_SELF']);
         echo ($page_titles[$current_page] ?? 'Sistema') . ' - TLB';
