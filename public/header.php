@@ -27,7 +27,8 @@
     <header>
         <div class="navbar">
         <div class="btnNavBar"><a href="notificacao.php"><img src="../assets/icons/bell.svg" alt=""></a></div>
-        <h1>Dados do Usuário</h1>
+        <?php // Substitui o H1 estático por um título dinâmico com base em $page_titles e $current_page ?>
+        <h1><?php echo ($page_titles[$current_page] ?? 'Sistema'); ?></h1>
         <button class="nav-button" onclick="alternarMenu()"> ≡</button>
         <div class="menu" id="menu">
             <button class="close-button" onclick="alternarMenu()">X</button>
@@ -45,3 +46,5 @@
         </div>
         </div>
     </header>
+</body>
+</html>
