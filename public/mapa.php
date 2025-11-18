@@ -16,8 +16,24 @@
     <img src="../assets/img/mapaSA.png" alt="Mapa">
     
     <!-- Botão S1 com posicionamento correto -->
-    <div class="tooltip-container">
-        <button class="btn-mapa btn-s1">S1</button>
+    <div class="tooltip-container btn-s1">
+        <button class="btn-mapa">S1</button>
+        <span class="tooltip-text">
+            SENSOR DE DISTANCIA<br>
+            SENSOR DE UMIDADE<br>
+            SENSOR DE LUMINOSIDADE
+        </span>
+    </div>
+    <div class="tooltip-container btn-s2">
+        <button class="btn-mapa">S2</button>
+        <span class="tooltip-text">
+            SENSOR DE DISTANCIA<br>
+            SENSOR DE UMIDADE<br>
+            SENSOR DE LUMINOSIDADE
+        </span>
+    </div>
+    <div class="tooltip-container btn-s3">
+        <button class="btn-mapa">S3</button>
         <span class="tooltip-text">
             SENSOR DE DISTANCIA<br>
             SENSOR DE UMIDADE<br>

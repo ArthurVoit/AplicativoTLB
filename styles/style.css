@@ -252,9 +252,26 @@ img .notificacao {
 }
 
 /* Posições específicas para os botões do mapa */
-.btn-s1 {
-    top: 60% !important;
-    left: 30% !important;
+/* Move per-button positioning to the tooltip container so the tooltip (text) follows the button */
+.tooltip-container.btn-s1 {
+    position: absolute;
+    top: 100% !important;
+    left: 35% !important;
+    transform: translate(-50%, -50%); /* centraliza o ponto; ajuste/remova se preferir outro alinhamento */
+}
+
+.tooltip-container.btn-s2 {
+    position: absolute;
+    top: 45% !important;
+    left: 45% !important;
+    transform: translate(-50%, -50%);
+}
+
+.tooltip-container.btn-s3 {
+    position: absolute;
+    top: 50% !important;
+    left: 90% !important;
+    transform: translate(-50%, -50%);
 }
 
 /* Adicione mais posições conforme necessário para outros botões */
