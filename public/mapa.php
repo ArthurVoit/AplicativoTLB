@@ -42,34 +42,38 @@
 
 </section>
 
-<script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
 <script>
+        let allMessages = [];
 
+        function fetchMessages() {
+            fetch('get_messages.php?t=' + new Date().getTime())
+                .then(r => r.json())
+                .then(data => {
+                    if (data.error) {
+                        console.error(data.error);
+                        return;
+                    }
+                    if (data.length > 0) {
+                        data.forEach(m => {
+                            const key = m.time + m.msg;
+                            if (!allMessages.includes(key)) {
+                                allMessages.push(key);
+                                const div = document.createElement('div');
+                                div.className = 'msg';
+                                div.textContent = `[${m.time}] ${m.topic}: ${m.msg}`;
+                                document.getElementById('messages').appendChild(div);
+                            }
+                        });
+                    }
+                })
+                .catch(e => console.error(e));
+        }
 
-const client = mqtt.connect('35fb7bd345d640388502e0816b515952.s1.eu.hivemq.cloud:8883'); // Exemplo: wss://meubroker.com:8083/mqtt
+        // Polling a cada 1 segundo
+        setInterval(fetchMessages, 1000);
+        fetchMessages();
+    </script>
 
-client.on('connect', function () {
-    client.subscribe('S1/P1');
-    client.subscribe('S2/P1');
-    client.subscribe('S2/P2');
-    client.subscribe('S3/P1');
-});
-
-client.on('message', function (topic, message) {
-    if (topic === 'S1/P1') {
-        document.getElementById('sensor-s1').innerHTML = message.toString();
-    }
-    if (topic === 'S2/P1') {
-        document.getElementById('sensor-s2').innerHTML = message.toString();
-    }
-    if (topic === 'S2/P2') {
-        document.getElementById('sensor2-s2').innerHTML = message.toString();
-    }
-    if (topic === 'S3/P1') {
-        document.getElementById('sensor-s3').innerHTML = message.toString();
-    }
-});
-</script>
 
 </body>
 </html>

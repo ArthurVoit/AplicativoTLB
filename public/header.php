@@ -10,12 +10,10 @@
             'funcionarios.php' => 'Funcionarios',
             'notificacoes.php' => 'Notificações',
             'dadosDoUsuario.php' => 'Dados do Usuário',
-            'relatorios.php' => 'Relatórios',
             'termos_de_uso.php' => 'Termos de Uso',
             'ajuda.php' => 'Ajuda',
             'mapa.php' => 'Mapa',
-            'monitoramentoManutencao.php' => 'Monitoramento e Manutenção',
-            'eficienciaOperacional.php' => 'Eficiência Operacional',
+            'trens.php' => 'Trens',
             'seguranca.php' => 'Segurança',
             'configuracoes.php' => 'Configurações'            
         ];
@@ -31,17 +29,14 @@
     <header>
         <div class="navbar">
         <div class="btnNavBar"><a href="notificacao.php"><img src="../assets/icons/bell.svg" alt=""></a></div>
-        <?php // Substitui o H1 estático por um título dinâmico com base em $page_titles e $current_page ?>
+        <?php?>
         <h1><?php echo ($page_titles[$current_page] ?? 'Sistema'); ?></h1>
         <button class="nav-button" onclick="alternarMenu()"> ≡</button>
         <div class="menu" id="menu">
             <button class="close-button" onclick="alternarMenu()">X</button>
             <a href="mapa.php">Mapa</a>
             <a href="dadosDoUsuario.php">Dados do Usuário</a>
-            <a href="relatorios.php">Relatórios</a>
-            <a href="consumodeEnergia.php">Consumo de Energia</a>
-            <a href="monitoramentoManutencao.php">Monitoramento e Manutenção</a>
-            <a href="eficienciaOperacional.php">Eficiência Operacional</a>
+            <a href="trens.php">Trens</a>
             <?php
               if(isset($_SESSION['funcao_usuario']) && $_SESSION['funcao_usuario'] == 'administrador'){
                   echo "<a href='funcionarios.php'>Funcionários</a>";
