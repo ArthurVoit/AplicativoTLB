@@ -46,7 +46,6 @@ CREATE TABLE segmento (
 CREATE TABLE trem (
     id_trem INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     modelo_trem VARCHAR(100) NOT NULL,
-    capacidade_trem INT NOT NULL,
     status_operacional_trem VARCHAR(50) NOT NULL,
     localizacao_atual_trem VARCHAR(100) NOT NULL
 );
