@@ -12,13 +12,13 @@
     <section class="politicas">
         <div class="containerPoliticas">
             <h1>Políticas de Privacidade</h1>
-            <p>Ao clicar no botão você estará de acordo com as <a href="politicas2.html">Políticas da Empresa.</a></p>
+            <p>Ao clicar no botão você estará de acordo com as <a href="politicas2.php">Políticas da Empresa.</a></p>
             <p><q>Quem aqui entra abandona todas as esperanças</q><br>-Alighieri, Dante</p><br>
     
             <div>
-                <a href="cadastro.html"><button class="btnPoliticas"><b>Eu Aceito</b></button></a><br>
+                <a href="cadastro.php"><button class="btnPoliticas"><b>Eu Aceito</b></button></a><br>
                 <br>
-                <a href="politicas3.html"><button class="btnPoliticas"><b>Eu Recuso</b></button></a>
+                <a href="politicas3.php"><button class="btnPoliticas"><b>Eu Recuso</b></button></a>
             </div>
         </div>
 

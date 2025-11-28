@@ -7,7 +7,7 @@
         $page_titles = [
             'cadastrarTrem.php' => 'Cadastrar Trem',
             'consumodeEnergia.php' => 'Consumo de Energia',
-            'funcionarios.php' => 'Funcionarios',
+            'funcionarios.php' => 'Funcionários',
             'notificacoes.php' => 'Notificações',
             'dadosDoUsuario.php' => 'Dados do Usuário',
             'termos_de_uso.php' => 'Termos de Uso',
@@ -31,7 +31,9 @@
         <div class="btnNavBar"><a href="notificacao.php"><img src="../assets/icons/bell.svg" alt=""></a></div>
         <?php?>
         <h1><?php echo ($page_titles[$current_page] ?? 'Sistema'); ?></h1>
-        <button class="nav-button" onclick="alternarMenu()"> ≡</button>
+        <button class="nav-button" onclick="alternarMenu()">
+            <i class="bi bi-list"></i>
+        </button>
         <div class="menu" id="menu">
             <button class="close-button" onclick="alternarMenu()">X</button>
             <a href="mapa.php">Mapa</a>

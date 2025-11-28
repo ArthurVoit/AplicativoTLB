@@ -347,7 +347,8 @@ img .notificacao {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    padding: 10px;
+    box-sizing: border-box;
 }
 
 .formCadastro {
@@ -356,11 +357,12 @@ img .notificacao {
     align-items: center;
     background-color: #00a94f;
     border-radius: 50px;
-    padding: 2%;
-    width: 60%;
+    padding: 40px 30px; 
+    width: 90%;
     max-width: 500px;
-    min-width: 300px;
-    margin: 5% auto;
+    margin: 0 auto;
+    box-sizing: border-box;
+    position: relative;
 }
 
 .formCadastro i {
@@ -837,16 +839,26 @@ body {
     margin: 0;
 }
 
+.nav-button i {
+    font-size: 30px;
+    line-height: 1;
+}
+
 .nav-button {
     background: none;
     border: none;
     cursor: pointer;
-    font-size: 40px;
+    font-size: 28px;
     color: white;
     background-color: #184d31;
     border-radius: 50%;
     width: 45px;
+    height: 45px;
     transition: .5s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
 }
 
 .nav-button:hover {
@@ -1427,16 +1439,23 @@ body {
     width: 100%;
     height: 100%;
     background-color: rgba(0,0,0,0.5);
+    overflow: auto;
 }
 
 .modal-content {
     background-color: #fefefe;
-    margin: 5% auto;
+    margin: auto;
     padding: 0;
     border-radius: 10px;
     width: 90%;
     max-width: 500px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-height: 90vh;
+    overflow-y: auto;
 }
 
 .modal-header {
@@ -1447,6 +1466,9 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1;
 }
 
 .modal-header h2 {
@@ -1561,15 +1583,365 @@ body {
     border: 1px solid #f5c6cb;
 }
 
+@media (max-width: 768px) {
+    .modal-content {
+        width: 95%;
+        margin: 10px auto;
+    }
+    
+    .modal-botoes {
+        flex-direction: column;
+    }
+    
+    .btn-salvar,
+    .btn-cancelar {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
 #trem3D {
       width: 100vw;
       height: 100vh;
       overflow: hidden;
     }
 
+
+/* provavelmente os ultimos css da SA, acabou, é isso, fazer o que*/
+
+.foto-container label {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.foto-container label:hover {
+    transform: scale(1.05);
+}
+
+.foto-container label:hover .foto_usuario {
+    box-shadow: 0 0 0 3px #3498db;
+}
+
 .foto_usuario {
-  width: 100px; 
-  height: 100px; 
-  border-radius: 50%; 
-  object-fit: cover; 
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #ecf0f1;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.paginaNotificacoes {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    font-family: 'Segoe UI', sans-serif;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.paginaNotificacoes h1 {
+    font-size: 32px;
+    color: #2c3e50;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.paginaNotificacoes h1 i {
+    font-size: 30px;
+    color: #2c3e50;
+}
+
+.sem-notificacoes {
+    text-align: center;
+    padding: 60px 20px;
+    color: #7f8c8d;
+}
+
+.sem-notificacoes i {
+    font-size: 64px;
+    margin-bottom: 20px;
+    display: block;
+    color: #bdc3c7;
+}
+
+.sem-notificacoes p {
+    font-size: 18px;
+    margin: 0;
+}
+
+.lista-notificacoes {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.notificacao-item {
+    display: flex;
+    align-items: flex-start;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    border-left: 4px solid #3498db;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.notificacao-item:hover {
+    background-color: #e9ecef;
+    transform: translateX(5px);
+}
+
+.notificacao-item.alta {
+    border-left-color: #e74c3c;
+    background-color: #fdedec;
+}
+
+.notificacao-item.media {
+    border-left-color: #f39c12;
+    background-color: #fef9e7;
+}
+
+.notificacao-item.baixa {
+    border-left-color: #27ae60;
+    background-color: #eafaf1;
+}
+
+.notificacao-icon {
+    font-size: 24px;
+    margin-right: 15px;
+    color: #2c3e50;
+}
+
+.notificacao-item.alta .notificacao-icon {
+    color: #e74c3c;
+}
+
+.notificacao-item.media .notificacao-icon {
+    color: #f39c12;
+}
+
+.notificacao-item.baixa .notificacao-icon {
+    color: #27ae60;
+}
+
+.notificacao-content {
+    flex: 1;
+}
+
+.notificacao-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.notificacao-tipo {
+    font-weight: bold;
+    color: #2c3e50;
+    font-size: 16px;
+}
+
+.notificacao-prioridade {
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.notificacao-prioridade.alta {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.notificacao-prioridade.media {
+    background-color: #f39c12;
+    color: white;
+}
+
+.notificacao-prioridade.baixa {
+    background-color: #27ae60;
+    color: white;
+}
+
+.notificacao-mensagem {
+    margin: 0 0 8px 0;
+    color: #34495e;
+    line-height: 1.4;
+}
+
+.notificacao-tempo {
+    font-size: 12px;
+    color: #7f8c8d;
+}
+
+.notificacao-fechar {
+    background: none;
+    border: none;
+    font-size: 18px;
+    color: #95a5a6;
+    cursor: pointer;
+    padding: 5px;
+    margin-left: 10px;
+    transition: color 0.3s;
+}
+
+.notificacao-fechar:hover {
+    color: #e74c3c;
+}
+
+@media (max-width: 768px) {
+    .paginaNotificacoes {
+        margin: 20px;
+        padding: 20px;
+    }
+    
+    .notificacao-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+    
+    .notificacao-item {
+        padding: 15px;
+    }
+}
+
+.notificacao-actions {
+    margin: 0;
+    padding: 0;
+}
+
+.notificacao-fechar {
+    background: #27ae60;
+    border: none;
+    font-size: 16px;
+    color: white;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    margin-left: 10px;
+}
+
+.notificacao-fechar:hover {
+    background: #219a52;
+    transform: scale(1.1);
+}
+
+.btn-limpar-todas {
+    background: #e74c3c;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-limpar-todas:hover {
+    background: #c0392b;
+}
+
+.mensagem-alerta {
+    padding: 15px 20px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.mensagem-alerta.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.alert-message {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 16px;
+    border-radius: 10px;
+    margin: 15px 0;
+    font-size: 14px;
+    animation: slideIn 0.3s ease-out;
+}
+
+.alert-message.success {
+    background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+    border: 1px solid #b8dfc2;
+    color: #155724;
+}
+
+.alert-message.error {
+    background: linear-gradient(135deg, #f8d7da 0%, #f5c6cb 100%);
+    border: 1px solid #f1b0b7;
+    color: #721c24;
+}
+
+.alert-message i {
+    font-size: 20px;
+    margin-top: 1px;
+    flex-shrink: 0;
+}
+
+.alert-message div {
+    flex: 1;
+}
+
+.alert-message strong {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 4px;
+    font-size: 15px;
+}
+
+.alert-message span {
+    display: block;
+    opacity: 0.9;
+    line-height: 1.4;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.usuariosenha {
+    text-align: center;
+    width: 100%;
+}
+
+.loginForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #00a94f;
+    border-radius: 50px;
+    padding: 40px 30px;
+    width: 90%;
+    max-width: 450px;
+    min-width: 300px;
+    margin: 5% auto;
+    box-sizing: border-box;
 }

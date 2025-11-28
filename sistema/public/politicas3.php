@@ -14,7 +14,7 @@
             <h1>Tem Certeza???</h1>
             <h3>Porque realmente não tem muito o que fazer além disso :/</h3>
             <div>
-                <a href="politicas.html"><button class="btnPoliticas"><b>Voltar</b></button></a>
+                <a href="politicas.php"><button class="btnPoliticas"><b>Voltar</b></button></a>
             </div>
         </div>
 

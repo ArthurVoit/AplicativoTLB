@@ -36,30 +36,46 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $email = $_POST['email_usuario'] ?? "";
     $telefone = $_POST['telefone_usuario'] ?? "";
     $funcao = $_POST['funcao_usuario'] ?? "normal";
+    $cep = $_POST['cep_usuario'] ?? "";
     
     if (isset($_POST['adicionar'])) {
         $senha = $_POST['senha_usuario'] ?? "";
         
-        if ($nome && $email && $senha) {
-            $stmt_verifica = $conn->prepare("SELECT id_usuario FROM usuario WHERE email_usuario = ?");
-            $stmt_verifica->bind_param("s", $email);
-            $stmt_verifica->execute();
-            $result_verifica = $stmt_verifica->get_result();
-            
-            if ($result_verifica->num_rows > 0) {
-                $mensagem = "error|Este email já está cadastrado!";
+        if ($nome && $email && $senha && $cep) {
+            if (strlen($senha) < 5) {
+                $mensagem = "error|A senha deve ter pelo menos 5 caracteres!";
+            } elseif (!preg_match('/[!@#$%^&*(),.?":{}|<>]/', $senha)) {
+                $mensagem = "error|A senha deve conter pelo menos um caractere especial!";
             } else {
-                $stmt = $conn->prepare("INSERT INTO usuario (nome_usuario, email_usuario, senha_usuario, telefone_usuario, funcao_usuario) VALUES (?, ?, ?, ?, ?)");
-                $stmt->bind_param("sssss", $nome, $email, $senha, $telefone, $funcao);
+                $url = "https://viacep.com.br/ws/{$cep}/json/";
+                $response = file_get_contents($url);
+                $data = json_decode($response, true);
                 
-                if ($stmt->execute()) {
-                    $mensagem = "success|Funcionário cadastrado com sucesso!";
+                if (isset($data['erro'])) {
+                    $mensagem = "error|CEP não encontrado! Verifique o CEP digitado.";
                 } else {
-                    $mensagem = "error|Erro ao cadastrar funcionário: " . $stmt->error;
+                    $stmt_verifica = $conn->prepare("SELECT id_usuario FROM usuario WHERE email_usuario = ?");
+                    $stmt_verifica->bind_param("s", $email);
+                    $stmt_verifica->execute();
+                    $result_verifica = $stmt_verifica->get_result();
+                    
+                    if ($result_verifica->num_rows > 0) {
+                        $mensagem = "error|Este email já está cadastrado!";
+                    } else {
+                        $hash_senha = password_hash($senha, PASSWORD_DEFAULT);
+                        $stmt = $conn->prepare("INSERT INTO usuario (nome_usuario, email_usuario, senha_usuario, telefone_usuario, funcao_usuario, cep_usuario) VALUES (?, ?, ?, ?, ?, ?)");
+                        $stmt->bind_param("ssssss", $nome, $email, $hash_senha, $telefone, $funcao, $cep);
+                        
+                        if ($stmt->execute()) {
+                            $mensagem = "success|Funcionário cadastrado com sucesso!";
+                        } else {
+                            $mensagem = "error|Erro ao cadastrar funcionário: " . $stmt->error;
+                        }
+                        $stmt->close();
+                    }
+                    $stmt_verifica->close();
                 }
-                $stmt->close();
             }
-            $stmt_verifica->close();
         } else {
             $mensagem = "error|Preencha todos os campos obrigatórios!";
         }
@@ -68,28 +84,54 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if (isset($_POST['editar'])) {
         $nova_senha = $_POST['nova_senha'] ?? "";
         
-        if ($nome && $email) {
-            if ($nova_senha) {
-                $stmt = $conn->prepare("UPDATE usuario SET nome_usuario = ?, email_usuario = ?, telefone_usuario = ?, funcao_usuario = ?, senha_usuario = ? WHERE id_usuario = ?");
-                $stmt->bind_param("sssssi", $nome, $email, $telefone, $funcao, $nova_senha, $id_editar);
-            } else {
-                $stmt = $conn->prepare("UPDATE usuario SET nome_usuario = ?, email_usuario = ?, telefone_usuario = ?, funcao_usuario = ? WHERE id_usuario = ?");
-                $stmt->bind_param("ssssi", $nome, $email, $telefone, $funcao, $id_editar);
-            }
+        if ($nome && $email && $cep) {
+            $url = "https://viacep.com.br/ws/{$cep}/json/";
+            $response = file_get_contents($url);
+            $data = json_decode($response, true);
             
-            if ($stmt->execute()) {
-                $mensagem = "success|Usuário atualizado com sucesso!";
+            if (isset($data['erro'])) {
+                $mensagem = "error|CEP não encontrado! Verifique o CEP digitado.";
             } else {
-                $mensagem = "error|Erro ao atualizar usuário: " . $stmt->error;
+                if ($id_editar == $_SESSION['id_usuario']) {
+                    $funcao = $_SESSION['funcao_usuario'];
+                }
+                
+                if ($nova_senha) {
+                    if (strlen($nova_senha) < 5) {
+                        $mensagem = "error|A senha deve ter pelo menos 5 caracteres!";
+                    } elseif (!preg_match('/[!@#$%^&*(),.?":{}|<>]/', $nova_senha)) {
+                        $mensagem = "error|A senha deve conter pelo menos um caractere especial!";
+                    } else {
+                        $hash_nova_senha = password_hash($nova_senha, PASSWORD_DEFAULT);
+                        $stmt = $conn->prepare("UPDATE usuario SET nome_usuario = ?, email_usuario = ?, telefone_usuario = ?, funcao_usuario = ?, senha_usuario = ?, cep_usuario = ? WHERE id_usuario = ?");
+                        $stmt->bind_param("ssssssi", $nome, $email, $telefone, $funcao, $hash_nova_senha, $cep, $id_editar);
+                        
+                        if ($stmt->execute()) {
+                            $mensagem = "success|Usuário atualizado com sucesso!";
+                        } else {
+                            $mensagem = "error|Erro ao atualizar usuário: " . $stmt->error;
+                        }
+                        $stmt->close();
+                    }
+                } else {
+                    $stmt = $conn->prepare("UPDATE usuario SET nome_usuario = ?, email_usuario = ?, telefone_usuario = ?, funcao_usuario = ?, cep_usuario = ? WHERE id_usuario = ?");
+                    $stmt->bind_param("sssssi", $nome, $email, $telefone, $funcao, $cep, $id_editar);
+                    
+                    if ($stmt->execute()) {
+                        $mensagem = "success|Usuário atualizado com sucesso!";
+                    } else {
+                        $mensagem = "error|Erro ao atualizar usuário: " . $stmt->error;
+                    }
+                    $stmt->close();
+                }
             }
-            $stmt->close();
         } else {
             $mensagem = "error|Preencha todos os campos obrigatórios!";
         }
     }
 }
 
-$sql = "SELECT id_usuario, nome_usuario, email_usuario, telefone_usuario, funcao_usuario FROM usuario ORDER BY nome_usuario";
+$sql = "SELECT id_usuario, nome_usuario, email_usuario, telefone_usuario, funcao_usuario, cep_usuario FROM usuario ORDER BY nome_usuario";
 $result = $conn->query($sql);
 ?>
 
@@ -125,6 +167,7 @@ $result = $conn->query($sql);
                                     <th>Nome</th>
                                     <th>Email</th>
                                     <th>Telefone</th>
+                                    <th>CEP</th>
                                     <th>Função</th>
                                     <th>Ações</th>
                                 </tr>
@@ -136,13 +179,14 @@ $result = $conn->query($sql);
                                     <td><?php echo htmlspecialchars($row['nome_usuario']); ?></td>
                                     <td><?php echo htmlspecialchars($row['email_usuario']); ?></td>
                                     <td><?php echo htmlspecialchars($row['telefone_usuario'] ?? 'Não informado'); ?></td>
+                                    <td><?php echo htmlspecialchars($row['cep_usuario'] ?? 'Não informado'); ?></td>
                                     <td>
                                         <span class="funcao-badge <?php echo $row['funcao_usuario'] === 'administrador' ? 'admin' : 'normal'; ?>">
                                             <?php echo htmlspecialchars($row['funcao_usuario']); ?>
                                         </span>
                                     </td>
                                     <td class="acoes">
-                                        <button class="btn-editar" title="Editar" onclick="abrirModalEditar(<?php echo $row['id_usuario']; ?>, '<?php echo htmlspecialchars($row['nome_usuario']); ?>', '<?php echo htmlspecialchars($row['email_usuario']); ?>', '<?php echo htmlspecialchars($row['telefone_usuario'] ?? ''); ?>', '<?php echo htmlspecialchars($row['funcao_usuario']); ?>')">
+                                        <button class="btn-editar" title="Editar" onclick="abrirModalEditar(<?php echo $row['id_usuario']; ?>, '<?php echo htmlspecialchars($row['nome_usuario']); ?>', '<?php echo htmlspecialchars($row['email_usuario']); ?>', '<?php echo htmlspecialchars($row['telefone_usuario'] ?? ''); ?>', '<?php echo htmlspecialchars($row['funcao_usuario']); ?>', '<?php echo htmlspecialchars($row['cep_usuario'] ?? ''); ?>')">
                                             <i class="bi bi-pencil-square"></i>
                                         </button>
                                         <?php if ($row['id_usuario'] != $_SESSION['id_usuario']): ?>
@@ -182,7 +226,7 @@ $result = $conn->query($sql);
                 <h2><i class="bi bi-person-plus"></i> Adicionar Funcionário</h2>
                 <span class="close" onclick="fecharModal('modalAdicionar')">&times;</span>
             </div>
-            <form method="post" class="modal-form">
+            <form method="post" class="modal-form" id="formAdicionar" onsubmit="return validarFormAdicionar()">
                 <div class="inputGroup">
                     <label for="nome_usuario">Nome:</label>
                     <input type="text" id="nome_usuario" name="nome_usuario" required>
@@ -196,11 +240,18 @@ $result = $conn->query($sql);
                 <div class="inputGroup">
                     <label for="senha_usuario">Senha:</label>
                     <input type="password" id="senha_usuario" name="senha_usuario" required>
+                    <small style="color: #666; font-size: 12px;">Mínimo 5 caracteres e pelo menos 1 caractere especial</small>
                 </div>
 
                 <div class="inputGroup">
                     <label for="telefone_usuario">Telefone:</label>
-                    <input type="text" id="telefone_usuario" name="telefone_usuario">
+                    <input type="text" id="telefone_usuario" name="telefone_usuario" oninput="formatarTelefone(this)">
+                </div>
+
+                <div class="inputGroup">
+                    <label for="cep_usuario">CEP:</label>
+                    <input type="text" id="cep_usuario" name="cep_usuario" required oninput="formatarCEP(this)">
+                    <small style="color: #666; font-size: 12px;">Digite apenas números</small>
                 </div>
 
                 <div class="inputGroup">
@@ -229,7 +280,7 @@ $result = $conn->query($sql);
                 <h2><i class="bi bi-pencil-square"></i> Editar Funcionário</h2>
                 <span class="close" onclick="fecharModal('modalEditar')">&times;</span>
             </div>
-            <form method="post" class="modal-form">
+            <form method="post" class="modal-form" id="formEditar" onsubmit="return validarFormEditar()">
                 <input type="hidden" id="editar_id_usuario" name="id_usuario">
                 
                 <div class="inputGroup">
@@ -244,7 +295,13 @@ $result = $conn->query($sql);
 
                 <div class="inputGroup">
                     <label for="editar_telefone_usuario">Telefone:</label>
-                    <input type="text" id="editar_telefone_usuario" name="telefone_usuario">
+                    <input type="text" id="editar_telefone_usuario" name="telefone_usuario" oninput="formatarTelefone(this)">
+                </div>
+
+                <div class="inputGroup">
+                    <label for="editar_cep_usuario">CEP:</label>
+                    <input type="text" id="editar_cep_usuario" name="cep_usuario" required oninput="formatarCEP(this)">
+                    <small style="color: #666; font-size: 12px;">Digite apenas números</small>
                 </div>
 
                 <div class="inputGroup">
@@ -258,6 +315,7 @@ $result = $conn->query($sql);
                 <div class="inputGroup">
                     <label for="editar_nova_senha">Nova Senha (deixe em branco para manter a atual):</label>
                     <input type="password" id="editar_nova_senha" name="nova_senha" placeholder="Digite uma nova senha">
+                    <small style="color: #666; font-size: 12px;">Mínimo 5 caracteres e pelo menos 1 caractere especial</small>
                 </div>
 
                 <div class="modal-botoes">
@@ -273,22 +331,118 @@ $result = $conn->query($sql);
     </div>
 
     <script>
-        // Funções para os modais
         function abrirModalAdicionar() {
             document.getElementById('modalAdicionar').style.display = 'block';
         }
 
-        function abrirModalEditar(id, nome, email, telefone, funcao) {
+        function abrirModalEditar(id, nome, email, telefone, funcao, cep) {
             document.getElementById('editar_id_usuario').value = id;
             document.getElementById('editar_nome_usuario').value = nome;
             document.getElementById('editar_email_usuario').value = email;
             document.getElementById('editar_telefone_usuario').value = telefone;
             document.getElementById('editar_funcao_usuario').value = funcao;
+            document.getElementById('editar_cep_usuario').value = cep;
+            
+            const isCurrentUser = (id === <?php echo $_SESSION['id_usuario']; ?>);
+            const funcaoSelect = document.getElementById('editar_funcao_usuario');
+            
+            if (isCurrentUser) {
+                funcaoSelect.disabled = true;
+                funcaoSelect.title = "Você não pode alterar sua própria função";
+            } else {
+                funcaoSelect.disabled = false;
+                funcaoSelect.title = "";
+            }
+            
             document.getElementById('modalEditar').style.display = 'block';
         }
 
         function fecharModal(modalId) {
             document.getElementById(modalId).style.display = 'none';
+        }
+
+        function formatarTelefone(input) {
+            let value = input.value.replace(/\D/g, '');
+            
+            if (value.length <= 11) {
+                if (value.length <= 2) {
+                    value = value.replace(/^(\d{0,2})/, '($1');
+                } else if (value.length <= 6) {
+                    value = value.replace(/^(\d{2})(\d{0,4})/, '($1) $2');
+                } else if (value.length <= 10) {
+                    value = value.replace(/^(\d{2})(\d{4})(\d{0,4})/, '($1) $2-$3');
+                } else {
+                    value = value.replace(/^(\d{2})(\d{5})(\d{4})/, '($1) $2-$3');
+                }
+            } else {
+                value = value.slice(0, 11);
+                value = value.replace(/^(\d{2})(\d{5})(\d{4})/, '($1) $2-$3');
+            }
+            
+            input.value = value;
+        }
+
+        function formatarCEP(input) {
+            let value = input.value.replace(/\D/g, '');
+            if (value.length > 8) {
+                value = value.slice(0, 8);
+            }
+            input.value = value;
+        }
+
+        function validarFormAdicionar() {
+            const senha = document.getElementById('senha_usuario').value;
+            const cep = document.getElementById('cep_usuario').value;
+            
+            if (senha.length < 5) {
+                alert('A senha deve ter pelo menos 5 caracteres!');
+                return false;
+            }
+            
+            if (!/[!@#$%^&*(),.?":{}|<>]/.test(senha)) {
+                alert('A senha deve conter pelo menos um caractere especial!');
+                return false;
+            }
+            
+            if (cep.length !== 8) {
+                alert('CEP deve ter 8 dígitos!');
+                return false;
+            }
+            
+            return true;
+        }
+
+        function validarFormEditar() {
+            const novaSenha = document.getElementById('editar_nova_senha').value;
+            const cep = document.getElementById('editar_cep_usuario').value;
+            const isCurrentUser = (document.getElementById('editar_id_usuario').value === '<?php echo $_SESSION['id_usuario']; ?>');
+            
+            if (novaSenha && novaSenha.length < 5) {
+                alert('A senha deve ter pelo menos 5 caracteres!');
+                return false;
+            }
+            
+            if (novaSenha && !/[!@#$%^&*(),.?":{}|<>]/.test(novaSenha)) {
+                alert('A senha deve conter pelo menos um caractere especial!');
+                return false;
+            }
+            
+            if (cep.length !== 8) {
+                alert('CEP deve ter 8 dígitos!');
+                return false;
+            }
+            
+            if (isCurrentUser) {
+                const originalFuncao = '<?php echo $_SESSION['funcao_usuario']; ?>';
+                const selectedFuncao = document.getElementById('editar_funcao_usuario').value;
+                
+                if (originalFuncao !== selectedFuncao) {
+                    alert('Você não pode alterar sua própria função!');
+                    return false;
+                }
+            }
+            
+            return true;
         }
         
         window.onclick = function(event) {

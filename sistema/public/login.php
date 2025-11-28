@@ -3,6 +3,12 @@
 
     session_start();
 
+    $cadastro_sucesso = false;
+    if (isset($_SESSION['cadastro_sucesso']) && $_SESSION['cadastro_sucesso']) {
+        $cadastro_sucesso = true;
+        unset($_SESSION['cadastro_sucesso']);
+    }
+
     if (isset($_GET['logout'])) {
         session_destroy();
         header("Location: login.php");
@@ -14,26 +20,23 @@
         $user = $_POST["nome_usuario"] ?? "";
         $pass = $_POST["senha_usuario"] ?? "";
 
-        $stmt = $conn->prepare("SELECT id_usuario, nome_usuario, senha_usuario, funcao_usuario FROM usuario WHERE nome_usuario=? AND senha_usuario=?");
-        $stmt->bind_param("ss", $user, $pass);
+        $stmt = $conn->prepare("SELECT id_usuario, nome_usuario, senha_usuario, funcao_usuario FROM usuario WHERE nome_usuario=?");
+        $stmt->bind_param("s", $user);
         $stmt->execute();
         $result = $stmt->get_result();
         $dados = $result->fetch_assoc();
-                if($dados && password_verify($pass, $dados['senha_usuario'])){
-            return $dados;
-        }
-        $stmt->close();
-
-        if ($dados) {
+        
+        if($dados && password_verify($pass, $dados['senha_usuario'])){
             $_SESSION['id_usuario'] = $dados['id_usuario'];
             $_SESSION["nome_usuario"] = $dados["nome_usuario"];
             $_SESSION["senha_usuario"] = $dados["senha_usuario"];
-            $_SESSION["funcao_usuario"] = $dados["funcao_usuario"]; // Agora esta linha funciona
+            $_SESSION["funcao_usuario"] = $dados["funcao_usuario"];
             header("Location: mapa.php");
             exit;
         } else {
             $msg = "Usuário ou senha incorretos!";
         }
+        $stmt->close();
     }
 ?>
 
@@ -56,18 +59,39 @@
             <img id="imgLogin" src="../assets/icons/TlbLogo.png" alt="">
             <div class="usuariosenha">
                 <h2>Usuário</h2>
-                <?php if ($msg): ?><p class="msg"><?= $msg ?></p><?php endif; ?>
+                
+                <?php if ($cadastro_sucesso): ?>
+                    <div class="alert-message success">
+                        <i class="bi bi-check-circle-fill"></i>
+                        <div>
+                            <strong>Cadastro realizado com sucesso!</strong>
+                            <span>Faça login para continuar.</span>
+                        </div>
+                    </div>
+                <?php endif; ?>
+                
+                <?php if ($msg): ?>
+                    <div class="alert-message error">
+                        <i class="bi bi-exclamation-triangle-fill"></i>
+                        <div>
+                            <strong>Falha no login</strong>
+                            <span>Verifique seu usuário e senha e tente novamente.</span>
+                        </div>
+                    </div>
+                <?php endif; ?>
+                
                 <form method="post" id="loginForm">
                     <div class="inputContainer">
-                        <input type="text" id="nome_usuario" name="nome_usuario" placeholder="usuário">
-                    <i class="bi bi-person-fill"></i>
+                        <input type="text" id="nome_usuario" name="nome_usuario" placeholder="usuário" value="<?php echo htmlspecialchars($_POST['nome_usuario'] ?? ''); ?>">
+                        <i class="bi bi-person-fill"></i>
                     </div>
                     
                     <div class="inputContainer">
                         <label for="senha_usuario"></label>
-                        <input type="password" id="senha_usuario" name="senha_usuario"  placeholder="senha">
+                        <input type="password" id="senha_usuario" name="senha_usuario" placeholder="senha">
                         <i class="bi bi-lock-fill"></i>
-                    </div><br>
+                    </div>
+                    <br>
                     <a href="esqueceu.html">Esqueceu a Senha?</a>
                     <br>
                     <br>

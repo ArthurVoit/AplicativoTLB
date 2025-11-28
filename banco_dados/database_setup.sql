@@ -8,15 +8,15 @@ create table Usuario (
     nome_usuario VARCHAR(45) NOT NULL,
     email_usuario VARCHAR(45) not null,
     senha_usuario VARCHAR(255) not null,
-    telefone_usuario VARCHAR(9),
+    telefone_usuario VARCHAR(15),
     funcao_usuario ENUM("administrador", "normal") default "normal",
-    foto_usuario VARCHAR(1000) not null default "../assets/img/foot_perfil.jpg",
+    foto_usuario VARCHAR(1000) not null default "../assets/img/foto_padrao.jpg",
     cep_usuario VARCHAR(9),
     estado_usuario VARCHAR(50),
-    municipio_usuario VARCHAR(100),
+    cidade_usuario VARCHAR(100),
     bairro_usuario VARCHAR(50),
     numero_usuario VARCHAR(10),
-    complemento_usuario VARCHAR(50),.
+    complemento_usuario VARCHAR(50),
     logradouro_usuario VARCHAR(50)
 );
 
@@ -104,18 +104,31 @@ CREATE TABLE viagem (
     fk_trem INT NOT NULL,
     fk_rota INT NOT NULL,
     horario_previsto_viagem TIMESTAMP NOT NULL,
-    horario_real_viagem TIMESTAMP NOT NULL,
+    horario_real_viagem TIMESTAMP NULL,
     status_viagem VARCHAR(50) NOT NULL,
     FOREIGN KEY (fk_trem) REFERENCES Trem(id_trem),
     FOREIGN KEY (fk_rota) REFERENCES Rota(id_rota)
 );
 
 -- Inserção inicial do usuário administrador padrão
-insert into Usuario (nome_usuario, email_usuario, senha_usuario, funcao_usuario) values ("admin", "admin", "admin", "administrador");
+insert into Usuario (nome_usuario, email_usuario, senha_usuario, funcao_usuario) values ("admin", "admin@tlb.com", "$2y$10$mdlZlbApIuk909ffQ41dV.0w.mlFXmYlpJTL7QIMTmuvOtAgphJlS", "administrador");
 
 -- Inserção de usuários reais de teste para simulação
 INSERT INTO Usuario (nome_usuario, email_usuario, senha_usuario, telefone_usuario, funcao_usuario)
 VALUES 
-    ('João Silva', 'joao.silva@email.com', 'senha123', '999999999', 'normal'),
-    ('Maria Oliveira', 'maria.oliveira@email.com', 'segura456', '988888888', 'normal'),
-    ('Carlos Souza', 'carlos.souza@email.com', 'admin789', '977777777', 'administrador');
+    ('João Silva', 'joao.silva@tlb.com', 'senha123', '(47) 99999-9999', 'normal'),
+    ('Maria Oliveira', 'maria.oliveira@tlb.com', 'segura456', '(47) 98888-8888', 'normal'),
+    ('Carlos Souza', 'carlos.souza@tlb.com', 'admin789', '(47) 97777-7777', 'administrador');
+
+-- Inserir notificações para o usuário admin
+INSERT INTO alerta (tipo_alerta, mensagem_alerta, prioridade_alerta, fk_usuario, data_hora) VALUES
+('Manutenção', 'Trem #T001 necessita de manutenção preventiva nos freios', 'alta', 1, NOW() - INTERVAL 2 HOUR),
+('Atraso', 'Trem #T002 atrasado em 15 minutos devido a problemas nos trilhos', 'media', 1, NOW() - INTERVAL 1 HOUR),
+('Segurança', 'Sistema de monitoramento offline entre 14:30 e 14:45', 'alta', 1, NOW() - INTERVAL 30 MINUTE),
+('Combustível', 'Nível de combustível do Trem #T003 abaixo do recomendado', 'baixa', 1, NOW() - INTERVAL 15 MINUTE),
+('Operacional', 'Velocidade reduzida no segmento entre Estação A e B', 'media', 1, NOW());
+
+INSERT INTO trem (modelo_trem, status_operacional_trem, localizacao_atual_trem) VALUES
+('Trem Elétrico TLB-2000', 'Operacional', 'S2-P1'),
+('Trem Diesel TLB-1500', 'Manutenção', 'S3-P1'),
+('Trem Híbrido TLB-3000', 'Fora de Serviço', 'S3-P2');

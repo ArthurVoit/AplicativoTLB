@@ -25,7 +25,7 @@
                 ipsum dolor sit amet consectetur, adipisicing elit. Quia officiis quae iusto, facere tempora iste magni
                 eligendi voluptates</p>
             <div >
-                <a href="politicas.html"><button class="btnPoliticas"><b>Voltar</b></button></a>
+                <a href="politicas.php"><button class="btnPoliticas"><b>Voltar</b></button></a>
             </div>
         </div>
 

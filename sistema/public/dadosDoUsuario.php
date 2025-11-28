@@ -32,8 +32,7 @@
                 
                 if ($stmtUpdate->execute()) {
                     $_SESSION['mensagem'] = "Foto atualizada com sucesso!";
-
-                    $foto_usuario = $caminhoRelativo;
+                    $_SESSION['foto_usuario'] = $caminhoRelativo;
                 } else {
                     $_SESSION['mensagem'] = "Erro ao atualizar foto no banco de dados.";
                 }
@@ -49,7 +48,7 @@
         exit;
     }
     
-    $sql = "SELECT nome_usuario, email_usuario, funcao_usuario, telefone_usuario, foto_usuario FROM usuario WHERE id_usuario = ?";
+    $sql = "SELECT nome_usuario, email_usuario, funcao_usuario, telefone_usuario, foto_usuario, cep_usuario FROM usuario WHERE id_usuario = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("i", $id_usuario);
     $stmt->execute();
@@ -62,19 +61,30 @@
         $email_usuario = $dados_usuario['email_usuario'];
         $funcao_usuario = $dados_usuario['funcao_usuario'];
         $telefone_usuario = $dados_usuario['telefone_usuario'];
+        $cep_usuario = $dados_usuario['cep_usuario'];
+        
+        if (empty($telefone_usuario)) {
+            $telefone_usuario = "Não cadastrado";
+        }
         
         if (empty($foto_usuario)) {
-            $foto_usuario = 'images/usuario-padrao.jpg';
+            $foto_usuario = '../img/foto-padrao.jpg';
+        } else {
+            if (strpos($foto_usuario, '../') === false && strpos($foto_usuario, 'uploads/usuarios/') !== false) {
+                $foto_usuario = '../' . $foto_usuario;
+            }
+            
+            if (!file_exists($foto_usuario)) {
+                $foto_usuario = '../images/usuario-padrao.jpg';
+            }
         }
     } else {
         $nome_usuario = "Usuário não encontrado";
         $email_usuario = "N/A";
         $funcao_usuario = "N/A";
         $telefone_usuario = "N/A";
-        $foto_usuario = 'images/usuario-padrao.jpg';
+        $foto_usuario = '../images/usuario-padrao.jpg';
     }
-
-    echo "<!-- DEBUG: Função do usuário: " . ($_SESSION['funcao_usuario'] ?? 'não definida') . " -->";
     
     $stmt->close();
 ?>
@@ -93,22 +103,26 @@
         ?>
         
         <div class="foto-container" style="text-align: center; margin-bottom: 20px;">
-            <?php echo "<img class='foto_usuario' src='$foto_usuario' alt='Foto do usuário'>"; ?>
-            
-            <form method="POST" enctype="multipart/form-data" style="margin-top: 15px;">
+            <form method="POST" enctype="multipart/form-data" id="fotoForm">
                 <input type="file" name="nova_foto" id="nova_foto" accept="image/*" style="display: none;">
-                <button type="button" class="btn-trocar-foto" onclick="document.getElementById('nova_foto').click()" 
-                        style="background-color: #3498db; color: white; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer; display: inline-flex; align-items: center; gap: 5px;">
-                    <i class="bi bi-camera-fill"></i> Trocar Foto
-                </button>
-                <button type="submit" style="background-color: #27ae60; color: white; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer; margin-left: 10px;">
-                    <i class="bi bi-check-lg"></i> Salvar
-                </button>
+                
+                <label for="nova_foto" style="cursor: pointer; display: inline-block;">
+                    <img class='foto_usuario' src='<?php echo $foto_usuario; ?>' alt='Foto do usuário' title='Clique para alterar a foto' 
+                         onerror="this.src='../images/usuario-padrao.jpg'">
+                </label>
             </form>
             
             <div id="preview-container" style="display: none; margin-top: 10px;">
                 <p>Prévia da nova foto:</p>
                 <img id="preview" src="#" alt="Prévia da nova foto" style="max-width: 150px; max-height: 150px; border-radius: 50%;">
+                <div style="margin-top: 10px;">
+                    <button type="button" onclick="confirmarTrocaFoto()" style="background-color: #27ae60; color: white; border: none; padding: 8px 15px; border-radius: 5px; cursor: pointer; margin-right: 10px;">
+                        <i class="bi bi-check-lg"></i> Confirmar
+                    </button>
+                    <button type="button" onclick="cancelarTrocaFoto()" style="background-color: #e74c3c; color: white; border: none; padding: 8px 15px; border-radius: 5px; cursor: pointer;">
+                        <i class="bi bi-x-lg"></i> Cancelar
+                    </button>
+                </div>
             </div>
         </div>
         
@@ -119,6 +133,7 @@
                 <h2>Email: <?php echo htmlspecialchars($email_usuario); ?></h2>
                 <h2>Função: <?php echo htmlspecialchars($funcao_usuario); ?></h2>
                 <h2>Telefone: <?php echo htmlspecialchars($telefone_usuario); ?></h2>
+                <h2>CEP: <?php echo htmlspecialchars($cep_usuario); ?></h2>
             </div>
         </div>
     </div>
@@ -133,10 +148,6 @@
             <i class="bi bi-shield-fill-check"></i>
             <h2>Segurança</h2>
         </a>
-        <a href="acessibilidade.php" class="iconDadosUsuario">
-            <i class="bi bi-universal-access-circle"></i>
-            <h2>Acessibilidade</h2>
-        </a> 
         <a href="logout.php?logout=true" class="iconDadosUsuario">
             <i class="bi bi-box-arrow-left"></i>
             <h2>Sair</h2>
@@ -163,6 +174,15 @@ document.getElementById('nova_foto').addEventListener('change', function(e) {
         previewContainer.style.display = 'none';
     }
 });
+
+function confirmarTrocaFoto() {
+    document.getElementById('fotoForm').submit();
+}
+
+function cancelarTrocaFoto() {
+    document.getElementById('nova_foto').value = '';
+    document.getElementById('preview-container').style.display = 'none';
+}
 </script>
 
 </body>
